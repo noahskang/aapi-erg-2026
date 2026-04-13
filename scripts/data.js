@@ -1077,6 +1077,18 @@ const LONELINESS_RESOURCES = [
     year: "2021",
     url: "https://www.vogue.com/article/aapi-mental-health-advocates",
     description: "A new generation of Asian American therapists, podcasters, and community builders is actively dismantling stigma — creating culturally grounded spaces for healing that didn't exist a decade ago."
+  },
+  {
+    id: "r3",
+    type: "article",
+    category: "resilience",
+    title: "Americans' Trust in One Another",
+    author: "Laura Silver et al.",
+    source: "Pew Research Center",
+    year: "2025",
+    url: "https://www.pewresearch.org/2025/05/08/americans-trust-in-one-another/",
+    description: "A sweeping study of interpersonal trust across American demographics — with Asian Americans ranking second-highest of all racial groups, suggesting that community bonds and social cohesion remain genuine strengths.",
+    stat: "38% of Asian Americans say most people can be trusted — second highest of any racial group surveyed, above the national average of 34% (Pew, 2025)."
   }
 ];
 
