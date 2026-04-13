@@ -130,6 +130,23 @@
     .panel-countries{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
     .country-tag{background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:20px;padding:4px 12px;font-family:'Inter',sans-serif;font-size:12px;color:var(--text-3);}
     @media(max-width:600px){.holidays-calendar{grid-template-columns:1fr;}}
+
+    /* Legend filter states */
+    .legend-item { transition: opacity .2s, transform .2s, box-shadow .2s; user-select:none; }
+    .legend-item:hover { opacity: 0.85; transform: translateY(-1px); }
+    .legend-item.filter-active { box-shadow: 0 0 0 2px currentColor; transform: translateY(-1px); }
+    .legend-item.filter-inactive { opacity: 0.28; }
+
+    /* Dim filtered-out calendar elements */
+    .cal-day.holiday.filter-dim { opacity: 0.15; }
+    .month-holiday-item.filter-dim { opacity: 0.15; }
+    .month-card.filter-dim { opacity: 0.35; }
+    .holiday-list-item.filter-dim { opacity: 0.12; pointer-events: none; }
+    .holiday-month-group.filter-dim > .holiday-month-heading { opacity: 0.3; }
+
+    /* Smooth transitions */
+    .cal-day.holiday, .month-holiday-item, .month-card,
+    .holiday-list-item, .holiday-month-group { transition: opacity .25s ease; }
   </style>
 </head>
 <body>

@@ -181,6 +181,81 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ── Legend chip filtering ─────────────────────────────────
+  const legendItems = document.querySelectorAll('.legend-item');
+  const activeFilters = new Set();
+
+  function applyFilter() {
+    const hasFilter = activeFilters.size > 0;
+
+    // Calendar view: show/dim month cards and individual day/list items
+    document.querySelectorAll('.month-card').forEach(card => {
+      if (!hasFilter) {
+        card.classList.remove('filter-dim');
+        card.querySelectorAll('.cal-day.holiday').forEach(d => d.classList.remove('filter-dim'));
+        card.querySelectorAll('.month-holiday-item').forEach(i => i.classList.remove('filter-dim'));
+        return;
+      }
+      const cardHolidays = card.querySelectorAll('.cal-day.holiday');
+      let cardHasMatch = false;
+      cardHolidays.forEach(d => {
+        const matches = [...activeFilters].some(f => d.classList.contains(f));
+        d.classList.toggle('filter-dim', !matches);
+        if (matches) cardHasMatch = true;
+      });
+      card.querySelectorAll('.month-holiday-item').forEach(item => {
+        const dot = item.querySelector('.month-holiday-dot');
+        const dotColor = dot ? dot.style.background : '';
+        const matches = [...activeFilters].some(f => dotColor === COLOR_MAP[f]);
+        item.classList.toggle('filter-dim', !matches);
+      });
+      card.classList.toggle('filter-dim', !cardHasMatch);
+    });
+
+    // List view: show/dim holiday items and month groups
+    document.querySelectorAll('.holiday-month-group').forEach(group => {
+      if (!hasFilter) {
+        group.classList.remove('filter-dim');
+        group.querySelectorAll('.holiday-list-item').forEach(i => i.classList.remove('filter-dim'));
+        return;
+      }
+      let groupHasMatch = false;
+      group.querySelectorAll('.holiday-list-item').forEach(item => {
+        const matches = [...activeFilters].some(f => item.classList.contains(f));
+        item.classList.toggle('filter-dim', !matches);
+        if (matches) groupHasMatch = true;
+      });
+      group.classList.toggle('filter-dim', !groupHasMatch);
+    });
+  }
+
+  legendItems.forEach(chip => {
+    // Derive color key from the chip's class list
+    const colorKey = [...chip.classList].find(c => COLOR_MAP[c]);
+    if (!colorKey) return;
+
+    chip.style.cursor = 'pointer';
+    chip.addEventListener('click', () => {
+      if (activeFilters.has(colorKey)) {
+        activeFilters.delete(colorKey);
+        chip.classList.remove('filter-active');
+      } else {
+        activeFilters.add(colorKey);
+        chip.classList.add('filter-active');
+      }
+      // Dim all chips that are not in the active set (when any filter is on)
+      legendItems.forEach(c => {
+        const ck = [...c.classList].find(k => COLOR_MAP[k]);
+        if (activeFilters.size === 0) {
+          c.classList.remove('filter-inactive');
+        } else {
+          c.classList.toggle('filter-inactive', !activeFilters.has(ck));
+        }
+      });
+      applyFilter();
+    });
+  });
+
   // ── Calendar / List view toggle ───────────────────────────
   const toggleBtns      = document.querySelectorAll('.toggle-btn[data-holidays]');
   const calView         = document.getElementById('holidays-calendar');
