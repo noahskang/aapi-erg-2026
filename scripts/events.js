@@ -1,10 +1,25 @@
 // ============================================================
-// events.js — Events page
+// events.js — Events page: list view + calendar view
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
   const eventsGrid = document.getElementById('events-grid');
-  if (!eventsGrid) return;
+  const listView   = document.getElementById('list-view');
+  const calView    = document.getElementById('calendar-view');
 
+  // ── Category → chip color class ───────────────────────────
+  function chipClass(category) {
+    switch (category.toLowerCase()) {
+      case 'performance': case 'music': case 'talk': return 'chip-warm';
+      case 'festival':    case 'comedy':             return 'chip-teal';
+      case 'food & market':                          return 'chip-gold';
+      case 'film':        case 'literature':         return 'chip-purple';
+      case 'exhibition':                             return 'chip-purple';
+      case 'parade':                                 return 'chip-indigo';
+      default:                                       return 'chip-muted';
+    }
+  }
+
+  // ── Build list view ────────────────────────────────────────
   EVENTS.forEach(ev => {
     const isFree = ev.price.toLowerCase().startsWith('free');
     const card   = document.createElement('article');
@@ -30,5 +45,118 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `;
     eventsGrid.appendChild(card);
+  });
+
+  // ── Date → May day numbers ─────────────────────────────────
+  // Returns: 'all' | 'ongoing' | number[]
+  function getMayDays(ev) {
+    const d = ev.date;
+    if (/throughout may/i.test(d)) return 'all';
+    if (/every saturday/i.test(d)) return [2, 9, 16, 23, 30];
+    if (/through may/i.test(d))    return 'ongoing';
+    const range  = d.match(/May (\d+)[–\-](\d+)/i);
+    if (range)   return Array.from({length: +range[2] - +range[1] + 1}, (_, i) => +range[1] + i);
+    const single = d.match(/May (\d+)/i);
+    if (single)  return [+single[1]];
+    return 'ongoing';
+  }
+
+  // ── Build calendar view ────────────────────────────────────
+  // May 2026 starts on Friday (col index 5, Sun = 0)
+  const MAY_START_COL = 5;
+  const MAY_DAYS      = 31;
+  const TOTAL_CELLS   = Math.ceil((MAY_START_COL + MAY_DAYS) / 7) * 7; // 42
+
+  const ongoingEvents = [];
+  const dayMap = {}; // { dayNum: [ev, ...] }
+
+  EVENTS.forEach(ev => {
+    const days = getMayDays(ev);
+    if (days === 'all' || days === 'ongoing') {
+      ongoingEvents.push(ev);
+    } else {
+      days.forEach(d => {
+        if (!dayMap[d]) dayMap[d] = [];
+        dayMap[d].push(ev);
+      });
+    }
+  });
+
+  // Ongoing banner
+  if (ongoingEvents.length) {
+    const banner = document.createElement('div');
+    banner.className = 'cal-ongoing';
+    banner.innerHTML = `<span class="cal-ongoing-label">All Month</span>` +
+      ongoingEvents.map(ev =>
+        `<a class="cal-ongoing-chip" href="${ev.link}" target="_blank" rel="noopener">${ev.icon} ${ev.title}</a>`
+      ).join('');
+    calView.appendChild(banner);
+  }
+
+  // Calendar grid
+  const grid = document.createElement('div');
+  grid.className = 'cal-grid';
+
+  // Day-of-week headers
+  ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(label => {
+    const h = document.createElement('div');
+    h.className = 'cal-day-header';
+    h.textContent = label;
+    grid.appendChild(h);
+  });
+
+  // Day cells
+  for (let i = 0; i < TOTAL_CELLS; i++) {
+    const dayNum = i - MAY_START_COL + 1;
+    const cell   = document.createElement('div');
+
+    if (dayNum < 1 || dayNum > MAY_DAYS) {
+      cell.className = 'cal-day empty';
+      grid.appendChild(cell);
+      continue;
+    }
+
+    cell.className = 'cal-day';
+
+    const numEl = document.createElement('span');
+    numEl.className = 'cal-day-num';
+    numEl.textContent = dayNum;
+    cell.appendChild(numEl);
+
+    const eventsOnDay = dayMap[dayNum] || [];
+    const MAX_CHIPS   = 3;
+
+    eventsOnDay.slice(0, MAX_CHIPS).forEach(ev => {
+      const chip = document.createElement('a');
+      chip.className = `cal-chip ${chipClass(ev.category)}`;
+      chip.href      = ev.link;
+      chip.target    = '_blank';
+      chip.rel       = 'noopener';
+      chip.title     = `${ev.title} · ${ev.time} · ${ev.location}`;
+      chip.innerHTML = `<span class="cal-chip-icon">${ev.icon}</span><span class="cal-chip-label">${ev.title}</span>`;
+      cell.appendChild(chip);
+    });
+
+    if (eventsOnDay.length > MAX_CHIPS) {
+      const more = document.createElement('span');
+      more.className   = 'cal-more';
+      more.textContent = `+${eventsOnDay.length - MAX_CHIPS} more`;
+      cell.appendChild(more);
+    }
+
+    grid.appendChild(cell);
+  }
+
+  calView.appendChild(grid);
+
+  // ── Toggle handler ─────────────────────────────────────────
+  document.querySelectorAll('.view-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.view-toggle-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const isCalendar = btn.dataset.view === 'calendar';
+      listView.style.display = isCalendar ? 'none' : '';
+      calView.style.display  = isCalendar ? ''     : 'none';
+    });
   });
 });
