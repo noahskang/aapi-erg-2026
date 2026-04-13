@@ -964,6 +964,16 @@ const LONELINESS_RESOURCES = [
     stat: "65.5% of AAPI elder hate-crime victims reported elevated stress post-incident"
   },
   {
+    id: "l10",
+    type: "article",
+    category: "cultural-context",
+    title: "I'm a South Asian Gay Man. Here's What It Took to Feel Accepted",
+    source: "Business Insider",
+    year: "2023",
+    url: "https://www.businessinsider.com/south-asian-gay-man-accepted-lgbtq-2023-1",
+    description: "A first-person account of navigating the double isolation of being both South Asian and gay — the particular loneliness of communities within communities, and the long road toward belonging in both."
+  },
+  {
     id: "o1",
     type: "org",
     title: "Asians Do Therapy",
@@ -1053,6 +1063,17 @@ const LONELINESS_RESOURCES = [
     year: "2016",
     url: "https://www.kqed.org/pop/63543/for-asian-american-men-dating-is-complicated",
     description: "Personal accounts and sociological research on how stereotypes of Asian masculinity — passive, asexual, foreign — translate into concrete disadvantage in dating contexts."
+  },
+  {
+    id: "d5",
+    type: "article",
+    category: "dating",
+    title: "As An Asian American Woman, This Is The Dating App Red Flag I Don't Talk About",
+    author: "Lisa Boyce",
+    source: "HuffPost",
+    year: "2022",
+    url: "https://www.huffpost.com/entry/asian-women-dating-apps_n_628d2a05e4b0b1d9844e0a8b",
+    description: "A personal essay on the specific, quietly unsettling pattern Asian American women encounter on dating apps — one that's hard to name but impossible to ignore once you've seen it."
   },
   // ── Resilience & community strength ───────────────────────
   {
