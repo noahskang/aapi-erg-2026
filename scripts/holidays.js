@@ -119,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         monthHolidays.forEach(h => {
           const item = document.createElement('div');
           item.className = 'month-holiday-item';
+          item.dataset.color = h.color;
           item.innerHTML = `
             <div class="month-holiday-dot" style="background:${COLOR_MAP[h.color] || '#E8652A'}"></div>
             <span>${h.emoji} ${h.name}</span>
@@ -204,9 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (matches) cardHasMatch = true;
       });
       card.querySelectorAll('.month-holiday-item').forEach(item => {
-        const dot = item.querySelector('.month-holiday-dot');
-        const dotColor = dot ? dot.style.background : '';
-        const matches = [...activeFilters].some(f => dotColor === COLOR_MAP[f]);
+        const matches = [...activeFilters].some(f => item.dataset.color === f);
         item.classList.toggle('filter-dim', !matches);
       });
       card.classList.toggle('filter-dim', !cardHasMatch);

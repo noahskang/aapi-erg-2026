@@ -850,7 +850,167 @@ const HOLIDAYS = [
   }
 ];
 
+// ============================================================
+// LONELINESS_RESOURCES — AA x Loneliness & Mental Health
+// Verified URLs. Types: "article" | "org"
+// ============================================================
+const LONELINESS_RESOURCES = [
+  {
+    id: "l1",
+    type: "article",
+    category: "cultural-context",
+    title: "4 Mental Health Issues Asian Americans Face — And How To Overcome Them",
+    author: "Andee Tagle & Michelle Aslam",
+    source: "NPR Life Kit",
+    year: 2022,
+    url: "https://www.npr.org/2022/05/24/1101020325/4-elements-to-create-home-discussing-mental-health-in-the-asian-american-communi",
+    description: "Drawing on psychologist Jenny T. Wang's framework, this piece names four mental health challenges specific to Asian Americans — the model minority myth, perfectionism, deference to authority, and difficulty taking up space — and links them to a crisis of belonging.",
+    stat: null
+  },
+  {
+    id: "l2",
+    type: "article",
+    category: "essay",
+    title: "You're Called a 'Model Minority' as an Asian American — Until They Decide You Aren't",
+    author: "Gary Duong",
+    source: "NPR",
+    year: 2022,
+    url: "https://www.npr.org/2022/05/30/1101790205/as-an-asian-american-youre-called-a-model-minority-until-they-decide-you-arent",
+    description: "A first-person essay on how the conditional nature of the model minority label creates psychological precarity — and a persistent, exhausting sense of never fully belonging.",
+    stat: null
+  },
+  {
+    id: "l3",
+    type: "article",
+    category: "essay",
+    title: "We're Fine: What's Stopping Asian-American Millennials From Talking About Mental Health",
+    author: "Kimberly Truong",
+    source: "Refinery29",
+    year: 2018,
+    url: "https://www.refinery29.com/en-us/asian-american-mental-health-second-generation-immigrants",
+    description: "How filial piety, stigma, and the imperative to appear strong keep second-generation Asian Americans silent about their inner lives — and the cost of that silence over time.",
+    stat: null
+  },
+  {
+    id: "l4",
+    type: "article",
+    category: "essay",
+    title: "Constance Wu Put Mental Health in Asian Communities in the Spotlight. Here's What's Next.",
+    author: "Thuc Doan Nguyen",
+    source: "Refinery29",
+    year: 2023,
+    url: "https://www.refinery29.com/en-us/2023/05/11346678/constance-wu-asian-american-mental-health",
+    description: "Uses Constance Wu's public disclosure of a suicide attempt to examine the systemic barriers — model minority myth, cultural stigma, underrepresentation — that keep AAPI mental health invisible.",
+    stat: null
+  },
+  {
+    id: "l5",
+    type: "article",
+    category: "cultural-context",
+    title: "The Asian-American Stigma Around Mental Health Therapy",
+    author: "Jinnie Lee",
+    source: "Refinery29",
+    year: 2020,
+    url: "https://www.refinery29.com/en-us/2020/05/9747266/asian-mental-health-therapy-stigma",
+    description: "How cultural conditioning — emotional suppression, shame, saving face — prevents Asian Americans from seeking therapy, and whether a culturally compatible path forward exists.",
+    stat: null
+  },
+  {
+    id: "l6",
+    type: "article",
+    category: "research",
+    title: "Mental Health Among Asian-Americans",
+    author: "Koko Nishi, PhD",
+    source: "American Psychological Association",
+    year: 2012,
+    url: "https://www.apa.org/pi/oema/resources/ethnicity-health/asian-american/article-mental-health",
+    description: "The foundational APA overview documenting that Asian Americans are three times less likely than white Americans to seek mental health services, identifying stigma, the model minority myth, and bicultural identity conflict as root causes.",
+    stat: "3× less likely to seek mental health support than white Americans"
+  },
+  {
+    id: "l7",
+    type: "article",
+    category: "research",
+    title: "Mental Health and Asian Americans",
+    author: "U.S. Office of Minority Health",
+    source: "HHS Office of Minority Health",
+    year: 2024,
+    url: "https://minorityhealth.hhs.gov/mental-and-behavioral-health-asian-americans",
+    description: "Federal statistical overview showing Asian Americans are 45% less likely to receive mental health treatment than the general population, despite comparable rates of psychiatric disorder.",
+    stat: "45% less likely to receive mental health treatment than the general population"
+  },
+  {
+    id: "l8",
+    type: "article",
+    category: "research",
+    title: "Intergenerational Communication about Historical Trauma in Asian American Families",
+    author: "Jieyi Cai & Richard M. Lee",
+    source: "Adversity and Resilience Science (PMC)",
+    year: 2022,
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9170877/",
+    description: "Peer-reviewed research arguing that silence about war and migration trauma across generations risks alienating children from family history — and contributes to identity disconnection and isolation.",
+    stat: null
+  },
+  {
+    id: "l9",
+    type: "article",
+    category: "research",
+    title: "Anti-Asian Hate, Social Isolation, and Mental Health Among AAPI Elders During COVID-19",
+    author: "Stop AAPI Hate",
+    source: "Stop AAPI Hate",
+    year: 2022,
+    url: "https://stopaapihate.org/2022/05/24/elder-report-2022/",
+    description: "Report analyzing 824 hate incidents against AAPI adults 60+ showing that targeted violence compounded pandemic isolation, with 65.5% of elder victims reporting elevated stress.",
+    stat: "65.5% of AAPI elder hate-crime victims reported elevated stress post-incident"
+  },
+  {
+    id: "o1",
+    type: "org",
+    title: "Asians Do Therapy",
+    source: "asiansdotherapy.com",
+    url: "https://asiansdotherapy.com/",
+    description: "A podcast and platform founded by a licensed therapist to reduce mental health stigma in Asian communities through storytelling, resources, and culturally matched therapist referrals.",
+    icon: "🎙️"
+  },
+  {
+    id: "o2",
+    type: "org",
+    title: "Asian Mental Health Collective",
+    source: "asianmhc.org",
+    url: "https://www.asianmhc.org",
+    description: "Connects clients with over 3,000 culturally matched Asian therapists, offering free therapy funds, virtual support groups, and community resources.",
+    icon: "🤝"
+  },
+  {
+    id: "o3",
+    type: "org",
+    title: "The Steve Fund",
+    source: "stevefund.org",
+    url: "https://stevefund.org",
+    description: "A leading nonprofit promoting mental health equity for young people of color, with programs, open courseware, and campus-focused resources including an AAPI Girls self-care initiative.",
+    icon: "🌱"
+  },
+  {
+    id: "o4",
+    type: "org",
+    title: "Asian Mental Health Project",
+    source: "asianmentalhealthproject.com",
+    url: "https://www.asianmentalhealthproject.com/",
+    description: "A 501(c)(3) providing mental health assistance grants, peer wellness groups, free toolkits, and community events to make care accessible to Pan-Asian communities.",
+    icon: "💛"
+  },
+  {
+    id: "o5",
+    type: "org",
+    title: "Mental Health America: AAPI Communities",
+    source: "mhanational.org",
+    url: "https://mhanational.org/position-statements/asian-american-pacific-islander-communities-and-mental-health/",
+    description: "MHA's position statement and resource hub on the intersection of model minority stereotyping, perpetual foreigner bias, and the cultural stigma driving AAPI mental health disparities.",
+    icon: "📋"
+  }
+];
+
 // Export for module environments
 if (typeof module !== 'undefined') {
-  module.exports = { RESTAURANTS, EVENTS, BOOKS, HOLIDAYS };
+  module.exports = { RESTAURANTS, EVENTS, BOOKS, HOLIDAYS, LONELINESS_RESOURCES };
 }
