@@ -1047,23 +1047,23 @@ const LONELINESS_RESOURCES = [
     id: "d3",
     type: "article",
     category: "dating",
-    title: "The 'Yellow Fever' Fetish: Why Do So Many White Men Want to Date a Chinese Woman?",
-    author: "Clarissa Wei",
-    source: "Vice",
-    year: "2014",
-    url: "https://www.vice.com/en/article/the-yellow-fever-fetish-why-do-so-many-white-men-want-to-date-a-chinese-woman/",
-    description: "A frank examination of the hypersexualization of Asian women in Western dating culture — and the emotional cost of being desired for a stereotype rather than for yourself."
+    title: "Is It Wrong to Have a Romantic Type Based on Race? Yes.",
+    author: "Aaron Teo",
+    source: "The Conversation",
+    year: "2024",
+    url: "https://theconversation.com/is-it-wrong-to-have-a-romantic-type-based-on-race-yes-its-a-form-of-racism-we-rarely-speak-about-229002",
+    description: "A cultural critic unpacks internalized racism and fetishization through the lens of ABC's comedy *White Fever* — examining how Asian women experience 'yellow fever' and how Asian communities sometimes internalize racial hierarchies that elevate whiteness."
   },
   {
     id: "d4",
     type: "article",
     category: "dating",
-    title: "For Asian-American Men, Dating Is Complicated",
-    author: "Tammy Hung",
-    source: "KQED",
-    year: "2016",
-    url: "https://www.kqed.org/pop/63543/for-asian-american-men-dating-is-complicated",
-    description: "Personal accounts and sociological research on how stereotypes of Asian masculinity — passive, asexual, foreign — translate into concrete disadvantage in dating contexts."
+    title: "Single Asian Men and Harmful Stereotypes in the Dating World",
+    author: "Sam Louie",
+    source: "Psychology Today",
+    year: "2023",
+    url: "https://www.psychologytoday.com/us/blog/minority-report/202308/single-asian-men-and-harmful-stereotypes-in-the-dating-world",
+    description: "A therapist examines how persistent stereotypes — weak, shy, lacking initiative — follow Asian men into dating, and what it takes to be seen as a full person rather than a cultural shorthand."
   },
   {
     id: "d5",
@@ -1095,7 +1095,7 @@ const LONELINESS_RESOURCES = [
     author: "Pew Research Center",
     source: "Pew Research Center",
     year: "2022",
-    url: "https://www.pewresearch.org/social-trends/2022/03/24/the-return-of-the-multi-generational-family-household/",
+    url: "https://www.pewresearch.org/social-trends/2022/03/24/the-demographics-of-multigenerational-households/",
     description: "Asian Americans are more likely than any other group to live in multigenerational households — reflecting both economic pragmatism and deep intergenerational bonds that sustain community across generations.",
     stat: "29% of Asian Americans live in multigenerational households — highest of any racial group in the U.S. (Pew, 2022)."
   },
@@ -1103,12 +1103,12 @@ const LONELINESS_RESOURCES = [
     id: "r2",
     type: "article",
     category: "resilience",
-    title: "The AAPI Mental Health Advocates Breaking the Silence",
-    author: "Michelle No",
-    source: "Vogue",
-    year: "2021",
-    url: "https://www.vogue.com/article/aapi-mental-health-advocates",
-    description: "A new generation of Asian American therapists, podcasters, and community builders is actively dismantling stigma — creating culturally grounded spaces for healing that didn't exist a decade ago."
+    title: "Better Therapy for Asian Americans",
+    author: "Diana Kwon",
+    source: "Knowable Magazine",
+    year: "2023",
+    url: "https://knowablemagazine.org/content/article/mind/2023/better-therapy-asian-americans",
+    description: "Researchers and clinicians are adapting Western psychotherapy to honor Asian cultural values — developing new approaches that don't ask patients to choose between their heritage and their healing."
   },
   {
     id: "r3",
