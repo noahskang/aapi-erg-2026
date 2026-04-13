@@ -1023,24 +1023,25 @@ const LONELINESS_RESOURCES = [
     id: "d1",
     type: "article",
     category: "dating",
-    title: "Race and Attraction, 2009–2014",
-    author: "OkCupid",
-    source: "OkCupid Blog",
-    year: "2014",
-    url: "https://archive.is/OMoLw",
-    description: "Five-year dataset showing persistent racial preference patterns in online dating — Asian men and Black women among the most disadvantaged groups by response rate.",
-    stat: "Asian men received 10–20% fewer responses than white men across all races of women."
+    title: "How Dating Sites Automate Sexual Racism",
+    author: "Liz Mineo",
+    source: "Harvard Gazette",
+    year: "2024",
+    url: "https://news.harvard.edu/gazette/story/2024/04/how-dating-sites-automate-sexual-racism/",
+    description: "Sociologist Apryl Williams on how dating app algorithms make racial discrimination \"hyper efficient and routine\" — and why anti-Asian bias in particular is baked into the design of mainstream platforms.",
+    stat: "\"What dating apps do is automate sexual racism, making it hyper efficient and routine to swipe in racially curated sexual marketplaces.\" — Apryl Williams, Harvard"
   },
   {
     id: "d2",
     type: "article",
     category: "dating",
-    title: "Why Dating Apps Are Not Built For Asian-American Users",
-    author: "Karen K. Ho",
-    source: "Time",
-    year: "2018",
-    url: "https://time.com/5368068/asian-american-dating-apps/",
-    description: "How algorithmic recommendation and user bias compound to create a racial hierarchy on mainstream dating platforms, and what that means for Asian Americans navigating modern romance."
+    title: "On Dating Apps, Casual Racism Has Become The Norm For Asian Men",
+    author: "Brittany Wong",
+    source: "HuffPost",
+    year: "2024",
+    url: "https://www.yahoo.com/news/dating-apps-casual-racism-become-183924405.html",
+    description: "Personal accounts from Asian American men on the rejections, profile filters, and explicit \"no Asians\" messages that have become routine on dating platforms — and what it does to your sense of self.",
+    stat: "\"I was sexy and exotic as a Latino, but I suddenly became undesirable as an Asian-American.\" — Lee Doud, actor"
   },
   {
     id: "d3",
