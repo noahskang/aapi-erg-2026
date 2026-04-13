@@ -1075,6 +1075,16 @@ const LONELINESS_RESOURCES = [
     url: "https://www.huffpost.com/entry/asian-women-dating-apps_n_628d2a05e4b0b1d9844e0a8b",
     description: "A personal essay on the specific, quietly unsettling pattern Asian American women encounter on dating apps — one that's hard to name but impossible to ignore once you've seen it."
   },
+  {
+    id: "d6",
+    type: "article",
+    category: "dating",
+    title: "Dating Apps vs. Arranged Marriage: How South Asians Are Navigating Both",
+    source: "NBC News",
+    year: "2024",
+    url: "https://www.nbcnews.com/news/asian-america/dating-apps-south-asians-arranged-marriage-rcna154392",
+    description: "How South Asian Americans are navigating the friction between swipe-culture dating apps and family-led arranged marriage traditions — and what it means to want both independence and belonging."
+  },
   // ── Resilience & community strength ───────────────────────
   {
     id: "r1",
