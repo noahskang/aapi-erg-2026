@@ -1,0 +1,203 @@
+// ============================================================
+// holidays.js — Holidays calendar page
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+
+  const MONTH_NAMES = [
+    'January','February','March','April','May','June',
+    'July','August','September','October','November','December'
+  ];
+  const DAY_LABELS = ['S','M','T','W','T','F','S'];
+  const COLOR_MAP  = {
+    'east-asian':      '#E8652A',
+    'south-asian':     '#D4A853',
+    'southeast-asian': '#2A9D8F',
+    'persian':         '#9B7DD0',
+    'muslim':          '#4A90C4',
+    'heritage':        '#C94B2D'
+  };
+  const CULTURE_LABELS = {
+    'east-asian':      'East Asian',
+    'south-asian':     'South Asian',
+    'southeast-asian': 'Southeast Asian',
+    'persian':         'Persian / Central Asian',
+    'muslim':          'Muslim Observance',
+    'heritage':        'AAPI Heritage'
+  };
+
+  // ── Holiday detail panel ──────────────────────────────────
+  const panel         = document.getElementById('holiday-detail');
+  const panelClose    = document.querySelector('.panel-close');
+
+  function openHolidayPanel(h) {
+    document.getElementById('panel-emoji').textContent         = h.emoji;
+    const badge = document.getElementById('panel-culture-badge');
+    badge.textContent = CULTURE_LABELS[h.color] || h.culture;
+    badge.className   = `panel-culture-badge ${h.color}`;
+    document.getElementById('panel-title').textContent         = h.name;
+    document.getElementById('panel-date').textContent          = h.displayDate;
+    document.getElementById('panel-desc').textContent          = h.description;
+    document.getElementById('panel-countries').innerHTML       =
+      h.countries.map(c => `<span class="country-tag">${c}</span>`).join('');
+    panel.classList.add('open');
+  }
+
+  function closeHolidayPanel() { panel.classList.remove('open'); }
+
+  if (panelClose) panelClose.addEventListener('click', closeHolidayPanel);
+
+  document.addEventListener('click', e => {
+    if (
+      panel.classList.contains('open') &&
+      !panel.contains(e.target) &&
+      !e.target.closest('.cal-day.holiday') &&
+      !e.target.closest('.holiday-list-item') &&
+      !e.target.closest('.month-holiday-item')
+    ) closeHolidayPanel();
+  });
+
+  // ── Calendar view ─────────────────────────────────────────
+  const calendarContainer = document.getElementById('holidays-calendar');
+  const today = new Date();
+
+  if (calendarContainer) {
+    MONTH_NAMES.forEach((monthName, monthIndex) => {
+      const monthHolidays = HOLIDAYS.filter(h => h.month === monthIndex);
+      const firstDay      = new Date(2026, monthIndex, 1).getDay();
+      const daysInMonth   = new Date(2026, monthIndex + 1, 0).getDate();
+
+      const card = document.createElement('div');
+      card.className = `month-card${monthHolidays.length > 0 ? ' has-holiday' : ''}`;
+
+      const nameEl = document.createElement('div');
+      nameEl.className = 'month-name';
+      nameEl.textContent = monthName;
+      card.appendChild(nameEl);
+
+      const calGrid = document.createElement('div');
+      calGrid.className = 'cal-grid';
+
+      DAY_LABELS.forEach(label => {
+        const el = document.createElement('div');
+        el.className = 'cal-day-label';
+        el.textContent = label;
+        calGrid.appendChild(el);
+      });
+
+      for (let i = 0; i < firstDay; i++) {
+        const el = document.createElement('div');
+        el.className = 'cal-day empty';
+        el.textContent = '.';
+        calGrid.appendChild(el);
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dayEl  = document.createElement('div');
+        const holiday = monthHolidays.find(h => h.day === day);
+        const isToday = today.getFullYear() === 2026 && today.getMonth() === monthIndex && today.getDate() === day;
+
+        let cls = 'cal-day';
+        if (isToday) cls += ' today';
+        if (holiday) cls += ` holiday ${holiday.color}`;
+
+        dayEl.className   = cls;
+        dayEl.textContent = day;
+
+        if (holiday) {
+          dayEl.title = holiday.name;
+          dayEl.addEventListener('click', () => openHolidayPanel(holiday));
+        }
+
+        calGrid.appendChild(dayEl);
+      }
+
+      card.appendChild(calGrid);
+
+      if (monthHolidays.length > 0) {
+        const listEl = document.createElement('div');
+        listEl.className = 'month-holidays';
+        monthHolidays.forEach(h => {
+          const item = document.createElement('div');
+          item.className = 'month-holiday-item';
+          item.innerHTML = `
+            <div class="month-holiday-dot" style="background:${COLOR_MAP[h.color] || '#E8652A'}"></div>
+            <span>${h.emoji} ${h.name}</span>
+          `;
+          item.addEventListener('click', () => openHolidayPanel(h));
+          listEl.appendChild(item);
+        });
+        card.appendChild(listEl);
+      }
+
+      calendarContainer.appendChild(card);
+    });
+  }
+
+  // ── List view ─────────────────────────────────────────────
+  const listContainer = document.getElementById('holidays-list');
+
+  if (listContainer) {
+    const byMonth = {};
+    HOLIDAYS.forEach(h => {
+      if (!byMonth[h.month]) byMonth[h.month] = [];
+      byMonth[h.month].push(h);
+    });
+
+    Object.keys(byMonth).map(Number).sort((a, b) => a - b).forEach(mIdx => {
+      const group = document.createElement('div');
+      group.className = 'holiday-month-group';
+
+      const heading = document.createElement('h3');
+      heading.className = 'holiday-month-heading';
+      heading.textContent = MONTH_NAMES[mIdx];
+      group.appendChild(heading);
+
+      const itemsWrap = document.createElement('div');
+      itemsWrap.className = 'holiday-list-items';
+
+      byMonth[mIdx].forEach(h => {
+        const item = document.createElement('article');
+        item.className = `holiday-list-item ${h.color}`;
+        item.innerHTML = `
+          <div class="hli-left">
+            <span class="hli-emoji">${h.emoji}</span>
+            <div class="hli-color-bar"></div>
+          </div>
+          <div class="hli-body">
+            <div class="hli-header">
+              <h4 class="hli-name">${h.name}</h4>
+              <span class="hli-date">${h.displayDate.replace(', 2026', '')}</span>
+            </div>
+            <p class="hli-culture">${h.culture} · ${h.countries.join(', ')}</p>
+            <p class="hli-desc">${h.description}</p>
+          </div>
+        `;
+        item.addEventListener('click', () => openHolidayPanel(h));
+        itemsWrap.appendChild(item);
+      });
+
+      group.appendChild(itemsWrap);
+      listContainer.appendChild(group);
+    });
+  }
+
+  // ── Calendar / List view toggle ───────────────────────────
+  const toggleBtns      = document.querySelectorAll('.toggle-btn[data-holidays]');
+  const calView         = document.getElementById('holidays-calendar');
+  const listView        = document.getElementById('holidays-list');
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      toggleBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (btn.dataset.holidays === 'calendar') {
+        calView.style.display  = '';
+        listView.style.display = 'none';
+      } else {
+        calView.style.display  = 'none';
+        listView.style.display = '';
+      }
+    });
+  });
+
+});

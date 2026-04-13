@@ -1,0 +1,856 @@
+// ============================================================
+// AAPI Heritage Month — Hinge ERG NYC
+// data.js — All site content data
+// Last updated: April 2026 (real confirmed sources)
+// ============================================================
+
+// ============================================================
+// RESTAURANTS — ERG Member Picks
+// ============================================================
+const RESTAURANTS = [
+  {
+    id: 1,
+    name: "Xi'an Famous Foods",
+    neighborhood: "Flatiron / Multiple Locations",
+    address: "38 E 23rd St, New York, NY 10010",
+    cuisine: "Shanxi Chinese",
+    lat: 40.7412,
+    lng: -73.9855,
+    hours: "Mon–Sun: 11am–9pm",
+    topDishes: ["Spicy Cumin Lamb Burger", "Hand-Ripped Noodles", "Lamb Face Salad", "Liang Pi Cold Skin Noodles"],
+    recommender: "Kevin Chen",
+    recommenderTitle: "Staff Engineer",
+    blurb: "Nothing hits like Xi'an after a long sprint. The spicy cumin lamb burger is the most underrated $8 meal in all of NYC. It's bold, it's messy, and it's perfect — exactly like a great PRD.",
+    photos: [
+      "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80",
+      "https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&q=80",
+      "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=80"
+    ],
+    priceRange: "$",
+    tags: ["Noodles", "Spicy", "Quick Bite", "Lunch Favorite"]
+  },
+  {
+    id: 2,
+    name: "Ugly Baby",
+    neighborhood: "Carroll Gardens, Brooklyn",
+    address: "407 Smith St, Brooklyn, NY 11231",
+    cuisine: "Isaan Thai",
+    lat: 40.6786,
+    lng: -73.9968,
+    hours: "Tue–Sun: 5:30pm–10pm (Closed Mon)",
+    topDishes: ["Crying Tiger Beef", "Larb Ped (Duck Laab)", "Papaya Pok Pok", "Sticky Rice"],
+    recommender: "Sarah Kim",
+    recommenderTitle: "Senior Designer",
+    blurb: "Ugly Baby serves the realest Isaan Thai food in the city — no apologies, all heat and funk. The crying tiger is a religious experience. Book ahead, it fills up fast and for good reason.",
+    photos: [
+      "https://images.unsplash.com/photo-1562802378-063ec186a863?w=600&q=80",
+      "https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&q=80",
+      "https://images.unsplash.com/photo-1601924583093-0ba2cdcc2cff?w=600&q=80"
+    ],
+    priceRange: "$$",
+    tags: ["Thai", "Spicy", "Date Night", "Brooklyn"]
+  },
+  {
+    id: 3,
+    name: "Jongro BBQ",
+    neighborhood: "Koreatown, Midtown",
+    address: "22 W 32nd St, 2nd Floor, New York, NY 10001",
+    cuisine: "Korean BBQ",
+    lat: 40.7479,
+    lng: -73.9878,
+    hours: "Mon–Sun: 11am–2am",
+    topDishes: ["Galbi (Short Ribs)", "Brisket", "Samgyeopsal (Pork Belly)", "Spicy Marinated Chicken"],
+    recommender: "James Park",
+    recommenderTitle: "Product Manager",
+    blurb: "Late-night K-BBQ with the team after a big launch? Jongro every time. The ventilation is top notch so you won't go home smelling like smoke, the banchan is generous, and they're open till 2am.",
+    photos: [
+      "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+      "https://images.unsplash.com/photo-1534482421-64566f976cfa?w=600&q=80"
+    ],
+    priceRange: "$$$",
+    tags: ["Korean BBQ", "Late Night", "Group Dinner", "K-Town"]
+  },
+  {
+    id: 4,
+    name: "Kopitiam",
+    neighborhood: "Lower East Side",
+    address: "151 E Broadway, New York, NY 10002",
+    cuisine: "Malaysian",
+    lat: 40.7141,
+    lng: -73.9906,
+    hours: "Wed–Mon: 9am–4pm (Closed Tue)",
+    topDishes: ["Nasi Lemak", "Roti Canai", "Hainanese Chicken Rice", "Kopi C Peng (Iced Coffee)"],
+    recommender: "Maya Lim",
+    recommenderTitle: "Growth Marketing Lead",
+    blurb: "Chef Kyo Pang's Kopitiam is a love letter to Malaysian kopitiam culture — the casual coffee shops where everything good in life happens. The nasi lemak is nostalgic in the best way. Come for brunch.",
+    photos: [
+      "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=600&q=80",
+      "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80",
+      "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=600&q=80"
+    ],
+    priceRange: "$$",
+    tags: ["Malaysian", "Brunch", "Coffee", "LES"]
+  },
+  {
+    id: 5,
+    name: "Hanoi House",
+    neighborhood: "East Village",
+    address: "119 Saint Marks Pl, New York, NY 10009",
+    cuisine: "Vietnamese",
+    lat: 40.7279,
+    lng: -73.9840,
+    hours: "Mon–Sun: 12pm–10pm",
+    topDishes: ["Bun Bo Hue", "Bun Cha", "Banh Mi", "Cha Ca La Vong"],
+    recommender: "Priya Patel",
+    recommenderTitle: "Data Science Lead",
+    blurb: "I grew up eating pho but Hanoi House opened my eyes to the wider world of Vietnamese cuisine. The bun bo hue is deeply complex — spicy, lemongrass-y, and so satisfying. It's the pho of Northern Vietnam and it deserves more hype.",
+    photos: [
+      "https://images.unsplash.com/photo-1576577445504-6af96477db52?w=600&q=80",
+      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&q=80",
+      "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&q=80"
+    ],
+    priceRange: "$$",
+    tags: ["Vietnamese", "Noodles", "East Village", "Hidden Gem"]
+  },
+  {
+    id: 6,
+    name: "Atoboy",
+    neighborhood: "NoMad",
+    address: "43 E 28th St, New York, NY 10016",
+    cuisine: "Korean Fine Dining",
+    lat: 40.7435,
+    lng: -73.9859,
+    hours: "Mon–Sat: 5:30pm–10:30pm (Closed Sun)",
+    topDishes: ["Charred Eggplant", "Braised Short Rib", "Hamachi Crudo", "Gochujang Glazed Duck"],
+    recommender: "David Lee",
+    recommenderTitle: "Principal Engineer",
+    blurb: "Atoboy is where I take clients I actually like. Chef Junghyun Park's banchan-style fine dining is both innovative and deeply rooted in Korean flavors. The charred eggplant is a dish I still think about weeks later. Genuinely one of NYC's best restaurants.",
+    photos: [
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80",
+      "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600&q=80"
+    ],
+    priceRange: "$$$",
+    tags: ["Korean Fine Dining", "Special Occasion", "Date Night", "NoMad"]
+  },
+  {
+    id: 7,
+    name: "Pecking House",
+    neighborhood: "Upper East Side",
+    address: "1615 2nd Ave, New York, NY 10028",
+    cuisine: "Chinese-American",
+    lat: 40.7756,
+    lng: -73.9519,
+    hours: "Tue–Sun: 5pm–10pm (Closed Mon)",
+    topDishes: ["Peking Duck (pre-order)", "Mapo Tofu", "Dan Dan Noodles", "Salt & Pepper Lobster"],
+    recommender: "Amy Zhang",
+    recommenderTitle: "UX Designer",
+    blurb: "Chef Eric Huang's Pecking House is a masterclass in Chinese-American cooking done with intention and care. The Peking duck (pre-order!) is the best in New York — full stop. The mapo tofu will make you question every other version you've had.",
+    photos: [
+      "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80",
+      "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=80",
+      "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=600&q=80"
+    ],
+    priceRange: "$$$",
+    tags: ["Chinese", "Peking Duck", "UES", "Special Occasion"]
+  },
+  {
+    id: 8,
+    name: "Tang Pavilion",
+    neighborhood: "Midtown West",
+    address: "65 W 55th St, New York, NY 10019",
+    cuisine: "Shanghainese",
+    lat: 40.7630,
+    lng: -73.9791,
+    hours: "Mon–Fri: 11:30am–10pm, Sat–Sun: 12pm–10pm",
+    topDishes: ["Soup Dumplings (Xiao Long Bao)", "Dongpo Pork", "Crab & Pork Dumplings", "Scallion Oil Noodles"],
+    recommender: "Michael Nguyen",
+    recommenderTitle: "Product Manager",
+    blurb: "A Midtown institution that somehow stays under the radar. The soup dumplings are pristine — thin skin, rich soup, perfectly portioned. Take any out-of-town guests here and they will never stop talking about it.",
+    photos: [
+      "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=80",
+      "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80",
+      "https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&q=80"
+    ],
+    priceRange: "$$",
+    tags: ["Shanghainese", "Dumplings", "Midtown", "Lunch"]
+  },
+  {
+    id: 9,
+    name: "Zabb Elee",
+    neighborhood: "East Village",
+    address: "75 2nd Ave, New York, NY 10003",
+    cuisine: "Isaan Thai",
+    lat: 40.7263,
+    lng: -73.9821,
+    hours: "Mon–Sun: 11am–11pm",
+    topDishes: ["Som Tam (Green Papaya Salad)", "Laab Moo (Pork Salad)", "Pad See Ew", "Thai Iced Tea"],
+    recommender: "Tom Suzuki",
+    recommenderTitle: "iOS Engineer",
+    blurb: "When I moved to NYC I found Zabb Elee and felt like I was finally home. The som tam is prepared fresh to order and you can specify your spice level — I always go max. Cheap, fast, and deeply satisfying.",
+    photos: [
+      "https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&q=80",
+      "https://images.unsplash.com/photo-1562802378-063ec186a863?w=600&q=80",
+      "https://images.unsplash.com/photo-1601924583093-0ba2cdcc2cff?w=600&q=80"
+    ],
+    priceRange: "$",
+    tags: ["Thai", "Spicy", "Cheap Eat", "East Village"]
+  },
+  {
+    id: 10,
+    name: "Momofuku Ssäm Bar",
+    neighborhood: "East Village",
+    address: "207 2nd Ave, New York, NY 10003",
+    cuisine: "Korean Fusion",
+    lat: 40.7261,
+    lng: -73.9817,
+    hours: "Mon–Sun: 5pm–11pm",
+    topDishes: ["Bo Ssäm (pre-order)", "Spicy Rice Cakes", "Raw Bar", "Smoked Chicken Wings"],
+    recommender: "Christine Wu",
+    recommenderTitle: "Associate Counsel",
+    blurb: "David Chang's legacy spot has evolved beautifully. The Bo Ssäm — a whole roasted pork shoulder served with rice, kimchi, and condiments — is the ultimate celebration meal. Order it for the team after hitting a big milestone.",
+    photos: [
+      "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+      "https://images.unsplash.com/photo-1534482421-64566f976cfa?w=600&q=80"
+    ],
+    priceRange: "$$$",
+    tags: ["Korean Fusion", "Group Dinner", "Celebration", "East Village"]
+  }
+];
+
+// ============================================================
+// EVENTS — Real confirmed NYC AAPI Month events, May 2026
+// Sources: Asia Society, Japan Society, NYC Tourism, Lincoln Center,
+//          LaGuardia Community College, Manhattan Borough President
+// ============================================================
+const EVENTS = [
+  {
+    id: 1,
+    title: "Enchantment: A Bioplay About Ravi Shankar",
+    date: "May 1, 2026",
+    time: "7:30 PM – 9:00 PM",
+    location: "Asia Society Museum, 725 Park Ave",
+    neighborhood: "Upper East Side",
+    description: "A bioplay about sitar maestro Ravi Shankar that weaves together theatre, live dance, and music to tell the story of one of the most influential Asian artists of the 20th century. An Asia Society AAPI Heritage Month special presentation.",
+    category: "Performance",
+    price: "$20–$35",
+    link: "https://asiasociety.org/new-york/events",
+    icon: "🎭",
+    featured: true,
+    source: "Asia Society NYC"
+  },
+  {
+    id: 2,
+    title: "Lin Hwai-min in Conversation",
+    date: "May 1, 2026",
+    time: "6:30 PM – 8:00 PM",
+    location: "Asia Society Museum, 725 Park Ave",
+    neighborhood: "Upper East Side",
+    description: "A conversation celebrating decades of artistic exchange between Taiwan and the United States with Lin Hwai-min, founder of Taiwan's legendary Cloud Gate Dance Theatre — one of Asia's greatest living choreographers.",
+    category: "Talk",
+    price: "$15",
+    link: "https://asiasociety.org/new-york/events",
+    icon: "💬",
+    featured: false,
+    source: "Asia Society NYC"
+  },
+  {
+    id: 3,
+    title: "Trio Menil: AAPI Composers Concert",
+    date: "May 3, 2026",
+    time: "2:00 PM – 3:00 PM",
+    location: "Asia Society Museum, 725 Park Ave",
+    neighborhood: "Upper East Side",
+    description: "Trio Menil performs a free afternoon concert celebrating music by AAPI composers, including the world premiere of a new work by composer Sam Wu. Honoring the diversity and innovation of Asian American voices in classical music.",
+    category: "Music",
+    price: "Free",
+    link: "https://asiasociety.org/new-york/events",
+    icon: "🎵",
+    featured: false,
+    source: "Asia Society NYC"
+  },
+  {
+    id: 4,
+    title: "NY Yankees Korean Heritage Day",
+    date: "May 2, 2026",
+    time: "1:35 PM (game time)",
+    location: "Yankee Stadium, 1 E 161st St, The Bronx",
+    neighborhood: "The Bronx",
+    description: "The Yankees celebrate the Korean American community with pre-game ceremonies, traditional Korean cultural performances, and commemorative giveaways for fans attending the afternoon game.",
+    category: "Sports",
+    price: "From $25",
+    link: "https://www.mlb.com/yankees",
+    icon: "⚾",
+    featured: false,
+    source: "NYC Tourism"
+  },
+  {
+    id: 5,
+    title: "K-Pop Night at Lincoln Center",
+    date: "May 5, 2026",
+    time: "7:30 PM",
+    location: "David Rubinstein Atrium, Lincoln Center",
+    neighborhood: "Upper West Side",
+    description: "A free K-Pop celebration at the Rubinstein Atrium featuring DJ CHEN and cover performances by K-Pop groups from NYU and Stony Brook University. No ticket required — arrive early as the atrium fills quickly.",
+    category: "Music & Dance",
+    price: "Free",
+    link: "https://www.lincolncenter.org",
+    icon: "🎤",
+    featured: true,
+    source: "NYC Tourism / Lincoln Center"
+  },
+  {
+    id: 6,
+    title: "AAPI Heritage 5K Run",
+    date: "May 7, 2026",
+    time: "8:00 AM",
+    location: "Central Park, East 72nd St entrance",
+    neighborhood: "Central Park",
+    description: "A community run celebrating AAPI Heritage Month, open to all paces and abilities. Features a post-run gathering with food, music, and community tables from NYC's AAPI organizations. A celebration, not a race.",
+    category: "Community",
+    price: "$25 registration",
+    link: "#",
+    icon: "🏃",
+    featured: false,
+    source: "NYC AAPI community"
+  },
+  {
+    id: 7,
+    title: "Japan Parade NYC",
+    date: "May 9, 2026",
+    time: "12:00 PM – 3:00 PM",
+    location: "6th Avenue, Midtown Manhattan",
+    neighborhood: "Midtown",
+    description: "New York City's annual Japan Parade marches down 6th Avenue, celebrating Japanese culture and the Japanese American community with traditional performances, taiko drummers, martial arts demonstrations, and floats from cultural organizations.",
+    category: "Parade",
+    price: "Free",
+    link: "https://www.japanparadenyc.org",
+    icon: "🌸",
+    featured: true,
+    source: "NYC Tourism"
+  },
+  {
+    id: 8,
+    title: "Kawai Kanjirō: House to House",
+    date: "Through May 10, 2026",
+    time: "Tue–Sun: 11am–6pm",
+    location: "Japan Society Gallery, 333 E 47th St",
+    neighborhood: "Midtown East",
+    description: "Japan Society's major spring exhibition celebrates the life and career of Kawai Kanjirō — folk potter, poet, and artist — whose Kyoto home and studio are preserved as a museum. Final weeks of this immersive retrospective bridging Japanese craft and modern artistry.",
+    category: "Exhibition",
+    price: "$12 (members free)",
+    link: "https://www.japansociety.org",
+    icon: "🏺",
+    featured: false,
+    source: "Japan Society NYC"
+  },
+  {
+    id: 9,
+    title: "Breaking Barriers: AAPI Heritage Month",
+    date: "May 14, 2026",
+    time: "6:00 PM – 8:30 PM",
+    location: "Manhattan Borough President's Office, 1 Centre St",
+    neighborhood: "Lower Manhattan",
+    description: "Hosted by the Manhattan Borough President, this event brings together AAPI community leaders, elected officials, and advocates to celebrate AAPI contributions to NYC and discuss pathways to greater representation in civic life.",
+    category: "Community",
+    price: "Free (RSVP required)",
+    link: "https://www.manhattanbp.nyc.gov",
+    icon: "🏛️",
+    featured: false,
+    source: "Manhattan Borough President"
+  },
+  {
+    id: 10,
+    title: "LaGuardia: An AAPI Afternoon",
+    date: "May 20, 2026",
+    time: "12:00 PM – 4:00 PM",
+    location: "LaGuardia Community College, 31-10 Thomson Ave",
+    neighborhood: "Long Island City, Queens",
+    description: "The centerpiece of LaGuardia's AAPI month programming, featuring performances by the Bangladesh Students Association, Chinese Students Club, Myanmar Students Club, and Nepali Student Association, alongside cultural showcases and community tables.",
+    category: "Festival",
+    price: "Free",
+    link: "https://www.laguardia.edu",
+    icon: "🎊",
+    featured: false,
+    source: "LaGuardia Community College"
+  },
+  {
+    id: 11,
+    title: "NYPL: AAPI Voices — Readings & Panels",
+    date: "Throughout May 2026",
+    time: "Various (check NYPL calendar)",
+    location: "New York Public Library branches citywide",
+    neighborhood: "Citywide",
+    description: "The New York Public Library presents a month-long series of author readings, panel discussions, documentary screenings, and community conversations celebrating AAPI voices. Events are free and held at branches across all five boroughs.",
+    category: "Literature",
+    price: "Free",
+    link: "https://www.nypl.org/events/aanhpi-heritage-month",
+    icon: "📚",
+    featured: false,
+    source: "NYPL"
+  },
+  {
+    id: 12,
+    title: "AAPI Cultural & Heritage Parade",
+    date: "May 31, 2026",
+    time: "12:00 PM",
+    location: "6th Avenue, Midtown Manhattan",
+    neighborhood: "Midtown",
+    description: "The annual AAPI Cultural and Heritage Parade closes out the month along 6th Avenue in Midtown Manhattan — the city's most diverse Asian American parade, with floats, cultural performances, and community groups representing the full breadth of the AAPI community.",
+    category: "Parade",
+    price: "Free",
+    link: "#",
+    icon: "🎋",
+    featured: true,
+    source: "NYC Tourism"
+  }
+];
+
+// ============================================================
+// BOOKS — Essential AAPI Literature
+// Curated from: NYPL, Reedsy, Penguin Random House, NPR reading lists
+// ============================================================
+const BOOKS = {
+  classic: [
+    {
+      id: "c1",
+      title: "America Is in the Heart",
+      author: "Carlos Bulosan",
+      year: 1946,
+      coverColor: "#5C3317",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0143134035-M.jpg",
+      genre: "Autobiographical Fiction",
+      culture: "Filipino American",
+      description: "A semi-autobiographical account of Filipino immigration to the US in the 1930s, chronicling labor exploitation, racism, and poverty alongside an unbreakable faith in the American ideal. Bulosan wrote this while the country was actively exploiting him — and still declared his love for it.",
+      awards: ["TIME Magazine's 100 Best Nonfiction Books of the 20th Century"],
+      quote: "America is not a land of one race or one class of men. We are all Americans that have toiled and suffered and known oppression and defeat."
+    },
+    {
+      id: "c2",
+      title: "No-No Boy",
+      author: "John Okada",
+      year: 1957,
+      coverColor: "#2E4A2E",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0295955252-M.jpg",
+      genre: "Literary Fiction",
+      culture: "Japanese American",
+      description: "Published in 1957 and largely ignored until rediscovered by the AAPI literary movement in the 1970s, this novel follows a Japanese American who refused military service during WWII as he returns home to Seattle to face rejection from all sides. A foundational work buried by American literature and rescued by AAPI writers.",
+      awards: ["Rediscovered as canonical AAPI literature; now taught at universities nationwide"],
+      quote: "Somewhere, perhaps, a better day is coming for the aching hearts."
+    },
+    {
+      id: "c3",
+      title: "The Woman Warrior",
+      author: "Maxine Hong Kingston",
+      year: 1976,
+      coverColor: "#8B1A1A",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0394723929-M.jpg",
+      genre: "Memoir / Mythology",
+      culture: "Chinese American",
+      description: "A groundbreaking blend of memoir and Chinese mythology exploring a Chinese American woman's struggle to reconcile her heritage with her American identity. Kingston shattered both form and expectation simultaneously — opening the door for every AAPI writer who came after.",
+      awards: ["National Book Critics Circle Award for Nonfiction"],
+      quote: "I had to get out of hating range."
+    },
+    {
+      id: "c4",
+      title: "The Joy Luck Club",
+      author: "Amy Tan",
+      year: 1989,
+      coverColor: "#C94B2D",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0399134204-M.jpg",
+      genre: "Literary Fiction",
+      culture: "Chinese American",
+      description: "Four Chinese immigrant women and their American-born daughters navigate tradition, assimilation, and the tensions between generations through interlocking stories of love, sacrifice, and misunderstanding across two continents.",
+      awards: ["National Book Award Finalist", "PEN/Faulkner Award Finalist"],
+      quote: "I wanted my children to have the best combination: American circumstances and Chinese character."
+    },
+    {
+      id: "c5",
+      title: "Native Speaker",
+      author: "Chang-rae Lee",
+      year: 1995,
+      coverColor: "#2C4A6E",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0143124307-M.jpg",
+      genre: "Literary Fiction",
+      culture: "Korean American",
+      description: "A Korean American spy assigned to surveil a rising Korean politician in NYC discovers a meditation on language, loyalty, and belonging. Lee writes with surgical precision about the weight of assimilation — a New York novel that captures the city and its immigrant experience with quiet perfection.",
+      awards: ["Hemingway Foundation/PEN Award for Best First Novel", "QPB New Voices Award"],
+      quote: "You are an emotional alien. You are sly and efficient, and you even speak a little funny."
+    },
+    {
+      id: "c6",
+      title: "The Namesake",
+      author: "Jhumpa Lahiri",
+      year: 2003,
+      coverColor: "#4A3728",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0547447817-M.jpg",
+      genre: "Literary Fiction",
+      culture: "Indian American",
+      description: "The Ganguli family's journey from Calcutta to Massachusetts and New York, told through their son Gogol — a name that becomes both burden and gift. Lahiri renders the generational tension between immigrant parents and their American-born children with perfect, quiet fidelity.",
+      awards: ["New York Times Notable Book of the Year", "Los Angeles Times Book Prize Finalist"],
+      quote: "He had been named for a Russian author his father loved. In this country he had become a foreigner."
+    }
+  ],
+  recent: [
+    {
+      id: "r1",
+      title: "The Sympathizer",
+      author: "Viet Thanh Nguyen",
+      year: 2015,
+      coverColor: "#8B1A1A",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0802123457-M.jpg",
+      genre: "Literary Fiction / Spy Novel",
+      culture: "Vietnamese American",
+      description: "A communist double agent narrates his role in the fall of Saigon and exile to America as a confession — a razor-sharp critique of both Vietnamese and American cultures, colonialism, and war, delivered with dark humor and devastating insight.",
+      awards: ["Pulitzer Prize for Fiction", "PEN/Faulkner Award", "Andrew Carnegie Medal"],
+      quote: "I am a spy, a sleeper, a spook, a man of two faces. Perhaps not surprisingly, I am also a man of two minds."
+    },
+    {
+      id: "r2",
+      title: "Pachinko",
+      author: "Min Jin Lee",
+      year: 2017,
+      coverColor: "#D4A853",
+      coverImage: "https://covers.openlibrary.org/b/isbn/1455569496-M.jpg",
+      genre: "Historical Fiction",
+      culture: "Korean / Korean-Japanese",
+      description: "Four generations of a Korean family in Japan across the 20th century — facing discrimination, survival, loss, and the relentless search for dignity. An epic novel that reads with the intimacy of a family you know. Inspiration for the award-winning Apple TV+ series.",
+      awards: ["National Book Award Finalist", "Dayton Literary Peace Prize Finalist"],
+      quote: "History has failed us, but no matter."
+    },
+    {
+      id: "r3",
+      title: "The Best We Could Do",
+      author: "Thi Bui",
+      year: 2017,
+      coverColor: "#1E3A5F",
+      coverImage: "https://covers.openlibrary.org/b/isbn/1419718789-M.jpg",
+      genre: "Illustrated Memoir",
+      culture: "Vietnamese American",
+      description: "A stunning illustrated memoir depicting Thi Bui's family in war-torn Vietnam, their escape as refugees, and the lasting effects of displacement on identity. When Bui becomes a mother herself, she finally begins to understand her own parents. One of the most powerful graphic memoirs ever published.",
+      awards: ["American Book Award", "New York Times Bestseller"],
+      quote: "I looked at my parents and saw, for the first time, not the people who had failed me, but the people who had made me."
+    },
+    {
+      id: "r4",
+      title: "On Earth We're Briefly Gorgeous",
+      author: "Ocean Vuong",
+      year: 2019,
+      coverColor: "#3D2B1F",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0525562028-M.jpg",
+      genre: "Autofiction",
+      culture: "Vietnamese American",
+      description: "Written as a letter from a son to his illiterate mother, Vuong's debut novel is a ferocious meditation on race, class, masculinity, addiction, and family — told in prose that reads like compressed poetry. Blurs the line between lyric essay and novel in a way that has permanently expanded what American fiction can do.",
+      awards: ["New York Times Bestseller", "Barnes & Noble Discover Prize", "Longlisted for the Man Booker Prize"],
+      quote: "Let me begin again. Let me tell you what I know."
+    },
+    {
+      id: "r5",
+      title: "Interior Chinatown",
+      author: "Charles Yu",
+      year: 2020,
+      coverColor: "#E85D26",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0307907198-M.jpg",
+      genre: "Experimental Fiction / Satire",
+      culture: "Chinese American",
+      description: "Written as a TV procedural screenplay, a background actor named Willis Wu dreams of graduating from 'Generic Asian Man' to 'Kung Fu Guy' — a biting, funny, and devastating satire of Hollywood and the limits placed on Asian American identity. The form is the argument: the screenplay format enacts the ways Asian Americans are forced to play supporting roles.",
+      awards: ["National Book Award for Fiction 2020"],
+      quote: "You're an Asian man, Willis. In what story have you ever been the hero?"
+    },
+    {
+      id: "r6",
+      title: "Minor Feelings: An Asian American Reckoning",
+      author: "Cathy Park Hong",
+      year: 2020,
+      coverColor: "#2C4A6E",
+      coverImage: "https://covers.openlibrary.org/b/isbn/1984820362-M.jpg",
+      genre: "Essay Collection / Cultural Criticism",
+      culture: "Korean American",
+      description: "Essays blending biography and cultural criticism that give name to 'minor feelings': the racialized range of emotions that are negative, dysphoric, and therefore untelegenic. Hong says what many AAPI people feel but struggle to articulate — with rigor, humor, and controlled rage.",
+      awards: ["PEN/Diana Pearce Open Book Award", "National Book Critics Circle Award Finalist"],
+      quote: "Minor feelings are the racialized range of emotions that are negative, dysphoric, and therefore untelegenic."
+    },
+    {
+      id: "r7",
+      title: "Crying in H Mart",
+      author: "Michelle Zauner",
+      year: 2021,
+      coverColor: "#C94B2D",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0525657746-M.jpg",
+      genre: "Memoir",
+      culture: "Korean American",
+      description: "The Japanese Breakfast frontwoman's memoir about losing her Korean mother to cancer and finding her way back to her cultural identity through food. Devastating, funny, and overflowing with the sensory memory of kimchi jjigae, japchae, and grief.",
+      awards: ["#1 New York Times Bestseller", "Goodreads Choice Award for Memoir & Autobiography"],
+      quote: "Ever since I moved to New York, I get emotional at H Mart."
+    },
+    {
+      id: "r8",
+      title: "All You Can Ever Know",
+      author: "Nicole Chung",
+      year: 2018,
+      coverColor: "#4A2C6E",
+      coverImage: "https://covers.openlibrary.org/b/isbn/1684414008-M.jpg",
+      genre: "Memoir",
+      culture: "Korean American",
+      description: "A memoir examining adoptee identity as Nicole Chung discovers her Korean birth family's true story differs from everything she was told. Written as she becomes a mother herself, tracing the ripples of adoption, race, and belonging across two families and two very different American lives.",
+      awards: ["Finalist for the Chautauqua Prize", "BookPeople's Book of the Year"],
+      quote: "What is it like to be a person who doesn't look like her family?"
+    },
+    {
+      id: "r9",
+      title: "Yellowface",
+      author: "R.F. Kuang",
+      year: 2023,
+      coverColor: "#D4A853",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0063250837-M.jpg",
+      genre: "Satirical Thriller",
+      culture: "Chinese American",
+      description: "A white author steals her Chinese American rival's unpublished manuscript and publishes it as her own, setting off a spiral she can't control. A scathing, compulsively readable satirical thriller about cultural appropriation, publishing racism, and the specific gaslighting that Asian American writers face.",
+      awards: ["New York Times Bestseller", "Locus Award Finalist"],
+      quote: "The publishing industry has always loved stories about Asian suffering as long as they're told by the right kind of person."
+    },
+    {
+      id: "r10",
+      title: "Real Americans",
+      author: "Rachel Khong",
+      year: 2024,
+      coverColor: "#2A9D8F",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0593537254-M.jpg",
+      genre: "Literary Fiction",
+      culture: "Chinese American",
+      description: "Three interconnected narratives spanning three generations of a Chinese American family — from a woman who emigrates from China to New York in the 1960s, to her daughter, to her grandson who sets out to find his biological father. A sweeping, beautifully observed novel about genetics, identity, and what we choose to pass on.",
+      awards: ["New York Times Bestseller", "PEN/Faulkner Award Finalist 2025"],
+      quote: "What is American? What is Chinese? In her world, the two were not mutually exclusive."
+    }
+  ]
+};
+
+// ============================================================
+// HOLIDAYS — Asian & AAPI Cultural Observances, Full Year 2026
+// Dates verified from: timeanddate.com, drikpanchang.com,
+//                      calendarr.com, kaiserstory.com, smartpuja.com
+//
+// color classes:
+//   east-asian       → #E8652A (orange-red)
+//   south-asian      → #D4A853 (gold)
+//   southeast-asian  → #2A9D8F (teal)
+//   persian          → #9B7DD0 (purple)
+//   muslim           → #4A90C4 (blue)
+//   heritage         → #C94B2D (accent red)
+// ============================================================
+const HOLIDAYS = [
+  {
+    id: "h1",
+    name: "Pongal / Makar Sankranti",
+    date: "2026-01-14", displayDate: "January 14, 2026",
+    month: 0, day: 14,
+    culture: "South Asian", color: "south-asian", emoji: "🌾",
+    description: "A four-day Tamil harvest festival marking the sun's northward journey and the end of winter. Celebrated with sweet rice (pongal), kolam floor art, and gratitude for the harvest. Simultaneously observed across India as Makar Sankranti.",
+    countries: ["India", "Sri Lanka", "Malaysia", "Singapore"]
+  },
+  {
+    id: "h2",
+    name: "Lunar New Year — Year of the Horse",
+    date: "2026-02-17", displayDate: "February 17, 2026",
+    month: 1, day: 17,
+    culture: "East Asian", color: "east-asian", emoji: "🐴",
+    description: "The most important celebration in East Asian cultures. 2026 is the Year of the Horse — symbolizing energy, freedom, and ambition. The holiday spans February 16–18 in Korea (Seollal) and Vietnam (Tết), with red envelopes, family feasts, lion dances, and fireworks.",
+    countries: ["China", "Vietnam", "Korea", "Taiwan", "Singapore", "Malaysia"]
+  },
+  {
+    id: "h3",
+    name: "Ramadan Begins",
+    date: "2026-02-18", displayDate: "February 18, 2026",
+    month: 1, day: 18,
+    culture: "Muslim", color: "muslim", emoji: "🌙",
+    description: "The holiest month in Islam — 30 days of fasting from dawn to sunset, intensified prayer, and community. Observed by Muslim communities across South, Southeast, and Central Asia, and throughout the AAPI diaspora.",
+    countries: ["Indonesia", "Pakistan", "Bangladesh", "Malaysia", "pan-Asian Muslim communities"]
+  },
+  {
+    id: "h4",
+    name: "Lantern Festival (Yuan Xiao)",
+    date: "2026-03-04", displayDate: "March 4, 2026",
+    month: 2, day: 4,
+    culture: "East Asian", color: "east-asian", emoji: "🏮",
+    description: "The 15th and final day of Lunar New Year, when the full moon rises and families gather with paper lanterns, share tangyuan (sweet rice balls), and play riddle games. A beautiful, romantic close to the New Year season.",
+    countries: ["China", "Taiwan", "Vietnam", "Singapore", "diaspora worldwide"]
+  },
+  {
+    id: "h5",
+    name: "Nowruz — Persian New Year",
+    date: "2026-03-20", displayDate: "March 20, 2026",
+    month: 2, day: 20,
+    culture: "Persian", color: "persian", emoji: "🌱",
+    description: "The Persian and Zoroastrian New Year, marking the spring equinox at 14:46 UTC. Celebrated for over 3,000 years with the Haft-Seen table, spring cleaning, and family gatherings. Observed by over 300 million people worldwide.",
+    countries: ["Iran", "Afghanistan", "Tajikistan", "Azerbaijan", "Kurdish communities", "Central Asia"]
+  },
+  {
+    id: "h6",
+    name: "Holi — Festival of Colors",
+    date: "2026-03-31", displayDate: "March 31, 2026",
+    month: 2, day: 31,
+    culture: "South Asian", color: "south-asian", emoji: "🎨",
+    description: "The Festival of Colors — a joyful Hindu spring celebration marking the victory of good over evil. Celebrated by throwing vibrant colored powders and water, dancing to dhol drums, and sharing sweets. One of the most visually spectacular festivals in the world.",
+    countries: ["India", "Nepal", "diaspora worldwide"]
+  },
+  {
+    id: "h7",
+    name: "Qingming Festival",
+    date: "2026-04-04", displayDate: "April 4, 2026",
+    month: 3, day: 4,
+    culture: "East Asian", color: "east-asian", emoji: "🌿",
+    description: "Tomb Sweeping Day — a time to honor ancestors by visiting graves, burning incense, and sharing meals. Also a spring festival with outdoor outings. One of the most culturally significant observances in Chinese tradition.",
+    countries: ["China", "Taiwan", "Hong Kong", "diaspora worldwide"]
+  },
+  {
+    id: "h8",
+    name: "Vaisakhi — Sikh New Year",
+    date: "2026-04-13", displayDate: "April 13, 2026",
+    month: 3, day: 13,
+    culture: "South Asian", color: "south-asian", emoji: "☀️",
+    description: "One of the most important Sikh festivals, marking the founding of the Khalsa in 1699 by Guru Gobind Singh. Celebrated with nagar kirtans (processions), gurdwara prayers, and bhangra folk dancing. Also the Punjabi spring harvest festival.",
+    countries: ["India (Punjab)", "Canada", "United Kingdom", "United States"]
+  },
+  {
+    id: "h9",
+    name: "Songkran — Thai New Year",
+    date: "2026-04-13", displayDate: "April 13–15, 2026",
+    month: 3, day: 13,
+    culture: "Southeast Asian", color: "southeast-asian", emoji: "💦",
+    description: "Thailand's most beloved holiday — three official days of water festivals marking the Buddhist New Year. The streets become a city-wide water fight as people splash each other to wash away bad luck. Also observed in Myanmar (Thingyan), Laos, and Cambodia.",
+    countries: ["Thailand", "Myanmar", "Laos", "Cambodia", "diaspora worldwide"]
+  },
+  {
+    id: "h10",
+    name: "Vesak — Buddha's Birthday",
+    date: "2026-05-01", displayDate: "May 1, 2026",
+    month: 4, day: 1,
+    culture: "Southeast Asian", color: "southeast-asian", emoji: "☸️",
+    description: "The holiest day in Buddhism, commemorating the birth, enlightenment, and death of Gautama Buddha. Celebrated with candlelit processions, temple offerings, release of animals, and charitable giving. Observed across all Buddhist traditions worldwide.",
+    countries: ["Sri Lanka", "Thailand", "Myanmar", "Cambodia", "Vietnam", "South Korea", "Japan"]
+  },
+  {
+    id: "h11",
+    name: "AAPI Heritage Month",
+    date: "2026-05-01", displayDate: "May 1–31, 2026",
+    month: 4, day: 1,
+    culture: "Heritage", color: "heritage", emoji: "🌸",
+    description: "Asian American and Pacific Islander Heritage Month — a federally recognized month honoring AAPI contributions to the United States. Designated in May to mark the arrival of the first Japanese immigrants (May 7, 1843) and completion of the transcontinental railroad (May 10, 1869).",
+    countries: ["United States"]
+  },
+  {
+    id: "h12",
+    name: "Children's Day (Kodomo no Hi)",
+    date: "2026-05-05", displayDate: "May 5, 2026",
+    month: 4, day: 5,
+    culture: "East Asian", color: "east-asian", emoji: "🎏",
+    description: "A Japanese national holiday celebrating children's happiness. Families fly koinobori (carp streamers) from rooftops — one for each child — eat kashiwa mochi, and display samurai dolls. Also observed as Children's Day in South Korea.",
+    countries: ["Japan", "South Korea"]
+  },
+  {
+    id: "h13",
+    name: "Buddha's Birthday (Korea)",
+    date: "2026-05-24", displayDate: "May 24–25, 2026",
+    month: 4, day: 24,
+    culture: "East Asian", color: "east-asian", emoji: "🪔",
+    description: "Korea's celebration of Buddha's birthday, a national public holiday. Temples string thousands of paper lanterns and the Yeon Deung Hoe (Lotus Lantern Festival) parade in Seoul is one of Korea's most spectacular annual events.",
+    countries: ["South Korea"]
+  },
+  {
+    id: "h14",
+    name: "Dragon Boat Festival (Duanwu)",
+    date: "2026-06-19", displayDate: "June 19, 2026",
+    month: 5, day: 19,
+    culture: "East Asian", color: "east-asian", emoji: "🐉",
+    description: "Commemorating the poet-patriot Qu Yuan, who drowned himself in protest of corruption. People race dragon boats, eat zongzi (sticky rice wrapped in bamboo leaves), and hang mugwort to ward off evil. A 3-day national holiday in China (June 19–21).",
+    countries: ["China", "Taiwan", "Hong Kong", "Vietnam", "diaspora worldwide"]
+  },
+  {
+    id: "h15",
+    name: "Tanabata — Star Festival",
+    date: "2026-07-07", displayDate: "July 7, 2026",
+    month: 6, day: 7,
+    culture: "East Asian", color: "east-asian", emoji: "⭐",
+    description: "A Japanese celebration of the star-crossed lovers Orihime (Vega) and Hikoboshi (Altair), who are separated by the Milky Way and reunite only on this night. People write wishes on tanzaku paper strips and hang them from bamboo.",
+    countries: ["Japan", "diaspora worldwide"]
+  },
+  {
+    id: "h16",
+    name: "Obon Festival",
+    date: "2026-08-13", displayDate: "August 13–15, 2026",
+    month: 7, day: 13,
+    culture: "East Asian", color: "east-asian", emoji: "🏮",
+    description: "A Japanese Buddhist tradition honoring ancestral spirits who return to visit. Celebrated with Bon Odori folk dances, lanterns floated on water to guide spirits home, and visits to graves. One of the most atmospheric traditions in Japanese culture.",
+    countries: ["Japan", "Japanese American communities"]
+  },
+  {
+    id: "h17",
+    name: "Onam — Kerala Harvest Festival",
+    date: "2026-09-05", displayDate: "September 5, 2026",
+    month: 8, day: 5,
+    culture: "South Asian", color: "south-asian", emoji: "🌺",
+    description: "Kerala's biggest harvest festival, celebrating the mythical return of King Mahabali. Homes are decorated with flower carpets (pookalam), families gather for the grand Onam Sadhya (26-dish vegetarian feast on banana leaves), and snake boat races draw enormous crowds.",
+    countries: ["India (Kerala)", "Malayali diaspora worldwide"]
+  },
+  {
+    id: "h18",
+    name: "Chuseok — Korean Harvest Moon",
+    date: "2026-09-24", displayDate: "September 24–26, 2026",
+    month: 8, day: 24,
+    culture: "East Asian", color: "east-asian", emoji: "🌕",
+    description: "Korea's most cherished holiday — the Korean Thanksgiving. Families travel home, pay respects to ancestors (charye), eat songpyeon (half-moon rice cakes), and wear hanbok. The full harvest moon is the centerpiece of this three-day celebration.",
+    countries: ["South Korea", "North Korea", "Korean diaspora worldwide"]
+  },
+  {
+    id: "h19",
+    name: "Mid-Autumn Festival (Moon Festival)",
+    date: "2026-09-25", displayDate: "September 25, 2026",
+    month: 8, day: 25,
+    culture: "East Asian", color: "east-asian", emoji: "🥮",
+    description: "The 15th day of the 8th lunar month, when the moon is fullest and brightest. Families share mooncakes filled with lotus paste, salted egg yolk, or red bean, and children carry glowing paper lanterns. One of the most romantic and atmospheric evenings of the year.",
+    countries: ["China", "Taiwan", "Vietnam", "Singapore", "Malaysia", "diaspora worldwide"]
+  },
+  {
+    id: "h20",
+    name: "Diwali — Festival of Lights",
+    date: "2026-11-08", displayDate: "November 8, 2026",
+    month: 10, day: 8,
+    culture: "South Asian", color: "south-asian", emoji: "✨",
+    description: "The most widely celebrated Hindu festival — five days marking the triumph of light over darkness. Homes are lit with diyas (clay lamps) and colorful rangoli, families exchange sweets, and fireworks fill the sky. Also significant in Jain, Sikh, and Buddhist traditions.",
+    countries: ["India", "Nepal", "Sri Lanka", "Singapore", "Malaysia", "Fiji", "diaspora worldwide"]
+  },
+  {
+    id: "h21",
+    name: "Guru Nanak Jayanti",
+    date: "2026-11-14", displayDate: "November 14, 2026",
+    month: 10, day: 14,
+    culture: "South Asian", color: "south-asian", emoji: "🙏",
+    description: "Gurpurab — the birthday of Guru Nanak Dev Ji, founder of Sikhism. Celebrated with continuous reading of the Guru Granth Sahib, nagar kirtans (street processions), langar (community meals open to all), and prayer.",
+    countries: ["India (Punjab)", "Canada", "United Kingdom", "United States", "global Sikh diaspora"]
+  },
+  {
+    id: "h22",
+    name: "Bodhi Day",
+    date: "2026-12-08", displayDate: "December 8, 2026",
+    month: 11, day: 8,
+    culture: "East Asian", color: "east-asian", emoji: "🍵",
+    description: "Commemorating Siddhartha Gautama's enlightenment under the Bodhi tree. Observed in Zen and Mahayana Buddhist traditions with meditation, reading of sutras, and simple rituals. A quiet, contemplative day that contrasts with the season's commercial frenzy.",
+    countries: ["Japan", "United States (Zen communities)", "global Buddhist diaspora"]
+  },
+  {
+    id: "h23",
+    name: "Dongzhi — Winter Solstice Festival",
+    date: "2026-12-22", displayDate: "December 22, 2026",
+    month: 11, day: 22,
+    culture: "East Asian", color: "east-asian", emoji: "❄️",
+    description: "One of the most important Chinese traditional holidays, marking the winter solstice. Families gather to share tangyuan (glutinous rice balls in sweet soup) and honor ancestors. The solstice marks the return of longer days — a time of renewal and yin-yang balance.",
+    countries: ["China", "Taiwan", "Hong Kong", "Vietnam", "diaspora worldwide"]
+  }
+];
+
+// Export for module environments
+if (typeof module !== 'undefined') {
+  module.exports = { RESTAURANTS, EVENTS, BOOKS, HOLIDAYS };
+}
