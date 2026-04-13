@@ -777,6 +777,15 @@ const HOLIDAYS = [
     countries: ["Iran", "Afghanistan", "Tajikistan", "Azerbaijan", "Kurdish communities", "Central Asia"]
   },
   {
+    id: "h24",
+    name: "Eid al-Fitr",
+    date: "2026-03-20", displayDate: "March 20, 2026",
+    month: 2, day: 20,
+    culture: "Muslim", color: "muslim", emoji: "🌙",
+    description: "The Festival of Breaking the Fast — one of Islam's two holiest celebrations, marking the end of Ramadan. Families wake before dawn, put on their finest clothes, attend communal prayers, and share a large feast. Gifts are exchanged, charity is given (Zakat al-Fitr), and joy is mandatory. Exact date varies by moon sighting.",
+    countries: ["Indonesia", "Pakistan", "Bangladesh", "Malaysia", "pan-Asian Muslim communities"]
+  },
+  {
     id: "h6",
     name: "Holi — Festival of Colors",
     date: "2026-03-31", displayDate: "March 31, 2026",
@@ -849,6 +858,15 @@ const HOLIDAYS = [
     countries: ["South Korea"]
   },
   {
+    id: "h25",
+    name: "Eid al-Adha",
+    date: "2026-05-27", displayDate: "May 27, 2026",
+    month: 4, day: 27,
+    culture: "Muslim", color: "muslim", emoji: "🕌",
+    description: "The Festival of Sacrifice — the second and larger of the two Islamic Eid celebrations. Commemorating Ibrahim's willingness to sacrifice his son, it is marked with communal prayers, the ritual sacrifice of livestock, and distributing meat to family, neighbors, and those in need. One of the holiest days in the Islamic calendar. Exact date varies by moon sighting.",
+    countries: ["Indonesia", "Pakistan", "Bangladesh", "Malaysia", "pan-Asian Muslim communities"]
+  },
+  {
     id: "h14",
     name: "Dragon Boat Festival (Duanwu)",
     date: "2026-06-19", displayDate: "June 19, 2026",
@@ -903,6 +921,15 @@ const HOLIDAYS = [
     countries: ["China", "Taiwan", "Vietnam", "Singapore", "Malaysia", "diaspora worldwide"]
   },
   {
+    id: "h26",
+    name: "Navaratri — Nine Nights",
+    date: "2026-10-02", displayDate: "October 2–11, 2026",
+    month: 9, day: 2,
+    culture: "South Asian", color: "south-asian", emoji: "💃",
+    description: "Nine nights of worship dedicated to the goddess Durga, celebrating the victory of divine feminine energy over evil. Each night honors a different form of Durga — marked by garba and dandiya raas dancing, fasting, and vibrant color-coded dress. One of Hinduism's most joyful festivals before Dussehra on the 10th day.",
+    countries: ["India", "Nepal", "South Asian diaspora worldwide"]
+  },
+  {
     id: "h20",
     name: "Diwali — Festival of Lights",
     date: "2026-11-08", displayDate: "November 8, 2026",
@@ -910,6 +937,15 @@ const HOLIDAYS = [
     culture: "South Asian", color: "south-asian", emoji: "✨",
     description: "The most widely celebrated Hindu festival — five days marking the triumph of light over darkness. Homes are lit with diyas (clay lamps) and colorful rangoli, families exchange sweets, and fireworks fill the sky. Also significant in Jain, Sikh, and Buddhist traditions.",
     countries: ["India", "Nepal", "Sri Lanka", "Singapore", "Malaysia", "Fiji", "diaspora worldwide"]
+  },
+  {
+    id: "h27",
+    name: "Loy Krathong — Festival of Lights",
+    date: "2026-11-24", displayDate: "November 24, 2026",
+    month: 10, day: 24,
+    culture: "Southeast Asian", color: "southeast-asian", emoji: "🪔",
+    description: "Thailand's most magical night — thousands of candlelit krathong (small lotus-shaped floats) are set adrift on rivers and lakes, carrying away bad luck and making wishes. The sky fills with khom loi lanterns drifting upward. One of the most visually stunning nights in Southeast Asian tradition. Date follows the full moon of the 12th Thai lunar month.",
+    countries: ["Thailand", "Laos", "Myanmar", "Thai diaspora worldwide"]
   },
   {
     id: "h21",
