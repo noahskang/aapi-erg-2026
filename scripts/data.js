@@ -1007,6 +1007,76 @@ const LONELINESS_RESOURCES = [
     url: "https://mhanational.org/position-statements/asian-american-pacific-islander-communities-and-mental-health/",
     description: "MHA's position statement and resource hub on the intersection of model minority stereotyping, perpetual foreigner bias, and the cultural stigma driving AAPI mental health disparities.",
     icon: "📋"
+  },
+  // ── Dating & connection articles ──────────────────────────
+  {
+    id: "d1",
+    type: "article",
+    category: "dating",
+    title: "Race and Attraction, 2009–2014",
+    author: "OkCupid",
+    source: "OkCupid Blog",
+    year: "2014",
+    url: "https://archive.is/OMoLw",
+    description: "Five-year dataset showing persistent racial preference patterns in online dating — Asian men and Black women among the most disadvantaged groups by response rate.",
+    stat: "Asian men received 10–20% fewer responses than white men across all races of women."
+  },
+  {
+    id: "d2",
+    type: "article",
+    category: "dating",
+    title: "Why Dating Apps Are Not Built For Asian-American Users",
+    author: "Karen K. Ho",
+    source: "Time",
+    year: "2018",
+    url: "https://time.com/5368068/asian-american-dating-apps/",
+    description: "How algorithmic recommendation and user bias compound to create a racial hierarchy on mainstream dating platforms, and what that means for Asian Americans navigating modern romance."
+  },
+  {
+    id: "d3",
+    type: "article",
+    category: "dating",
+    title: "The 'Yellow Fever' Fetish: Why Do So Many White Men Want to Date a Chinese Woman?",
+    author: "Clarissa Wei",
+    source: "Vice",
+    year: "2014",
+    url: "https://www.vice.com/en/article/the-yellow-fever-fetish-why-do-so-many-white-men-want-to-date-a-chinese-woman/",
+    description: "A frank examination of the hypersexualization of Asian women in Western dating culture — and the emotional cost of being desired for a stereotype rather than for yourself."
+  },
+  {
+    id: "d4",
+    type: "article",
+    category: "dating",
+    title: "For Asian-American Men, Dating Is Complicated",
+    author: "Tammy Hung",
+    source: "KQED",
+    year: "2016",
+    url: "https://www.kqed.org/pop/63543/for-asian-american-men-dating-is-complicated",
+    description: "Personal accounts and sociological research on how stereotypes of Asian masculinity — passive, asexual, foreign — translate into concrete disadvantage in dating contexts."
+  },
+  // ── Resilience & community strength ───────────────────────
+  {
+    id: "r1",
+    type: "article",
+    category: "resilience",
+    title: "The Return of the Multigenerational Family Household",
+    author: "Pew Research Center",
+    source: "Pew Research Center",
+    year: "2022",
+    url: "https://www.pewresearch.org/social-trends/2022/03/24/the-return-of-the-multi-generational-family-household/",
+    description: "Asian Americans are more likely than any other group to live in multigenerational households — reflecting both economic pragmatism and deep intergenerational bonds that sustain community across generations.",
+    stat: "29% of Asian Americans live in multigenerational households — highest of any racial group in the U.S. (Pew, 2022)."
+  },
+  {
+    id: "r2",
+    type: "article",
+    category: "resilience",
+    title: "The AAPI Mental Health Advocates Breaking the Silence",
+    author: "Michelle No",
+    source: "Vogue",
+    year: "2021",
+    url: "https://www.vogue.com/article/aapi-mental-health-advocates",
+    description: "A new generation of Asian American therapists, podcasters, and community builders is actively dismantling stigma — creating culturally grounded spaces for healing that didn't exist a decade ago."
   }
 ];
 
