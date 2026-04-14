@@ -147,6 +147,13 @@
     /* Smooth transitions */
     .cal-day.holiday, .month-holiday-item, .month-card,
     .holiday-list-item, .holiday-month-group { transition: opacity .25s ease; }
+    /* Today banner + badge */
+    .today-banner{display:flex;align-items:center;gap:12px;background:rgba(232,101,42,0.07);border:1px solid rgba(232,101,42,0.22);border-radius:12px;padding:14px 20px;margin-bottom:32px;}
+    .today-banner-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;animation:pulse 2s ease-in-out infinite;}
+    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+    .today-banner-text{font-family:'Inter',sans-serif;font-size:14px;color:var(--text-2);}
+    .today-banner-text strong{color:var(--text);}
+    .today-badge{display:inline-block;font-family:'Cinzel',serif;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);background:rgba(232,101,42,0.1);border:1px solid rgba(232,101,42,0.3);border-radius:10px;padding:2px 8px;margin-left:8px;vertical-align:middle;}
   </style>
 </head>
 <body>
@@ -177,6 +184,7 @@
 
   <section class="section">
     <div class="container">
+      <div id="today-banner" class="today-banner reveal" style="display:none;"></div>
       <div class="holiday-legend reveal">
         <span class="legend-item east-asian">East Asian</span>
         <span class="legend-item south-asian">South Asian</span>

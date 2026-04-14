@@ -6,24 +6,51 @@ document.addEventListener('DOMContentLoaded', () => {
   const listView   = document.getElementById('list-view');
   const calView    = document.getElementById('calendar-view');
 
+  // ── Today detection ────────────────────────────────────────
+  const today         = new Date();
+  const isMay2026     = today.getFullYear() === 2026 && today.getMonth() === 4;
+  const todayMayDay   = isMay2026 ? today.getDate() : null;
+
   // ── Category → chip color class ───────────────────────────
   function chipClass(category) {
     switch (category.toLowerCase()) {
-      case 'performance': case 'music': case 'talk': return 'chip-warm';
-      case 'festival':    case 'comedy':             return 'chip-teal';
-      case 'food & market':                          return 'chip-gold';
-      case 'film':        case 'literature':         return 'chip-purple';
-      case 'exhibition':                             return 'chip-purple';
-      case 'parade':                                 return 'chip-indigo';
-      default:                                       return 'chip-muted';
+      case 'performance': case 'music': case 'music & dance': case 'talk': return 'chip-warm';
+      case 'festival':    case 'comedy':                                    return 'chip-teal';
+      case 'food & market':                                                 return 'chip-gold';
+      case 'film':        case 'literature':                                return 'chip-purple';
+      case 'exhibition':                                                    return 'chip-purple';
+      case 'parade':                                                        return 'chip-indigo';
+      case 'sports':      case 'community':                                 return 'chip-teal';
+      default:                                                              return 'chip-muted';
     }
+  }
+
+  // ── Today-aware event check ────────────────────────────────
+  function isEventToday(ev) {
+    if (!todayMayDay) return false;
+    const days = getMayDays(ev);
+    if (days === 'all' || days === 'ongoing') return true;
+    return days.includes(todayMayDay);
+  }
+
+  // ── Today banner ───────────────────────────────────────────
+  const bannerEl    = document.getElementById('today-banner');
+  const todayEvents = EVENTS.filter(ev => isEventToday(ev));
+  if (bannerEl && todayEvents.length > 0) {
+    bannerEl.style.display = '';
+    bannerEl.classList.add('visible');
+    const label = todayEvents.length === 1
+      ? `<strong>${todayEvents[0].title}</strong> is happening today`
+      : `<strong>${todayEvents.length} events</strong> are happening today`;
+    bannerEl.innerHTML = `<span class="today-banner-dot"></span><span class="today-banner-text">${label}</span>`;
   }
 
   // ── Build list view ────────────────────────────────────────
   EVENTS.forEach(ev => {
-    const isFree = ev.price.toLowerCase().startsWith('free');
-    const card   = document.createElement('article');
-    card.className = `event-card${ev.featured ? ' featured' : ''}`;
+    const isFree    = ev.price.toLowerCase().startsWith('free');
+    const evToday   = isEventToday(ev);
+    const card      = document.createElement('article');
+    card.className  = `event-card${ev.featured ? ' featured' : ''}`;
     card.innerHTML = `
       <div class="event-card-top">
         <span class="event-icon">${ev.icon}</span>
@@ -32,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="event-price${isFree ? ' free' : ''}">${ev.price}</span>
         </div>
       </div>
-      <h3 class="event-title">${ev.title}</h3>
+      <h3 class="event-title">${ev.title}${evToday ? '<span class="today-badge">Today</span>' : ''}</h3>
       <div class="event-meta">
         <span>📅 ${ev.date}</span>
         <span>⏰ ${ev.time}</span>
@@ -116,7 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
       continue;
     }
 
-    cell.className = 'cal-day';
+    const isCalToday = isMay2026 && dayNum === todayMayDay;
+    cell.className = `cal-day${isCalToday ? ' today' : ''}`;
 
     const numEl = document.createElement('span');
     numEl.className = 'cal-day-num';

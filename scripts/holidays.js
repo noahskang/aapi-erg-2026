@@ -56,9 +56,31 @@ document.addEventListener('DOMContentLoaded', () => {
     ) closeHolidayPanel();
   });
 
+  // ── Today detection ────────────────────────────────────────
+  const today = new Date();
+
+  function isHolidayToday(h) {
+    if (today.getFullYear() !== 2026) return false;
+    if (today.getMonth() !== h.month) return false;
+    const d = today.getDate();
+    const rangeMatch = h.displayDate.match(/\w+ (\d+)[–\-](\d+)/);
+    if (rangeMatch) return d >= +rangeMatch[1] && d <= +rangeMatch[2];
+    return d === h.day;
+  }
+
+  const todayHolidays = HOLIDAYS.filter(h => isHolidayToday(h));
+  const bannerEl = document.getElementById('today-banner');
+  if (bannerEl && todayHolidays.length > 0) {
+    bannerEl.style.display = '';
+    bannerEl.classList.add('visible');
+    const label = todayHolidays.length === 1
+      ? `<strong>${todayHolidays[0].name}</strong> is today ${todayHolidays[0].emoji}`
+      : todayHolidays.map(h => `<strong>${h.name}</strong> ${h.emoji}`).join(' · ') + ' — today';
+    bannerEl.innerHTML = `<span class="today-banner-dot"></span><span class="today-banner-text">${label}</span>`;
+  }
+
   // ── Calendar view ─────────────────────────────────────────
   const calendarContainer = document.getElementById('holidays-calendar');
-  const today = new Date();
 
   if (calendarContainer) {
     MONTH_NAMES.forEach((monthName, monthIndex) => {
@@ -157,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
       itemsWrap.className = 'holiday-list-items';
 
       byMonth[mIdx].forEach(h => {
+        const hToday = isHolidayToday(h);
         const item = document.createElement('article');
         item.className = `holiday-list-item ${h.color}`;
         item.innerHTML = `
@@ -166,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="hli-body">
             <div class="hli-header">
-              <h4 class="hli-name">${h.name}</h4>
+              <h4 class="hli-name">${h.name}${hToday ? '<span class="today-badge">Today</span>' : ''}</h4>
               <span class="hli-date">${h.displayDate.replace(', 2026', '')}</span>
             </div>
             <p class="hli-culture">${h.culture} · ${h.countries.join(', ')}</p>
