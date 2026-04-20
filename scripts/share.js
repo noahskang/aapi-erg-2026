@@ -100,26 +100,33 @@
 
   window.doCopy = doCopy;
 
-  window.attachShareButton = function (card, shareId) {
-    card.style.position = 'relative';
+  function makeBtn(shareId) {
     const btn = document.createElement('button');
     btn.className = 'share-btn';
     btn.setAttribute('aria-label', 'Copy link');
     btn.innerHTML = LINK_ICON;
-
     const tooltip = document.createElement('span');
     tooltip.className = 'share-tooltip';
     tooltip.textContent = 'Copied!';
     btn.appendChild(tooltip);
-
     btn.addEventListener('click', e => {
       e.stopPropagation();
       e.preventDefault();
       const url = window.location.origin + window.location.pathname + '#' + shareId;
       doCopy(url, btn);
     });
+    return btn;
+  }
 
-    card.appendChild(btn);
+  // Absolutely-positioned share button appended to a card root
+  window.attachShareButton = function (card, shareId) {
+    card.style.position = 'relative';
+    card.appendChild(makeBtn(shareId));
+  };
+
+  // Inline share button — caller decides where to append and how to position
+  window.createShareButton = function (shareId) {
+    return makeBtn(shareId);
   };
 
   window.handleShareHash = function (opts) {

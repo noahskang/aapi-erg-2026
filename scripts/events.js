@@ -72,7 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="event-source">Source: ${ev.source}</span>
       </div>
     `;
-    attachShareButton(card, card.id);
+    const shareBtn = createShareButton(card.id);
+    shareBtn.style.cssText = 'position:static;margin-top:4px;align-self:flex-end;';
+    card.querySelector('.event-badges').appendChild(shareBtn);
     eventsGrid.appendChild(card);
   });
 
