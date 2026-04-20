@@ -16,20 +16,22 @@
       width: 30px;
       height: 30px;
       border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(10,13,20,0.65);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       color: #A8C0D8;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      z-index: 2;
+      z-index: 10;
       transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
     .share-btn:hover {
-      background: rgba(255,255,255,0.14);
-      border-color: rgba(255,255,255,0.2);
+      background: rgba(30,36,50,0.85);
+      border-color: rgba(255,255,255,0.35);
       color: #F5EDE0;
     }
     .share-btn.copied {
