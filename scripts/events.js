@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const evToday   = isEventToday(ev);
     const card      = document.createElement('article');
     card.className  = `event-card${ev.featured ? ' featured' : ''}`;
+    card.id         = 'event-' + ev.id;
     card.innerHTML = `
       <div class="event-card-top">
         <span class="event-icon">${ev.icon}</span>
@@ -71,7 +72,19 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="event-source">Source: ${ev.source}</span>
       </div>
     `;
+    attachShareButton(card, card.id);
     eventsGrid.appendChild(card);
+  });
+
+  handleShareHash({
+    onBeforeScroll(hash) {
+      if (!hash.startsWith('event-')) return;
+      const listView = document.getElementById('list-view');
+      if (listView && listView.style.display === 'none') {
+        const listBtn = document.querySelector('.view-toggle-btn[data-view="list"]');
+        if (listBtn) listBtn.click();
+      }
+    }
   });
 
   // ── Date → May day numbers ─────────────────────────────────

@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const awardsHTML = b.awards.map(a => `<span class="award-badge">${a}</span>`).join('');
     const card = document.createElement('article');
     card.className = 'book-card';
+    card.id = 'book-' + b.id;
     const coverContent = b.coverImage
       ? `<img class="book-cover-img" src="${b.coverImage}" alt="Cover of ${b.title}" loading="lazy" onerror="this.parentElement.style.background='var(--spine-color)';this.style.display='none'">`
       : `<span class="spine-title">${b.title}</span>`;
@@ -27,11 +28,20 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="book-awards">${awardsHTML}</div>
       </div>
     `;
+    attachShareButton(card, card.id);
     return card;
   }
 
   BOOKS.classic.forEach(b => classicGrid.appendChild(buildBookCard(b)));
   BOOKS.recent.forEach(b  => recentGrid.appendChild(buildBookCard(b)));
+
+  handleShareHash({
+    onBeforeScroll(hash) {
+      if (!hash.startsWith('book-r')) return;
+      const recentBtn = document.querySelector('.toggle-btn[data-books="recent"]');
+      if (recentBtn && !recentBtn.classList.contains('active')) recentBtn.click();
+    }
+  });
 
   // Tab switching
   const toggleBtns = document.querySelectorAll('.toggle-btn[data-books]');

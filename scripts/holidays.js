@@ -28,6 +28,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Holiday detail panel ──────────────────────────────────
   const panel         = document.getElementById('holiday-detail');
   const panelClose    = document.querySelector('.panel-close');
+  const panelInner    = panel.querySelector('.panel-inner');
+
+  // Panel share button — created once, share ID updated each open
+  const panelShareBtn = document.createElement('button');
+  panelShareBtn.className = 'share-btn';
+  panelShareBtn.setAttribute('aria-label', 'Copy link');
+  panelShareBtn.innerHTML = window.SHARE_LINK_ICON;
+  panelShareBtn.style.top   = '16px';
+  panelShareBtn.style.right = '64px';
+  const panelShareTooltip = document.createElement('span');
+  panelShareTooltip.className = 'share-tooltip';
+  panelShareTooltip.textContent = 'Copied!';
+  panelShareBtn.appendChild(panelShareTooltip);
+  panelInner.appendChild(panelShareBtn);
+
+  panelShareBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    const shareId = panelShareBtn.dataset.shareId;
+    if (!shareId) return;
+    const url = window.location.origin + window.location.pathname + '#' + shareId;
+    window.doCopy(url, panelShareBtn);
+  });
 
   function openHolidayPanel(h) {
     document.getElementById('panel-emoji').textContent         = h.emoji;
@@ -39,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('panel-desc').textContent          = h.description;
     document.getElementById('panel-countries').innerHTML       =
       h.countries.map(c => `<span class="country-tag">${c}</span>`).join('');
+    panelShareBtn.dataset.shareId = 'holiday-' + h.id;
     panel.classList.add('open');
   }
 
@@ -126,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dayEl.textContent = day;
 
         if (holiday) {
+          dayEl.id    = 'holiday-' + holiday.id;
           dayEl.title = holiday.name;
           dayEl.addEventListener('click', () => openHolidayPanel(holiday));
         }
@@ -295,6 +319,16 @@ document.addEventListener('DOMContentLoaded', () => {
         listView.style.display = '';
       }
     });
+  });
+
+  // ── Deep-link: open panel for hashed holiday ─────────────
+  handleShareHash({
+    onBeforeScroll(hash) {
+      if (!hash.startsWith('holiday-')) return;
+      const holidayId = hash.replace('holiday-', '');
+      const h = HOLIDAYS.find(x => x.id === holidayId);
+      if (h) openHolidayPanel(h);
+    }
   });
 
 });

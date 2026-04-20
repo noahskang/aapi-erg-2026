@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     items.forEach(r => {
       const card = document.createElement('article');
       card.className = 'resource-card';
+      card.id = 'resource-' + r.id;
       card.innerHTML = `
         <p class="rc-category">${CATEGORY_LABELS[r.category] || r.category}</p>
         <h3 class="rc-title">${r.title}</h3>
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <a class="rc-link" href="${r.url}" target="_blank" rel="noopener">Read →</a>
         </div>
       `;
+      attachShareButton(card, card.id);
       container.appendChild(card);
     });
   }
@@ -50,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
   orgs.forEach(r => {
     const card = document.createElement('a');
     card.className = 'org-card';
+    card.id        = 'resource-' + r.id;
     card.href      = r.url;
     card.target    = '_blank';
     card.rel       = 'noopener';
@@ -60,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <p class="org-desc">${r.description}</p>
       <span class="org-cta">Visit →</span>
     `;
+    attachShareButton(card, card.id);
     orgsGrid.appendChild(card);
   });
 
@@ -79,6 +83,18 @@ document.addEventListener('DOMContentLoaded', () => {
       Object.values(gridMap).forEach(g => g.style.display = 'none');
       gridMap[btn.dataset.tab].style.display = '';
     });
+  });
+
+  handleShareHash({
+    onBeforeScroll(hash, el) {
+      if (!hash.startsWith('resource-')) return;
+      let tab = 'articles';
+      if (el.closest('#dating-grid'))     tab = 'dating';
+      else if (el.closest('#resilience-grid')) tab = 'resilience';
+      else if (el.closest('#orgs-grid'))  tab = 'orgs';
+      const btn = document.querySelector(`.toggle-btn[data-tab="${tab}"]`);
+      if (btn && !btn.classList.contains('active')) btn.click();
+    }
   });
 
 });

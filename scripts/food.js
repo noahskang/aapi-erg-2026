@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const card = document.createElement('article');
     card.className = 'restaurant-card';
+    card.id = 'restaurant-' + r.id;
     card.dataset.id = r.id;
     card.innerHTML = `
       <div class="card-photos">
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleBtn.textContent  = isOpen ? 'Show details ↓' : 'Hide details ↑';
     });
 
+    attachShareButton(card, card.id);
     return card;
   }
 
@@ -71,6 +73,18 @@ document.addEventListener('DOMContentLoaded', () => {
   if (restaurantGrid) {
     RESTAURANTS.forEach(r => restaurantGrid.appendChild(buildRestaurantCard(r)));
   }
+
+  handleShareHash({
+    onBeforeScroll(hash) {
+      if (!hash.startsWith('restaurant-')) return;
+      const listView = document.getElementById('list-view');
+      const mapView  = document.getElementById('map-view');
+      if (listView && listView.style.display === 'none') {
+        const listBtn = document.querySelector('.toggle-btn[data-view="list"]');
+        if (listBtn) listBtn.click();
+      }
+    }
+  });
 
   // ── Map / List view toggle ────────────────────────────────
   const foodToggleBtns = document.querySelectorAll('.toggle-btn[data-view]');
