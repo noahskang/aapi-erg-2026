@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <p class="org-desc">${r.description}</p>
       <span class="org-cta">Visit →</span>
     `;
+    attachShareButton(card, r.url);
     orgsGrid.appendChild(card);
   });
 

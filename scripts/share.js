@@ -1,11 +1,12 @@
 // ============================================================
-// share.js — Source-link button utility for all rec pages
-// Renders a small link icon on each card that opens the
-// upstream source (Amazon, event page, Wikipedia, etc.) in a
-// new tab.
+// share.js — Source-link copy button for all rec pages
+// Renders a small link icon on each card; clicking it copies
+// the upstream source URL (Amazon, event page, Wikipedia, etc.)
+// to the clipboard with a brief "Copied!" confirmation.
 // ============================================================
 (function () {
-  const LINK_ICON = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`;
+  const LINK_ICON  = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`;
+  const CHECK_ICON = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
 
   window.SHARE_LINK_ICON = LINK_ICON;
 
@@ -29,7 +30,6 @@
       justify-content: center;
       flex-shrink: 0;
       z-index: 10;
-      text-decoration: none;
       transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
     .share-btn:hover {
@@ -37,7 +37,29 @@
       border-color: rgba(255,255,255,0.35);
       color: #F5EDE0;
     }
+    .share-btn.copied {
+      background: rgba(46,160,67,0.22);
+      border-color: rgba(46,160,67,0.4);
+      color: #4ade80;
+    }
     .share-btn svg { pointer-events: none; }
+    .share-tooltip {
+      position: absolute;
+      top: calc(100% + 5px);
+      right: 0;
+      background: rgba(20,25,35,0.95);
+      color: #F5EDE0;
+      font-size: 11px;
+      font-family: Inter, sans-serif;
+      white-space: nowrap;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.12);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+    .share-tooltip.show { opacity: 1; }
     @keyframes share-highlight {
       0%   { box-shadow: 0 0 0 0 rgba(232,101,42,0); }
       20%  { box-shadow: 0 0 0 5px rgba(232,101,42,0.5); }
@@ -47,36 +69,71 @@
   `;
   document.head.appendChild(style);
 
-  function makeBtn(url) {
-    const a = document.createElement('a');
-    a.className = 'share-btn';
-    a.setAttribute('aria-label', 'Open source in new tab');
-    a.setAttribute('title', 'Open source');
-    a.href = url;
-    a.target = '_blank';
-    a.rel = 'noopener noreferrer';
-    a.innerHTML = LINK_ICON;
-    // Prevent parent card/anchor handlers from firing when icon is clicked
-    a.addEventListener('click', e => e.stopPropagation());
-    return a;
+  function doCopy(url, btn) {
+    const tooltip = btn.querySelector('.share-tooltip');
+    function showFeedback() {
+      btn.innerHTML = CHECK_ICON;
+      if (tooltip) btn.appendChild(tooltip);
+      btn.classList.add('copied');
+      if (tooltip) tooltip.classList.add('show');
+      setTimeout(() => {
+        btn.innerHTML = LINK_ICON;
+        if (tooltip) btn.appendChild(tooltip);
+        btn.classList.remove('copied');
+        if (tooltip) tooltip.classList.remove('show');
+      }, 1500);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(showFeedback).catch(() => fallbackCopy(url, showFeedback));
+    } else {
+      fallbackCopy(url, showFeedback);
+    }
   }
 
-  // Absolutely-positioned source link appended to a card root
+  function fallbackCopy(url, cb) {
+    const ta = document.createElement('textarea');
+    ta.value = url;
+    ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (_) {}
+    document.body.removeChild(ta);
+    cb();
+  }
+
+  window.doCopy = doCopy;
+
+  function makeBtn(url) {
+    const btn = document.createElement('button');
+    btn.className = 'share-btn';
+    btn.setAttribute('aria-label', 'Copy source link');
+    btn.setAttribute('title', 'Copy source link');
+    btn.innerHTML = LINK_ICON;
+    const tooltip = document.createElement('span');
+    tooltip.className = 'share-tooltip';
+    tooltip.textContent = 'Copied!';
+    btn.appendChild(tooltip);
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      e.preventDefault();
+      doCopy(url, btn);
+    });
+    return btn;
+  }
+
+  // Absolutely-positioned copy-link button appended to a card root
   window.attachShareButton = function (card, url) {
     if (!url) return;
     card.style.position = 'relative';
     card.appendChild(makeBtn(url));
   };
 
-  // Inline source link — caller decides where to append and how to position
+  // Inline copy-link button — caller decides where to append and how to position
   window.createShareButton = function (url) {
     if (!url) return null;
     return makeBtn(url);
   };
 
-  // Deep-link handler: if the page loads with #anchor-id, scroll the
-  // matching element into view and briefly highlight it. Cards still
-  // carry id attributes for direct linking from URLs pasted manually.
   window.handleShareHash = function (opts) {
     const hash = window.location.hash.slice(1);
     if (!hash) return;

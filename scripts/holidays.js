@@ -30,19 +30,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const panelClose    = document.querySelector('.panel-close');
   const panelInner    = panel.querySelector('.panel-inner');
 
-  // Panel source-link button — created once, href updated each open
-  const panelShareBtn = document.createElement('a');
+  // Panel source-link button — created once, source URL updated each open
+  const panelShareBtn = document.createElement('button');
   panelShareBtn.className = 'share-btn';
-  panelShareBtn.setAttribute('aria-label', 'Open source in new tab');
-  panelShareBtn.setAttribute('title', 'Open source');
-  panelShareBtn.target = '_blank';
-  panelShareBtn.rel    = 'noopener noreferrer';
+  panelShareBtn.setAttribute('aria-label', 'Copy source link');
+  panelShareBtn.setAttribute('title', 'Copy source link');
   panelShareBtn.innerHTML = window.SHARE_LINK_ICON;
   panelShareBtn.style.top   = '16px';
   panelShareBtn.style.right = '64px';
+  const panelShareTooltip = document.createElement('span');
+  panelShareTooltip.className = 'share-tooltip';
+  panelShareTooltip.textContent = 'Copied!';
+  panelShareBtn.appendChild(panelShareTooltip);
   panelInner.appendChild(panelShareBtn);
 
-  panelShareBtn.addEventListener('click', e => e.stopPropagation());
+  panelShareBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    const url = panelShareBtn.dataset.sourceUrl;
+    if (!url) return;
+    window.doCopy(url, panelShareBtn);
+  });
 
   function holidaySourceUrl(h) {
     return `https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(h.name)}`;
@@ -58,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('panel-desc').textContent          = h.description;
     document.getElementById('panel-countries').innerHTML       =
       h.countries.map(c => `<span class="country-tag">${c}</span>`).join('');
-    panelShareBtn.href = holidaySourceUrl(h);
+    panelShareBtn.dataset.sourceUrl = holidaySourceUrl(h);
     panel.classList.add('open');
   }
 
