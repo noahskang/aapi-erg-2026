@@ -72,9 +72,12 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="event-source">Source: ${ev.source}</span>
       </div>
     `;
-    const shareBtn = createShareButton(card.id);
-    shareBtn.style.cssText = 'position:static;margin-top:4px;align-self:flex-end;';
-    card.querySelector('.event-badges').appendChild(shareBtn);
+    const hasRealLink = ev.link && ev.link !== '#';
+    if (hasRealLink) {
+      const shareBtn = createShareButton(ev.link);
+      shareBtn.style.cssText = 'position:static;margin-top:4px;align-self:flex-end;';
+      card.querySelector('.event-badges').appendChild(shareBtn);
+    }
     eventsGrid.appendChild(card);
   });
 

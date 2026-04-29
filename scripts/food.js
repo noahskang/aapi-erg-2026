@@ -3,6 +3,11 @@
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
 
+  function mapsUrl(r) {
+    const q = encodeURIComponent(`${r.name} ${r.address}`);
+    return `https://www.google.com/maps/search/?api=1&query=${q}`;
+  }
+
   function getInitials(name) {
     const parts = name.trim().split(' ');
     return parts.length >= 2
@@ -65,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleBtn.textContent  = isOpen ? 'Show details ↓' : 'Hide details ↑';
     });
 
-    attachShareButton(card, card.id);
+    attachShareButton(card, mapsUrl(r));
     return card;
   }
 

@@ -30,26 +30,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const panelClose    = document.querySelector('.panel-close');
   const panelInner    = panel.querySelector('.panel-inner');
 
-  // Panel share button — created once, share ID updated each open
-  const panelShareBtn = document.createElement('button');
+  // Panel source-link button — created once, href updated each open
+  const panelShareBtn = document.createElement('a');
   panelShareBtn.className = 'share-btn';
-  panelShareBtn.setAttribute('aria-label', 'Copy link');
+  panelShareBtn.setAttribute('aria-label', 'Open source in new tab');
+  panelShareBtn.setAttribute('title', 'Open source');
+  panelShareBtn.target = '_blank';
+  panelShareBtn.rel    = 'noopener noreferrer';
   panelShareBtn.innerHTML = window.SHARE_LINK_ICON;
   panelShareBtn.style.top   = '16px';
   panelShareBtn.style.right = '64px';
-  const panelShareTooltip = document.createElement('span');
-  panelShareTooltip.className = 'share-tooltip';
-  panelShareTooltip.textContent = 'Copied!';
-  panelShareBtn.appendChild(panelShareTooltip);
   panelInner.appendChild(panelShareBtn);
 
-  panelShareBtn.addEventListener('click', e => {
-    e.stopPropagation();
-    const shareId = panelShareBtn.dataset.shareId;
-    if (!shareId) return;
-    const url = window.location.origin + window.location.pathname + '#' + shareId;
-    window.doCopy(url, panelShareBtn);
-  });
+  panelShareBtn.addEventListener('click', e => e.stopPropagation());
+
+  function holidaySourceUrl(h) {
+    return `https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(h.name)}`;
+  }
 
   function openHolidayPanel(h) {
     document.getElementById('panel-emoji').textContent         = h.emoji;
@@ -61,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('panel-desc').textContent          = h.description;
     document.getElementById('panel-countries').innerHTML       =
       h.countries.map(c => `<span class="country-tag">${c}</span>`).join('');
-    panelShareBtn.dataset.shareId = 'holiday-' + h.id;
+    panelShareBtn.href = holidaySourceUrl(h);
     panel.classList.add('open');
   }
 

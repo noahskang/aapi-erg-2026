@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <a class="rc-link" href="${r.url}" target="_blank" rel="noopener">Read →</a>
         </div>
       `;
-      attachShareButton(card, card.id);
+      attachShareButton(card, r.url);
       container.appendChild(card);
     });
   }
@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <p class="org-desc">${r.description}</p>
       <span class="org-cta">Visit →</span>
     `;
-    attachShareButton(card, card.id);
     orgsGrid.appendChild(card);
   });
 

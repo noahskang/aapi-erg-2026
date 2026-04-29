@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const recentGrid  = document.getElementById('books-recent');
   if (!classicGrid || !recentGrid) return;
 
+  function amazonUrl(b) {
+    const q = encodeURIComponent(`${b.title} ${b.author}`);
+    return `https://www.amazon.com/s?k=${q}&i=stripbooks`;
+  }
+
   function buildBookCard(b) {
     const awardsHTML = b.awards.map(a => `<span class="award-badge">${a}</span>`).join('');
     const card = document.createElement('article');
@@ -28,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="book-awards">${awardsHTML}</div>
       </div>
     `;
-    attachShareButton(card, card.id);
+    attachShareButton(card, amazonUrl(b));
     return card;
   }
 
