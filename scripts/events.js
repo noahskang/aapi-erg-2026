@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const eventsGrid = document.getElementById('events-grid');
   const listView   = document.getElementById('list-view');
   const calView    = document.getElementById('calendar-view');
+  const ergView    = document.getElementById('erg-view');
 
   // ── Today detection ────────────────────────────────────────
   const today         = new Date();
@@ -195,14 +196,146 @@ document.addEventListener('DOMContentLoaded', () => {
 
   calView.appendChild(grid);
 
+  // ── Build ERG view ─────────────────────────────────────────
+  function escapeAttr(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function renderErgView() {
+    if (typeof ERG_EVENTS === 'undefined' || !ergView) return;
+
+    const intro = document.createElement('div');
+    intro.className = 'erg-intro reveal';
+    intro.innerHTML = `
+      <p class="erg-intro-eyebrow">Programming by Asian @ Hinge</p>
+      <p class="erg-intro-text">Our ERG's own slate of AAPI Heritage Month gatherings — author talks, film screenings, tastings, and workshops, all hosted at the FiDi office and free for Hinge employees.</p>
+    `;
+    ergView.appendChild(intro);
+
+    const grid = document.createElement('div');
+    grid.className = 'erg-grid';
+
+    ERG_EVENTS.forEach(ev => {
+      const card = document.createElement('article');
+      card.className = 'erg-card';
+      card.id = ev.id;
+
+      // Cover (first available image — single image, or films[0].image)
+      let coverHtml = '';
+      if (ev.image) {
+        coverHtml = `<div class="erg-card-cover cover-portrait"><img src="${ev.image}" alt="${escapeAttr(ev.title)}" loading="lazy"></div>`;
+      }
+
+      // Films sub-grid (if present)
+      let filmsHtml = '';
+      if (ev.films && ev.films.length) {
+        filmsHtml = `
+          <div class="erg-films">
+            <div class="erg-films-label">Featuring</div>
+            ${ev.films.map((f, idx) => `
+              <div class="erg-film">
+                <img class="erg-film-poster" src="${f.image}" alt="${escapeAttr(f.title)} poster" loading="lazy">
+                <div class="erg-film-body">
+                  <h4 class="erg-film-title">${f.title}</h4>
+                  <p class="erg-film-director">Directed by <strong>${f.director}</strong></p>
+                  <p class="erg-film-synopsis">${f.synopsis}</p>
+                  ${f.laurels && f.laurels.length ? `
+                    <div class="erg-laurels">${f.laurels.map(l => `<span class="erg-laurel">🌿 ${l}</span>`).join('')}</div>
+                  ` : ''}
+                  <button class="erg-bio-toggle" data-bio-target="${ev.id}-bio-${idx}">About the director ▾</button>
+                  <div class="erg-bio" id="${ev.id}-bio-${idx}">${f.bio}</div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }
+
+      // Partner link
+      const partnerHtml = ev.partner
+        ? `<a class="erg-partner" href="${ev.partner.url}" target="_blank" rel="noopener">↗ ${ev.partner.name}</a>`
+        : '';
+
+      // Includes tags
+      const includesHtml = ev.includes && ev.includes.length
+        ? `<div class="erg-includes">${ev.includes.map(t => `<span class="erg-include-tag">${t}</span>`).join('')}</div>`
+        : '';
+
+      // Notes
+      const notesHtml = ev.notes ? `<p class="erg-notes">${ev.notes}</p>` : '';
+
+      card.innerHTML = `
+        ${coverHtml}
+        <div class="erg-card-body">
+          <div class="erg-card-head">
+            <span class="erg-card-eyebrow">${ev.icon} ${ev.category}</span>
+            <span class="erg-card-when"><strong>${ev.date}</strong>${ev.time}</span>
+          </div>
+          <h3 class="erg-card-title">${ev.title}</h3>
+          <div class="erg-card-meta-row">
+            <span>📍 ${ev.location}</span>
+          </div>
+          <p class="erg-card-desc">${ev.description}</p>
+          ${includesHtml}
+          ${partnerHtml}
+          ${filmsHtml}
+          ${notesHtml}
+        </div>
+      `;
+
+      // Share button (uses the in-page hash for ERG cards)
+      const hasShare = typeof createShareButton === 'function';
+      if (hasShare) {
+        const url = window.location.href.split('#')[0] + '#' + ev.id;
+        const shareBtn = createShareButton(url);
+        shareBtn.style.cssText = 'position:absolute;top:16px;right:16px;z-index:10;';
+        const cover = card.querySelector('.erg-card-cover');
+        if (cover) {
+          cover.style.position = 'relative';
+          cover.appendChild(shareBtn);
+        } else {
+          card.style.position = 'relative';
+          card.appendChild(shareBtn);
+        }
+      }
+
+      grid.appendChild(card);
+    });
+
+    ergView.appendChild(grid);
+
+    // Bio expand/collapse
+    ergView.addEventListener('click', e => {
+      const btn = e.target.closest('.erg-bio-toggle');
+      if (!btn) return;
+      const bio = document.getElementById(btn.dataset.bioTarget);
+      if (!bio) return;
+      const open = bio.classList.toggle('open');
+      btn.textContent = open ? 'Hide director bio ▴' : 'About the director ▾';
+    });
+  }
+
+  renderErgView();
+
   // ── Toggle handler ─────────────────────────────────────────
   document.querySelectorAll('.view-toggle-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.view-toggle-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const isCalendar = btn.dataset.view === 'calendar';
-      listView.style.display = isCalendar ? 'none' : '';
-      calView.style.display  = isCalendar ? ''     : 'none';
+      const view = btn.dataset.view;
+      listView.style.display = view === 'list' ? '' : 'none';
+      calView.style.display  = view === 'calendar' ? '' : 'none';
+      ergView.style.display  = view === 'erg' ? '' : 'none';
     });
   });
+
+  // ── If hash points at an ERG card, switch to ERG view ─────
+  if (window.location.hash && /^#erg-/.test(window.location.hash)) {
+    const ergBtn = document.querySelector('.view-toggle-btn[data-view="erg"]');
+    if (ergBtn) ergBtn.click();
+    setTimeout(() => {
+      const target = document.querySelector(window.location.hash);
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    }, 100);
+  }
 });

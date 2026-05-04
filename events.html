@@ -123,6 +123,48 @@
     .today-banner-text{font-family:'Inter',sans-serif;font-size:14px;color:var(--text-2);}
     .today-banner-text strong{color:var(--text);}
     .today-badge{display:inline-block;font-family:'Cinzel',serif;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);background:rgba(232,101,42,0.1);border:1px solid rgba(232,101,42,0.3);border-radius:10px;padding:2px 8px;margin-left:8px;vertical-align:middle;}
+    /* ERG view */
+    .erg-intro{max-width:680px;margin:0 auto 40px;text-align:center;}
+    .erg-intro-eyebrow{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+    .erg-intro-text{font-family:'Inter',sans-serif;font-size:15px;color:var(--text-2);line-height:1.7;}
+    .erg-grid{display:grid;grid-template-columns:1fr;gap:32px;max-width:920px;margin:0 auto;}
+    .erg-card{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease;}
+    .erg-card:hover{border-color:var(--border-hover);box-shadow:var(--shadow);}
+    .erg-card-cover{position:relative;width:100%;background:#0a0d14;}
+    .erg-card-cover img{width:100%;display:block;object-fit:cover;}
+    .erg-card-cover.cover-portrait img{aspect-ratio:auto;max-height:520px;object-fit:contain;background:#f6efe2;}
+    .erg-card-cover.cover-landscape img{aspect-ratio:16/9;}
+    .erg-card-body{padding:32px;}
+    .erg-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:12px;flex-wrap:wrap;}
+    .erg-card-eyebrow{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);}
+    .erg-card-when{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.1em;color:var(--gold);text-align:right;}
+    .erg-card-when strong{color:var(--text);font-weight:600;display:block;font-size:13px;letter-spacing:.08em;margin-bottom:2px;}
+    .erg-card-title{font-family:'Noto Serif JP',serif;font-size:clamp(24px,3vw,32px);font-weight:300;color:var(--text);line-height:1.2;margin-bottom:14px;}
+    .erg-card-meta-row{display:flex;flex-wrap:wrap;gap:14px 22px;margin-bottom:18px;}
+    .erg-card-meta-row span{font-family:'Inter',sans-serif;font-size:13px;color:var(--text-3);}
+    .erg-card-desc{font-family:'Inter',sans-serif;font-size:15px;color:var(--text-2);line-height:1.7;margin-bottom:18px;}
+    .erg-includes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+    .erg-include-tag{font-family:'Inter',sans-serif;font-size:12px;color:var(--text-2);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:20px;padding:4px 12px;}
+    .erg-partner{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:13px;color:var(--accent);text-decoration:none;background:rgba(232,101,42,0.08);border:1px solid rgba(232,101,42,0.25);border-radius:24px;padding:8px 16px;transition:background .2s,border-color .2s;}
+    .erg-partner:hover{background:rgba(232,101,42,0.14);border-color:rgba(232,101,42,0.45);}
+    .erg-notes{font-family:'Inter',sans-serif;font-size:12px;color:var(--text-3);font-style:italic;margin-top:14px;padding-top:14px;border-top:1px solid var(--border);}
+    /* ERG films sub-grid */
+    .erg-films{display:flex;flex-direction:column;gap:18px;margin-top:24px;padding-top:24px;border-top:1px solid var(--border);}
+    .erg-films-label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+    .erg-film{display:grid;grid-template-columns:220px 1fr;gap:20px;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+    @media(max-width:700px){.erg-film{grid-template-columns:1fr;}}
+    .erg-film-poster{width:100%;height:100%;min-height:180px;object-fit:cover;display:block;background:#000;}
+    .erg-film-body{padding:18px 20px 20px;}
+    .erg-film-title{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:400;color:var(--text);margin-bottom:2px;}
+    .erg-film-director{font-family:'Inter',sans-serif;font-size:12px;color:var(--text-3);margin-bottom:10px;}
+    .erg-film-director strong{color:var(--gold);font-weight:500;}
+    .erg-film-synopsis{font-family:'Inter',sans-serif;font-size:13px;color:var(--text-2);line-height:1.6;font-style:italic;margin-bottom:12px;}
+    .erg-laurels{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+    .erg-laurel{font-family:'Inter',sans-serif;font-size:10px;color:var(--gold);background:rgba(212,168,83,0.08);border:1px solid rgba(212,168,83,0.2);border-radius:14px;padding:3px 9px;}
+    .erg-bio-toggle{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:none;border:none;padding:0;cursor:pointer;transition:color .2s;}
+    .erg-bio-toggle:hover{color:var(--gold);}
+    .erg-bio{margin-top:10px;font-family:'Inter',sans-serif;font-size:12px;color:var(--text-3);line-height:1.65;white-space:pre-line;display:none;}
+    .erg-bio.open{display:block;}
   </style>
 </head>
 <body>
@@ -155,13 +197,15 @@
     <div class="container">
       <div id="today-banner" class="today-banner reveal" style="display:none;"></div>
       <div class="view-toggle reveal">
-        <button class="view-toggle-btn active" data-view="list">≡ List</button>
+        <button class="view-toggle-btn active" data-view="list">≡ NYC List</button>
         <button class="view-toggle-btn" data-view="calendar">📅 Calendar</button>
+        <button class="view-toggle-btn" data-view="erg">🌸 Asian @ Hinge</button>
       </div>
       <div id="list-view">
         <div id="events-grid" class="events-grid stagger"></div>
       </div>
       <div id="calendar-view" style="display:none;"></div>
+      <div id="erg-view" style="display:none;"></div>
     </div>
   </section>
 

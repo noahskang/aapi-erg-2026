@@ -217,6 +217,69 @@ const RESTAURANTS = [
     ],
     priceRange: "$$$",
     tags: ["Korean Fusion", "Group Dinner", "Celebration", "East Village"]
+  },
+  {
+    id: 11,
+    name: "Te Company",
+    neighborhood: "West Village + East Village",
+    address: "163 W 10th St, New York, NY 10014",
+    cuisine: "Taiwanese Tea House",
+    lat: 40.7340,
+    lng: -74.0042,
+    hours: "Wed–Sun: 12pm–7pm (Closed Mon–Tue)",
+    topDishes: ["Oolong Tea Flights", "Pineapple Linzer Cookies", "Tea-Smoked Eggs", "Seasonal Tea Service"],
+    recommender: "Jonathan Jin",
+    recommenderTitle: "Hinge ERG",
+    blurb: "A tiny Taiwanese tea shop that takes leaves seriously without being precious about it. The pineapple linzer cookie alone is worth the trip — buttery, jammy, and somehow exactly the right thing with a pot of oolong. Slow down and let them brew it for you.",
+    photos: [
+      "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&q=80",
+      "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80",
+      "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=600&q=80"
+    ],
+    priceRange: "$$",
+    tags: ["Taiwanese", "Tea", "West Village", "Quiet"]
+  },
+  {
+    id: 12,
+    name: "Phoenix Palace",
+    neighborhood: "Lower East Side",
+    address: "157 E Broadway, New York, NY 10002",
+    cuisine: "Cantonese / Hong Kong-Style",
+    lat: 40.7140,
+    lng: -73.9899,
+    hours: "Hours vary",
+    topDishes: ["Roast Duck", "Salt & Pepper Squid", "Crispy Chicken", "Lo Mein"],
+    recommender: "Julie Harris",
+    recommenderTitle: "Hinge ERG",
+    blurb: "Phoenix Palace is the kind of place you want around for big group Asian dinners — the roasted meats hang in the window, the lazy susan spins, and nobody is rushing you out. Order generously and bring people who appreciate it.",
+    photos: [
+      "https://images.unsplash.com/photo-1525755662778-989d0524087e?w=600&q=80",
+      "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=80",
+      "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=600&q=80"
+    ],
+    priceRange: "$$",
+    tags: ["Cantonese", "Group Dinner", "LES", "Roast Meats"]
+  },
+  {
+    id: 13,
+    name: "Xing Fu Tang",
+    neighborhood: "Hudson Yards / St. Marks / FiDi",
+    address: "20 Hudson Yards, New York, NY 10001",
+    cuisine: "Taiwanese Bubble Tea",
+    lat: 40.7536,
+    lng: -74.0014,
+    hours: "Mon–Sun: 11am–9pm",
+    topDishes: ["Brown Sugar Boba Milk", "Stir-Fried Brown Sugar Boba", "Strawberry Boba", "Matcha Latte with Boba"],
+    recommender: "Shmo Chuang",
+    recommenderTitle: "Hinge ERG",
+    blurb: "The Taiwanese chain that made stir-frying boba in front of you a thing — and yes, the brown sugar caramelizing in the wok smells exactly as good as it sounds. The pearls actually have texture. Worth the small line at any of the three NYC outposts.",
+    photos: [
+      "https://images.unsplash.com/photo-1558857563-b371033873b8?w=600&q=80",
+      "https://images.unsplash.com/photo-1546039907-7fa05f864c02?w=600&q=80",
+      "https://images.unsplash.com/photo-1525803377221-4f6ccdaa5350?w=600&q=80"
+    ],
+    priceRange: "$",
+    tags: ["Taiwanese", "Boba", "Quick Bite", "Chain"]
   }
 ];
 
@@ -495,6 +558,156 @@ const EVENTS = [
     icon: "🀄",
     featured: false,
     source: "AM New York"
+  },
+  {
+    id: 19,
+    title: "Wing on Wo & Co",
+    date: "Throughout May 2026",
+    time: "Hours vary",
+    location: "26 Mott St, New York, NY 10013",
+    neighborhood: "Chinatown",
+    description: "One of the oldest continuously operating family-run shops in Manhattan's Chinatown — a porcelain store that has quietly anchored Mott Street for generations. Now run by the fifth generation as both retail and a community space, with public programming through The W.O.W. Project.",
+    category: "Shop",
+    price: "Free to visit",
+    link: "https://wingonwoand.co/",
+    icon: "🏮",
+    featured: false,
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 20,
+    title: "Korean Cultural Center NY",
+    date: "Throughout May 2026",
+    time: "Mon–Fri: 9am–5pm",
+    location: "122 E 32nd St, New York, NY 10016",
+    neighborhood: "Midtown",
+    description: "The official cultural arm of the Republic of Korea in New York, with a midtown gallery that rotates exhibitions of contemporary Korean artists. Free admission. Programming spans film screenings, language classes, and concerts — the kind of place that rewards a regular visit.",
+    category: "Exhibition",
+    price: "Free",
+    link: "https://instagram.com/kccny/",
+    icon: "🎨",
+    featured: false,
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 21,
+    title: "Park Hyun Gi — Brooklyn Studio",
+    date: "Throughout May 2026",
+    time: "Hours vary",
+    location: "Brooklyn, NY",
+    neighborhood: "Brooklyn",
+    description: "A Brooklyn-based artist whose studio doubles as a venue for Korean cultural programming — workshops, gatherings, and small exhibitions rooted in Korean craft and contemporary art. Follow on Instagram for upcoming events.",
+    category: "Arts",
+    price: "Varies",
+    link: "https://instagram.com/park_hyun_gi/",
+    icon: "🎨",
+    featured: false,
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 22,
+    title: "Green Tile Social Club",
+    date: "Throughout May 2026",
+    time: "Hours vary",
+    location: "New York, NY",
+    neighborhood: "NYC",
+    description: "Mahjong nights for a generation that didn't grow up playing with their grandmothers. Green Tile runs social events around the table — drinks, lessons, and the satisfying clack of tiles — across rotating NYC venues.",
+    category: "Community",
+    price: "Ticketed",
+    link: "https://greentilesocialclub.com/",
+    icon: "🀄",
+    featured: false,
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 23,
+    title: "Yun Hai Shop",
+    date: "Throughout May 2026",
+    time: "Hours vary",
+    location: "Brooklyn, NY",
+    neighborhood: "Brooklyn",
+    description: "A Taiwanese general store that imports the things you can't easily find stateside — soy sauces aged in clay jars, dried fruit from family orchards, sesame oil that actually tastes like sesame. The pantry restocking trip you didn't know you needed.",
+    category: "Shop",
+    price: "Free to visit",
+    link: "https://yunhai.shop/",
+    icon: "🥢",
+    featured: false,
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 24,
+    title: "Hana Makgeolli",
+    date: "Throughout May 2026",
+    time: "Hours vary (check site)",
+    location: "Greenpoint, Brooklyn",
+    neighborhood: "Brooklyn",
+    description: "Brooklyn's makgeolli brewery — making traditional Korean rice wine with a precision and patience that the cheap stuff at the grocery store can't touch. Tasting room visits, bottle pickups, and the occasional pairing dinner. Cloudy, lightly sweet, alive.",
+    category: "Food & Market",
+    price: "Varies",
+    link: "https://hanamakgeolli.com/",
+    icon: "🍶",
+    featured: false,
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 25,
+    title: "The Red Pavilion",
+    date: "Throughout May 2026",
+    time: "Evenings",
+    location: "Brooklyn, NY",
+    neighborhood: "Brooklyn",
+    description: "Asian neo-noir cabaret and nightlife — burlesque, drag, music, and theatrical performance staged in a velvet-and-incense room that takes itself seriously and not at all. Genuinely unlike anywhere else in the city.",
+    category: "Performance",
+    price: "Ticketed",
+    link: "https://theredpavilion.com/",
+    icon: "🎭",
+    featured: false,
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 26,
+    title: "Slo Slo Ceramics Studio",
+    date: "Throughout May 2026",
+    time: "Hours vary",
+    location: "Chinatown, New York, NY",
+    neighborhood: "Chinatown",
+    description: "A new ceramics studio tucked into Chinatown offering classes, open studio hours, and small-batch wares. The kind of quiet practice space the neighborhood didn't quite have until now — go for a class, leave with a wonky bowl you'll actually use.",
+    category: "Arts",
+    price: "Class fees vary",
+    link: "https://sloslostudio.com/",
+    icon: "🏺",
+    featured: false,
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 27,
+    title: "Yu & Me Books",
+    date: "Throughout May 2026",
+    time: "Hours vary",
+    location: "44 Mulberry St, New York, NY 10013",
+    neighborhood: "Chinatown",
+    description: "Recommended by Joanna Hu — Manhattan's first Asian American woman-owned bookstore, with a tightly curated selection that leans into immigrant stories, AAPI authors, and translated fiction. A reading room and event space in the back makes it more than a shop.",
+    category: "Shop",
+    price: "Free to visit",
+    link: "https://yuandmebooks.com/",
+    icon: "📚",
+    featured: false,
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 28,
+    title: "Japan Village",
+    date: "Throughout May 2026",
+    time: "Mon–Sun: 11am–8pm",
+    location: "Industry City, 934 3rd Ave, Brooklyn, NY 11232",
+    neighborhood: "Sunset Park, Brooklyn",
+    description: "Recommended by Shmo Chuang — a sprawling Japanese food hall and marketplace inside Industry City. Stalls for ramen, takoyaki, kaiten sushi, plus a grocery, a sake selection, and home goods. Easy to lose two hours wandering.",
+    category: "Food & Market",
+    price: "Free to enter",
+    link: "https://japanvillage.com/",
+    icon: "🍣",
+    featured: false,
+    source: "Hinge ERG team rec"
   }
 ];
 
@@ -713,6 +926,146 @@ const BOOKS = {
       description: "Three interconnected narratives spanning three generations of a Chinese American family — from a woman who emigrates from China to New York in the 1960s, to her daughter, to her grandson who sets out to find his biological father. A sweeping, beautifully observed novel about genetics, identity, and what we choose to pass on.",
       awards: ["New York Times Bestseller", "PEN/Faulkner Award Finalist 2025"],
       quote: "What is American? What is Chinese? In her world, the two were not mutually exclusive."
+    },
+    {
+      id: "r11",
+      title: "Making Asian America: A History",
+      author: "Erika Lee",
+      year: 2015,
+      coverColor: "#1E3A5F",
+      coverImage: "https://covers.openlibrary.org/b/isbn/1476739404-M.jpg",
+      genre: "Nonfiction / History",
+      culture: "Pan-Asian American",
+      description: "The first comprehensive history of Asians in the United States, spanning more than 500 years from the earliest sailors and laborers to the present day. Lee braids together communities too often kept apart in the historical record — Chinese, Japanese, Filipino, South Asian, Southeast Asian — into a single, unflinching account of how Asian America came to be.",
+      awards: ["Asian/Pacific American Award for Literature"]
+    },
+    {
+      id: "r12",
+      title: "Taiwan Travelogue",
+      author: "Yang Shuang-zi",
+      year: 2024,
+      coverColor: "#7A8B5C",
+      coverImage: "https://covers.openlibrary.org/b/isbn/1644452693-M.jpg",
+      genre: "Historical Fiction",
+      culture: "Taiwanese",
+      description: "A bittersweet story of love, food, and colonial entanglement set on a 1938 train journey through Japanese-occupied Taiwan. A Japanese novelist and her local Taiwanese interpreter eat their way around the island, and the asymmetries of empire press in at every meal. Translated by Lin King.",
+      awards: ["National Book Award for Translated Literature 2024"]
+    },
+    {
+      id: "r13",
+      title: "Human Acts",
+      author: "Han Kang",
+      year: 2016,
+      coverColor: "#3A2F2F",
+      coverImage: "https://covers.openlibrary.org/b/isbn/1101906723-M.jpg",
+      genre: "Historical Fiction",
+      culture: "Korean",
+      description: "A novel built around the 1980 Gwangju Uprising, told through interlocking voices of the dead and the living. Han Kang writes grief and political violence with a stillness that is somehow more devastating than rage. Heavy content warnings — but it is a book that asks to be sat with, not skimmed.",
+      awards: ["Premio Malaparte", "International Booker Prize (author, 2016)", "Nobel Prize in Literature (author, 2024)"]
+    },
+    {
+      id: "r14",
+      title: "Last Night at the Telegraph Club",
+      author: "Malinda Lo",
+      year: 2021,
+      coverColor: "#9B2D5F",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0525555250-M.jpg",
+      genre: "Historical Fiction / YA",
+      culture: "Chinese American",
+      description: "America in 1954 is not a safe place for two girls who fall in love — especially not for Lily Hu, the daughter of Chinese immigrants in San Francisco's Chinatown, and Kathleen Miller, who first kiss her in the back of a lesbian bar. A meticulous, tender novel about queerness, surveillance, and the McCarthy-era cost of being any kind of other.",
+      awards: ["National Book Award for Young People's Literature 2021", "Stonewall Book Award", "Asian/Pacific American Award for Literature"]
+    },
+    {
+      id: "r15",
+      title: "Everything I Never Told You",
+      author: "Celeste Ng",
+      year: 2014,
+      coverColor: "#1F4F4F",
+      coverImage: "https://covers.openlibrary.org/b/isbn/1594205713-M.jpg",
+      genre: "Literary Fiction",
+      culture: "Chinese American",
+      description: "A literary thriller about a mixed-race Chinese American family in 1970s Ohio whose middle daughter, the family favorite, is found dead in the local lake. Ng unwinds the marriage, the siblings, and the small daily silences that produced the tragedy. Quiet, controlled, and merciless.",
+      awards: ["Amazon Book of the Year 2014", "Massachusetts Book Award", "Asian/Pacific American Award for Literature"]
+    },
+    {
+      id: "r16",
+      title: "Katabasis",
+      author: "R.F. Kuang",
+      year: 2025,
+      coverColor: "#2C1F4A",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0063417456-M.jpg",
+      genre: "Fantasy / Literary Fiction",
+      culture: "Chinese American",
+      description: "Kuang takes the Greek descent-into-the-underworld and runs it through a contemporary university — two ambitious graduate students chasing their dead advisor through the realms of the dead in pursuit of a recommendation letter. Funny, dense, and meaner than it sounds, in the best way."
+    },
+    {
+      id: "r17",
+      title: "The Kitchen God's Wife",
+      author: "Amy Tan",
+      year: 1991,
+      coverColor: "#A52A2A",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0143038109-M.jpg",
+      genre: "Literary Fiction",
+      culture: "Chinese American",
+      description: "A Chinese American daughter finally hears her mother's life story — a marriage in WWII-era China to a violent husband, a flight to America, decades of carefully tended secrets. Tan's second novel works the same vein as Joy Luck Club but cuts deeper into a single mother-daughter relationship.",
+      awards: ["Bay Area Book Reviewers Award"]
+    },
+    {
+      id: "r18",
+      title: "The Leavers",
+      author: "Lisa Ko",
+      year: 2017,
+      coverColor: "#3D5A2C",
+      coverImage: "https://covers.openlibrary.org/b/isbn/1616206888-M.jpg",
+      genre: "Literary Fiction",
+      culture: "Chinese American",
+      description: "A Chinese undocumented mother in the Bronx leaves for work one morning and never comes back. Her son, raised by white adoptive parents upstate, grows up to look for her. Ko writes the immigration system and transracial adoption with rare specificity — both the bureaucratic violence and the small private wreckage.",
+      awards: ["PEN/Bellwether Prize for Socially Engaged Fiction", "National Book Award Longlist"]
+    },
+    {
+      id: "r19",
+      title: "The Loneliest Americans",
+      author: "Jay Caspian Kang",
+      year: 2021,
+      coverColor: "#4A4A4A",
+      coverImage: "https://covers.openlibrary.org/b/isbn/0593238125-M.jpg",
+      genre: "Nonfiction / Memoir",
+      culture: "Korean American",
+      description: "Part journalism, part autobiography, part argument — Kang interrogates what 'Asian American' even means as a political identity, working from his own family's path through Cambridge, Chapel Hill, and Berkeley. Combative, honest, and unwilling to flatter the reader. Worth reading even if you disagree with him."
+    },
+    {
+      id: "r21",
+      title: "Virtue Hoarders: The Case against the Professional Managerial Class",
+      author: "Catherine Liu",
+      year: 2021,
+      coverColor: "#5C5C5C",
+      coverImage: "https://covers.openlibrary.org/b/isbn/1517912865-M.jpg",
+      genre: "Nonfiction / Cultural Criticism",
+      culture: "Chinese American",
+      description: "A short, sharp denunciation of the credentialed professional managerial class — its self-congratulatory politics, its taste for individual virtue over collective action, its capture of progressive language. Liu writes from the inside as a cultural studies professor and lands punches that other critics pull."
+    },
+    {
+      id: "r22",
+      title: "Lady Tan's Circle of Women",
+      author: "Lisa See",
+      year: 2023,
+      coverColor: "#8B3A62",
+      coverImage: "https://covers.openlibrary.org/b/isbn/1982117087-M.jpg",
+      genre: "Historical Fiction",
+      culture: "Chinese",
+      description: "Inspired by the real Ming-dynasty woman physician Tan Yunxian, who practiced medicine on women in 15th-century China and wrote a treatise that survives. See builds a novel around the friendships, midwifery, and constrained agency that made such a life possible.",
+      awards: ["New York Times Bestseller"]
+    },
+    {
+      id: "r23",
+      title: "Before the Coffee Gets Cold",
+      author: "Toshikazu Kawaguchi",
+      year: 2019,
+      coverColor: "#6B4423",
+      coverImage: "https://covers.openlibrary.org/b/isbn/1529029589-M.jpg",
+      genre: "Literary Fiction",
+      culture: "Japanese",
+      description: "The first volume in Kawaguchi's quiet, beloved series set in a tiny Tokyo basement café where, under very specific rules, you can travel back in time — but only until your coffee gets cold. Each book is a small set of connected stories about regret, love, and what we'd really say if we got the chance. Originally a stage play, and it shows in the best way."
     }
   ]
 };
@@ -1250,7 +1603,82 @@ const LONELINESS_RESOURCES = [
   }
 ];
 
+// ============================================================
+// ERG_EVENTS — Asian @ Hinge ERG-organized programming for May 2026
+// ============================================================
+const ERG_EVENTS = [
+  {
+    id: "erg-1",
+    title: "In Conversation with Jade Song",
+    date: "May 13, 2026",
+    time: "1:00 – 1:45 PM",
+    location: "5th Floor, FiDi",
+    description: "An author reading and conversation with Jade Song — artist and author of I Love You Don't Die and Chlorine, lauded as \"visionary and disturbing,\" a New York Times Editor's Choice, and winner of the Alex Award. Includes Q&A and a book signing & giveaway.",
+    category: "Author Talk",
+    icon: "📖",
+    image: "assets/images/erg/jade-song.png",
+    includes: ["Reading", "Q&A", "Book signing & giveaway"],
+    notes: "Free & open to all Hinge employees. Limited books provided — first come, first served."
+  },
+  {
+    id: "erg-2",
+    title: "AAPI Short Film Screening",
+    date: "May 20, 2026",
+    time: "12:00 PM",
+    location: "5th Floor, FiDi",
+    description: "A double-feature lunchtime screening of two acclaimed AAPI short films — Layover by Taylor Sanghyun Lee, and Lice by Vindhya Gupta.",
+    category: "Film",
+    icon: "🎬",
+    films: [
+      {
+        title: "Layover",
+        image: "assets/images/erg/layover.png",
+        director: "Taylor Sanghyun Lee",
+        synopsis: "Long estranged from the religious community his mother embraces, Solomon must wear a lie one last time on the day of his brief return.",
+        bio: "Born and raised in California, Taylor Sanghyun Lee is an NYC-based filmmaker whose work spans writing, directing, and cinematography. Before turning to film, he worked as a software engineer and received his BA in Linguistics and Computer Science from UCLA.\n\nTaylor is currently in development for his directorial debut feature, ROUNDS, which was selected for the 2026 Sundance Directors and Screenwriters Lab and the 2025 TIFF & CJ K-Story Fund. He earned his MFA in Directing from NYU Tisch Graduate Film, where he was awarded the Ang Lee Scholarship. His short film LAYOVER is streaming as a Vimeo Staff Pick, and his upcoming short PARKSIDE EAST is the recipient of the Spike Lee Production Grant.\n\nAs a cinematographer, he has shot dozens of short films that have screened at festivals worldwide, and he recently wrapped principal photography on NURTURE, the debut feature from the Stark Brothers. He is the recipient of the 2025 ARRI Volker Bahnemann Award for Outstanding Cinematography, 2024 Sundance Ignite Fellowship, and the Gotham Marcie Bloom Fellowship.",
+        laurels: ["San Francisco International Film Festival", "47th Asian American International Film Festival", "New York Asian Film Festival 2024"]
+      },
+      {
+        title: "Lice (Jooyein)",
+        image: "assets/images/erg/lice.jpg",
+        director: "Vindhya Gupta",
+        synopsis: "12-year-old Roshni forges a bond with the class outcast, Chakor, to keep her lice infestation a secret. The malicious lie looms large over Roshni as a friendship blossoms between them.",
+        bio: "Vindhya Gupta is a New York–based filmmaker and creative producer, and Faculty at the New York Film Academy. She holds an MFA in Film Producing from NYU Tisch School of the Arts.\n\nHer narrative work has premiered at Tribeca Film Festival and screened across continents, earning awards and recognition from prestigious institutions. Her films operate in the space between social realism and psychological unease, interrogating class, power, and the performance of identity. She is currently in development on her debut feature.\n\nIn parallel, she runs Dropper Films, a New York-based production company specializing in narrative brand films. Her commercial credits span campaigns for Google, HP, Uber, and Coca-Cola through global agency partnerships, and she continues to work with startups and emerging brands.",
+        laurels: ["2024 Tribeca Film Festival Official Selection", "Nashville Film Festival 2024", "Indian Film Festival of Melbourne 2024", "Austin Film Festival 2024"]
+      }
+    ]
+  },
+  {
+    id: "erg-3",
+    title: "Wine Tasting with Fuzhou Sisters",
+    date: "May 28, 2026",
+    time: "4:00 – 6:00 PM",
+    location: "5th Floor, FiDi",
+    description: "A guided wine tasting with the Fuzhou Sisters — a woman-owned, NYC-based importer of Fuzhounese rice wine and other heritage Asian beverages. An afternoon of pours, stories, and the cultural context behind each bottle.",
+    category: "Tasting",
+    icon: "🍷",
+    partner: {
+      name: "Fuzhou Sisters",
+      url: "https://www.fuzhousisters.com/"
+    }
+  },
+  {
+    id: "erg-4",
+    title: "Kite Making with Craft Society",
+    date: "June 3, 2026",
+    time: "4:00 – 6:00 PM",
+    location: "5th Floor, FiDi",
+    description: "A hands-on kite-making workshop hosted in partnership with Craft Society, a Brooklyn-based studio that hosts guest artists and craft programming. Materials provided — no experience needed.",
+    category: "Workshop",
+    icon: "🪁",
+    partner: {
+      name: "Craft Society",
+      url: "https://www.craft-society.com/"
+    }
+  }
+];
+
 // Export for module environments
 if (typeof module !== 'undefined') {
-  module.exports = { RESTAURANTS, EVENTS, BOOKS, HOLIDAYS, LONELINESS_RESOURCES };
+  module.exports = { RESTAURANTS, EVENTS, ERG_EVENTS, BOOKS, HOLIDAYS, LONELINESS_RESOURCES };
 }
