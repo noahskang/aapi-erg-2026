@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Build restaurant card ─────────────────────────────────
   function buildRestaurantCard(r) {
-    const initials     = getInitials(r.recommender);
     const topDishesHTML = r.topDishes.map(d => `<span class="dish-tag">${d}</span>`).join('');
     const tagsHTML      = r.tags.map(t => `<span class="tag">${t}</span>`).join('');
 
@@ -39,6 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
         ` : ''}
       </div>
     `;
+    const recommenderHTML = r.recommender ? `
+      <div class="card-recommender">
+        <div class="recommender-avatar">${getInitials(r.recommender)}</div>
+        <div>
+          <p class="recommender-name">${r.recommender}</p>
+          ${r.recommenderTitle ? `<p class="recommender-role">${r.recommenderTitle}</p>` : ''}
+        </div>
+      </div>
+    ` : '';
+    const blurbHTML = r.blurb ? `<p class="card-blurb">"${r.blurb}"</p>` : '';
     card.innerHTML = `
       ${photosHTML}
       <div class="card-body">
@@ -49,14 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <span class="card-price">${r.priceRange}</span>
         </div>
-        <div class="card-recommender">
-          <div class="recommender-avatar">${initials}</div>
-          <div>
-            <p class="recommender-name">${r.recommender}</p>
-            <p class="recommender-role">${r.recommenderTitle}</p>
-          </div>
-        </div>
-        <p class="card-blurb">"${r.blurb}"</p>
+        ${recommenderHTML}
+        ${blurbHTML}
         <div class="card-expanded" style="display:none">
           <div class="card-detail"><span>📍</span><span>${r.address}</span></div>
           <div class="card-detail"><span>🕐</span><span>${r.hours}</span></div>
@@ -147,20 +150,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebarClose   = document.getElementById('sidebar-close');
 
     function buildSidebarContent(r) {
-      const initials   = getInitials(r.recommender);
       const dishesHTML = r.topDishes.map(d => `<span class="dish-tag">${d}</span>`).join('');
-      return `
-        <img class="sidebar-photo" src="${r.photos[0]}" alt="${r.name}" loading="lazy">
-        <h3 class="sidebar-restaurant-name">${r.name}</h3>
-        <p class="sidebar-meta">${r.cuisine} · ${r.neighborhood} · ${r.priceRange}</p>
+      const recommenderHTML = r.recommender ? `
         <div class="sidebar-recommender">
-          <div class="recommender-avatar">${initials}</div>
+          <div class="recommender-avatar">${getInitials(r.recommender)}</div>
           <div>
             <p class="recommender-name">${r.recommender}</p>
-            <p class="recommender-role">${r.recommenderTitle}</p>
+            ${r.recommenderTitle ? `<p class="recommender-role">${r.recommenderTitle}</p>` : ''}
           </div>
         </div>
-        <p class="sidebar-blurb">"${r.blurb}"</p>
+      ` : '';
+      const blurbHTML = r.blurb ? `<p class="sidebar-blurb">"${r.blurb}"</p>` : '';
+      const photo = (r.photos && r.photos[0]) ? `<img class="sidebar-photo" src="${r.photos[0]}" alt="${r.name}" loading="lazy">` : '';
+      return `
+        ${photo}
+        <h3 class="sidebar-restaurant-name">${r.name}</h3>
+        <p class="sidebar-meta">${r.cuisine} · ${r.neighborhood} · ${r.priceRange}</p>
+        ${recommenderHTML}
+        ${blurbHTML}
         <div class="sidebar-detail"><span>📍</span><span>${r.address}</span></div>
         <div class="sidebar-detail"><span>🕐</span><span>${r.hours}</span></div>
         <p class="sidebar-dishes-label">🍜 Top Dishes</p>

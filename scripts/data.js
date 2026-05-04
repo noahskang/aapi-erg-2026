@@ -18,14 +18,6 @@ const RESTAURANTS = [
     lng: -73.9855,
     hours: "Mon–Sun: 11am–9pm",
     topDishes: ["Spicy Cumin Lamb Burger", "Hand-Ripped Noodles", "Lamb Face Salad", "Liang Pi Cold Skin Noodles"],
-    recommender: "Kevin Chen",
-    recommenderTitle: "Staff Engineer",
-    blurb: "Nothing hits like Xi'an after a long sprint. The spicy cumin lamb burger is the most underrated $8 meal in all of NYC. It's bold, it's messy, and it's perfect — exactly like a great PRD.",
-    photos: [
-      "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80",
-      "https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&q=80",
-      "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=80"
-    ],
     priceRange: "$",
     tags: ["Noodles", "Spicy", "Quick Bite", "Lunch Favorite"]
   },
@@ -39,14 +31,6 @@ const RESTAURANTS = [
     lng: -73.9968,
     hours: "Tue–Sun: 5:30pm–10pm (Closed Mon)",
     topDishes: ["Crying Tiger Beef", "Larb Ped (Duck Laab)", "Papaya Pok Pok", "Sticky Rice"],
-    recommender: "Sarah Kim",
-    recommenderTitle: "Senior Designer",
-    blurb: "Ugly Baby serves the realest Isaan Thai food in the city — no apologies, all heat and funk. The crying tiger is a religious experience. Book ahead, it fills up fast and for good reason.",
-    photos: [
-      "https://images.unsplash.com/photo-1562802378-063ec186a863?w=600&q=80",
-      "https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&q=80",
-      "https://images.unsplash.com/photo-1601924583093-0ba2cdcc2cff?w=600&q=80"
-    ],
     priceRange: "$$",
     tags: ["Thai", "Spicy", "Date Night", "Brooklyn"]
   },
@@ -60,14 +44,6 @@ const RESTAURANTS = [
     lng: -73.9878,
     hours: "Mon–Sun: 11am–2am",
     topDishes: ["Galbi (Short Ribs)", "Brisket", "Samgyeopsal (Pork Belly)", "Spicy Marinated Chicken"],
-    recommender: "James Park",
-    recommenderTitle: "Product Manager",
-    blurb: "Late-night K-BBQ with the team after a big launch? Jongro every time. The ventilation is top notch so you won't go home smelling like smoke, the banchan is generous, and they're open till 2am.",
-    photos: [
-      "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80",
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
-      "https://images.unsplash.com/photo-1534482421-64566f976cfa?w=600&q=80"
-    ],
     priceRange: "$$$",
     tags: ["Korean BBQ", "Late Night", "Group Dinner", "K-Town"]
   },
@@ -81,14 +57,6 @@ const RESTAURANTS = [
     lng: -73.9906,
     hours: "Wed–Mon: 9am–4pm (Closed Tue)",
     topDishes: ["Nasi Lemak", "Roti Canai", "Hainanese Chicken Rice", "Kopi C Peng (Iced Coffee)"],
-    recommender: "Maya Lim",
-    recommenderTitle: "Growth Marketing Lead",
-    blurb: "Chef Kyo Pang's Kopitiam is a love letter to Malaysian kopitiam culture — the casual coffee shops where everything good in life happens. The nasi lemak is nostalgic in the best way. Come for brunch.",
-    photos: [
-      "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=600&q=80",
-      "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80",
-      "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=600&q=80"
-    ],
     priceRange: "$$",
     tags: ["Malaysian", "Brunch", "Coffee", "LES"]
   },
@@ -102,14 +70,6 @@ const RESTAURANTS = [
     lng: -73.9840,
     hours: "Mon–Sun: 12pm–10pm",
     topDishes: ["Bun Bo Hue", "Bun Cha", "Banh Mi", "Cha Ca La Vong"],
-    recommender: "Priya Patel",
-    recommenderTitle: "Data Science Lead",
-    blurb: "I grew up eating pho but Hanoi House opened my eyes to the wider world of Vietnamese cuisine. The bun bo hue is deeply complex — spicy, lemongrass-y, and so satisfying. It's the pho of Northern Vietnam and it deserves more hype.",
-    photos: [
-      "https://images.unsplash.com/photo-1576577445504-6af96477db52?w=600&q=80",
-      "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&q=80",
-      "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&q=80"
-    ],
     priceRange: "$$",
     tags: ["Vietnamese", "Noodles", "East Village", "Hidden Gem"]
   },
@@ -123,14 +83,6 @@ const RESTAURANTS = [
     lng: -73.9859,
     hours: "Mon–Sat: 5:30pm–10:30pm (Closed Sun)",
     topDishes: ["Charred Eggplant", "Braised Short Rib", "Hamachi Crudo", "Gochujang Glazed Duck"],
-    recommender: "David Lee",
-    recommenderTitle: "Principal Engineer",
-    blurb: "Atoboy is where I take clients I actually like. Chef Junghyun Park's banchan-style fine dining is both innovative and deeply rooted in Korean flavors. The charred eggplant is a dish I still think about weeks later. Genuinely one of NYC's best restaurants.",
-    photos: [
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
-      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80",
-      "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600&q=80"
-    ],
     priceRange: "$$$",
     tags: ["Korean Fine Dining", "Special Occasion", "Date Night", "NoMad"]
   },
@@ -144,14 +96,6 @@ const RESTAURANTS = [
     lng: -73.9519,
     hours: "Tue–Sun: 5pm–10pm (Closed Mon)",
     topDishes: ["Peking Duck (pre-order)", "Mapo Tofu", "Dan Dan Noodles", "Salt & Pepper Lobster"],
-    recommender: "Amy Zhang",
-    recommenderTitle: "UX Designer",
-    blurb: "Chef Eric Huang's Pecking House is a masterclass in Chinese-American cooking done with intention and care. The Peking duck (pre-order!) is the best in New York — full stop. The mapo tofu will make you question every other version you've had.",
-    photos: [
-      "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80",
-      "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=80",
-      "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=600&q=80"
-    ],
     priceRange: "$$$",
     tags: ["Chinese", "Peking Duck", "UES", "Special Occasion"]
   },
@@ -165,14 +109,6 @@ const RESTAURANTS = [
     lng: -73.9791,
     hours: "Mon–Fri: 11:30am–10pm, Sat–Sun: 12pm–10pm",
     topDishes: ["Soup Dumplings (Xiao Long Bao)", "Dongpo Pork", "Crab & Pork Dumplings", "Scallion Oil Noodles"],
-    recommender: "Michael Nguyen",
-    recommenderTitle: "Product Manager",
-    blurb: "A Midtown institution that somehow stays under the radar. The soup dumplings are pristine — thin skin, rich soup, perfectly portioned. Take any out-of-town guests here and they will never stop talking about it.",
-    photos: [
-      "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=80",
-      "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80",
-      "https://images.unsplash.com/photo-1555126634-323283e090fa?w=600&q=80"
-    ],
     priceRange: "$$",
     tags: ["Shanghainese", "Dumplings", "Midtown", "Lunch"]
   },
@@ -186,14 +122,6 @@ const RESTAURANTS = [
     lng: -73.9821,
     hours: "Mon–Sun: 11am–11pm",
     topDishes: ["Som Tam (Green Papaya Salad)", "Laab Moo (Pork Salad)", "Pad See Ew", "Thai Iced Tea"],
-    recommender: "Tom Suzuki",
-    recommenderTitle: "iOS Engineer",
-    blurb: "When I moved to NYC I found Zabb Elee and felt like I was finally home. The som tam is prepared fresh to order and you can specify your spice level — I always go max. Cheap, fast, and deeply satisfying.",
-    photos: [
-      "https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&q=80",
-      "https://images.unsplash.com/photo-1562802378-063ec186a863?w=600&q=80",
-      "https://images.unsplash.com/photo-1601924583093-0ba2cdcc2cff?w=600&q=80"
-    ],
     priceRange: "$",
     tags: ["Thai", "Spicy", "Cheap Eat", "East Village"]
   },
@@ -207,14 +135,6 @@ const RESTAURANTS = [
     lng: -73.9817,
     hours: "Mon–Sun: 5pm–11pm",
     topDishes: ["Bo Ssäm (pre-order)", "Spicy Rice Cakes", "Raw Bar", "Smoked Chicken Wings"],
-    recommender: "Christine Wu",
-    recommenderTitle: "Associate Counsel",
-    blurb: "David Chang's legacy spot has evolved beautifully. The Bo Ssäm — a whole roasted pork shoulder served with rice, kimchi, and condiments — is the ultimate celebration meal. Order it for the team after hitting a big milestone.",
-    photos: [
-      "https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80",
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
-      "https://images.unsplash.com/photo-1534482421-64566f976cfa?w=600&q=80"
-    ],
     priceRange: "$$$",
     tags: ["Korean Fusion", "Group Dinner", "Celebration", "East Village"]
   },
@@ -230,7 +150,6 @@ const RESTAURANTS = [
     topDishes: ["Oolong Tea Flights", "Pineapple Linzer Cookies", "Tea-Smoked Eggs", "Seasonal Tea Service"],
     recommender: "Jonathan Jin",
     recommenderTitle: "Hinge ERG",
-    blurb: "A tiny Taiwanese tea shop that takes leaves seriously without being precious about it. The pineapple linzer cookie alone is worth the trip — buttery, jammy, and somehow exactly the right thing with a pot of oolong. Slow down and let them brew it for you.",
     photos: [
       "assets/images/restaurants/te-company-1.jpg",
       "assets/images/restaurants/te-company-2.jpg",
@@ -251,7 +170,6 @@ const RESTAURANTS = [
     topDishes: ["Roast Duck", "Salt & Pepper Squid", "Crispy Chicken", "Lo Mein"],
     recommender: "Julie Harris",
     recommenderTitle: "Hinge ERG",
-    blurb: "Phoenix Palace is the kind of place you want around for big group Asian dinners — the roasted meats hang in the window, the lazy susan spins, and nobody is rushing you out. Order generously and bring people who appreciate it.",
     photos: [
       "assets/images/restaurants/phoenix-palace-1.jpg",
       "assets/images/restaurants/phoenix-palace-2.jpg"
@@ -271,7 +189,6 @@ const RESTAURANTS = [
     topDishes: ["Brown Sugar Boba Milk", "Stir-Fried Brown Sugar Boba", "Strawberry Boba", "Matcha Latte with Boba"],
     recommender: "Shmo Chuang",
     recommenderTitle: "Hinge ERG",
-    blurb: "The Taiwanese chain that made stir-frying boba in front of you a thing — and yes, the brown sugar caramelizing in the wok smells exactly as good as it sounds. The pearls actually have texture. Worth the small line at any of the three NYC outposts.",
     photos: [
       "assets/images/restaurants/xing-fu-tang-1.jpg",
       "assets/images/restaurants/xing-fu-tang-2.jpg"
