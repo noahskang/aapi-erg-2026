@@ -1541,7 +1541,7 @@ const ERG_EVENTS = [
     date: "May 20, 2026",
     time: "12:00 PM",
     location: "5th Floor, FiDi",
-    description: "A double-feature lunchtime screening of two acclaimed AAPI short films — Layover by Taylor Sanghyun Lee, and Lice by Vindhya Gupta.",
+    description: "A double-feature lunchtime screening of two acclaimed AAPI short films — Layover by Taylor Sanghyun Lee, and Lice by Vindhya Gupta — followed by a live Q&A with both directors.",
     category: "Film",
     icon: "🎬",
     films: [
@@ -1549,6 +1549,7 @@ const ERG_EVENTS = [
         title: "Layover",
         image: "assets/images/erg/layover.jpg",
         director: "Taylor Sanghyun Lee",
+        directorPhoto: "assets/images/erg/taylor-lee.jpg",
         synopsis: "Long estranged from the religious community his mother embraces, Solomon must wear a lie one last time on the day of his brief return.",
         bio: "Born and raised in California, Taylor Sanghyun Lee is an NYC-based filmmaker whose work spans writing, directing, and cinematography. Before turning to film, he worked as a software engineer and received his BA in Linguistics and Computer Science from UCLA.\n\nTaylor is currently in development for his directorial debut feature, ROUNDS, which was selected for the 2026 Sundance Directors and Screenwriters Lab and the 2025 TIFF & CJ K-Story Fund. He earned his MFA in Directing from NYU Tisch Graduate Film, where he was awarded the Ang Lee Scholarship. His short film LAYOVER is streaming as a Vimeo Staff Pick, and his upcoming short PARKSIDE EAST is the recipient of the Spike Lee Production Grant.\n\nAs a cinematographer, he has shot dozens of short films that have screened at festivals worldwide, and he recently wrapped principal photography on NURTURE, the debut feature from the Stark Brothers. He is the recipient of the 2025 ARRI Volker Bahnemann Award for Outstanding Cinematography, 2024 Sundance Ignite Fellowship, and the Gotham Marcie Bloom Fellowship.",
         laurels: ["San Francisco International Film Festival", "47th Asian American International Film Festival", "New York Asian Film Festival 2024"]
@@ -1557,6 +1558,7 @@ const ERG_EVENTS = [
         title: "Lice (Jooyein)",
         image: "assets/images/erg/lice.jpg",
         director: "Vindhya Gupta",
+        directorPhoto: "assets/images/erg/vindhya-gupta.jpg",
         synopsis: "12-year-old Roshni forges a bond with the class outcast, Chakor, to keep her lice infestation a secret. The malicious lie looms large over Roshni as a friendship blossoms between them.",
         bio: "Vindhya Gupta is a New York–based filmmaker and creative producer, and Faculty at the New York Film Academy. She holds an MFA in Film Producing from NYU Tisch School of the Arts.\n\nHer narrative work has premiered at Tribeca Film Festival and screened across continents, earning awards and recognition from prestigious institutions. Her films operate in the space between social realism and psychological unease, interrogating class, power, and the performance of identity. She is currently in development on her debut feature.\n\nIn parallel, she runs Dropper Films, a New York-based production company specializing in narrative brand films. Her commercial credits span campaigns for Google, HP, Uber, and Coca-Cola through global agency partnerships, and she continues to work with startups and emerging brands.",
         laurels: ["2024 Tribeca Film Festival Official Selection", "Nashville Film Festival 2024", "Indian Film Festival of Melbourne 2024", "Austin Film Festival 2024"]

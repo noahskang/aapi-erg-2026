@@ -33,7 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
               <img class="erg-film-poster" src="${f.image}" alt="${escapeAttr(f.title)} poster" loading="lazy">
               <div class="erg-film-body">
                 <h4 class="erg-film-title">${f.title}</h4>
-                <p class="erg-film-director">Directed by <strong>${f.director}</strong></p>
+                <div class="erg-film-director-row">
+                  ${f.directorPhoto ? `<img class="erg-film-director-photo" src="${f.directorPhoto}" alt="${escapeAttr(f.director)}" loading="lazy">` : ''}
+                  <p class="erg-film-director">Directed by <strong>${f.director}</strong></p>
+                </div>
                 <p class="erg-film-synopsis">${f.synopsis}</p>
                 ${f.laurels && f.laurels.length ? `
                   <div class="erg-laurels">${f.laurels.map(l => `<span class="erg-laurel">🌿 ${l}</span>`).join('')}</div>
