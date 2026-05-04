@@ -1655,6 +1655,7 @@ const ERG_EVENTS = [
     description: "A guided wine tasting with the Fuzhou Sisters — a woman-owned, NYC-based importer of Fuzhounese rice wine and other heritage Asian beverages. An afternoon of pours, stories, and the cultural context behind each bottle.",
     category: "Tasting",
     icon: "🍷",
+    image: "assets/images/erg/fuzhou-sisters.jpg",
     partner: {
       name: "Fuzhou Sisters",
       url: "https://www.fuzhousisters.com/"
@@ -1669,6 +1670,7 @@ const ERG_EVENTS = [
     description: "A hands-on kite-making workshop hosted in partnership with Craft Society, a Brooklyn-based studio that hosts guest artists and craft programming. Materials provided — no experience needed.",
     category: "Workshop",
     icon: "🪁",
+    image: "assets/images/erg/kite-making.jpg",
     partner: {
       name: "Craft Society",
       url: "https://www.craft-society.com/"

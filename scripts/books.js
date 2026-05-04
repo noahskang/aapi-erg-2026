@@ -12,13 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function buildBookCard(b) {
-    const awardsHTML = b.awards.map(a => `<span class="award-badge">${a}</span>`).join('');
+    const awards = Array.isArray(b.awards) ? b.awards : [];
+    const awardsHTML = awards.map(a => `<span class="award-badge">${a}</span>`).join('');
     const card = document.createElement('article');
     card.className = 'book-card';
     card.id = 'book-' + b.id;
     const coverContent = b.coverImage
       ? `<img class="book-cover-img" src="${b.coverImage}" alt="Cover of ${b.title}" loading="lazy" onerror="this.parentElement.style.background='var(--spine-color)';this.style.display='none'">`
       : `<span class="spine-title">${b.title}</span>`;
+    const quoteHTML = b.quote ? `<blockquote class="book-quote">"${b.quote}"</blockquote>` : '';
     card.innerHTML = `
       <div class="book-spine" style="--spine-color: ${b.coverColor}">
         ${coverContent}
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <h3 class="book-title">${b.title}</h3>
         <p class="book-byline">${b.author} · ${b.year}</p>
         <p class="book-genre">${b.genre}</p>
-        <blockquote class="book-quote">"${b.quote}"</blockquote>
+        ${quoteHTML}
         <p class="book-desc">${b.description}</p>
         <div class="book-awards">${awardsHTML}</div>
       </div>
