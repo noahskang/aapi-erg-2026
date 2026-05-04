@@ -232,9 +232,9 @@ const RESTAURANTS = [
     recommenderTitle: "Hinge ERG",
     blurb: "A tiny Taiwanese tea shop that takes leaves seriously without being precious about it. The pineapple linzer cookie alone is worth the trip — buttery, jammy, and somehow exactly the right thing with a pot of oolong. Slow down and let them brew it for you.",
     photos: [
-      "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&q=80",
-      "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80",
-      "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?w=600&q=80"
+      "assets/images/restaurants/te-company-1.jpg",
+      "assets/images/restaurants/te-company-2.jpg",
+      "assets/images/restaurants/te-company-3.jpg"
     ],
     priceRange: "$$",
     tags: ["Taiwanese", "Tea", "West Village", "Quiet"]
@@ -242,23 +242,22 @@ const RESTAURANTS = [
   {
     id: 12,
     name: "Phoenix Palace",
-    neighborhood: "Lower East Side",
-    address: "157 E Broadway, New York, NY 10002",
+    neighborhood: "Bowery / Chinatown",
+    address: "85 Bowery, New York, NY 10002",
     cuisine: "Cantonese / Hong Kong-Style",
-    lat: 40.7140,
-    lng: -73.9899,
+    lat: 40.7152,
+    lng: -73.9966,
     hours: "Hours vary",
     topDishes: ["Roast Duck", "Salt & Pepper Squid", "Crispy Chicken", "Lo Mein"],
     recommender: "Julie Harris",
     recommenderTitle: "Hinge ERG",
     blurb: "Phoenix Palace is the kind of place you want around for big group Asian dinners — the roasted meats hang in the window, the lazy susan spins, and nobody is rushing you out. Order generously and bring people who appreciate it.",
     photos: [
-      "https://images.unsplash.com/photo-1525755662778-989d0524087e?w=600&q=80",
-      "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=80",
-      "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=600&q=80"
+      "assets/images/restaurants/phoenix-palace-1.jpg",
+      "assets/images/restaurants/phoenix-palace-2.jpg"
     ],
     priceRange: "$$",
-    tags: ["Cantonese", "Group Dinner", "LES", "Roast Meats"]
+    tags: ["Cantonese", "Group Dinner", "Bowery", "Roast Meats"]
   },
   {
     id: 13,
@@ -274,9 +273,8 @@ const RESTAURANTS = [
     recommenderTitle: "Hinge ERG",
     blurb: "The Taiwanese chain that made stir-frying boba in front of you a thing — and yes, the brown sugar caramelizing in the wok smells exactly as good as it sounds. The pearls actually have texture. Worth the small line at any of the three NYC outposts.",
     photos: [
-      "https://images.unsplash.com/photo-1558857563-b371033873b8?w=600&q=80",
-      "https://images.unsplash.com/photo-1546039907-7fa05f864c02?w=600&q=80",
-      "https://images.unsplash.com/photo-1525803377221-4f6ccdaa5350?w=600&q=80"
+      "assets/images/restaurants/xing-fu-tang-1.jpg",
+      "assets/images/restaurants/xing-fu-tang-2.jpg"
     ],
     priceRange: "$",
     tags: ["Taiwanese", "Boba", "Quick Bite", "Chain"]
@@ -1616,7 +1614,7 @@ const ERG_EVENTS = [
     description: "An author reading and conversation with Jade Song — artist and author of I Love You Don't Die and Chlorine, lauded as \"visionary and disturbing,\" a New York Times Editor's Choice, and winner of the Alex Award. Includes Q&A and a book signing & giveaway.",
     category: "Author Talk",
     icon: "📖",
-    image: "assets/images/erg/jade-song.png",
+    image: "assets/images/erg/jade-song.jpg",
     includes: ["Reading", "Q&A", "Book signing & giveaway"],
     notes: "Free & open to all Hinge employees. Limited books provided — first come, first served."
   },
@@ -1632,7 +1630,7 @@ const ERG_EVENTS = [
     films: [
       {
         title: "Layover",
-        image: "assets/images/erg/layover.png",
+        image: "assets/images/erg/layover.jpg",
         director: "Taylor Sanghyun Lee",
         synopsis: "Long estranged from the religious community his mother embraces, Solomon must wear a lie one last time on the day of his brief return.",
         bio: "Born and raised in California, Taylor Sanghyun Lee is an NYC-based filmmaker whose work spans writing, directing, and cinematography. Before turning to film, he worked as a software engineer and received his BA in Linguistics and Computer Science from UCLA.\n\nTaylor is currently in development for his directorial debut feature, ROUNDS, which was selected for the 2026 Sundance Directors and Screenwriters Lab and the 2025 TIFF & CJ K-Story Fund. He earned his MFA in Directing from NYU Tisch Graduate Film, where he was awarded the Ang Lee Scholarship. His short film LAYOVER is streaming as a Vimeo Staff Pick, and his upcoming short PARKSIDE EAST is the recipient of the Spike Lee Production Grant.\n\nAs a cinematographer, he has shot dozens of short films that have screened at festivals worldwide, and he recently wrapped principal photography on NURTURE, the debut feature from the Stark Brothers. He is the recipient of the 2025 ARRI Volker Bahnemann Award for Outstanding Cinematography, 2024 Sundance Ignite Fellowship, and the Gotham Marcie Bloom Fellowship.",

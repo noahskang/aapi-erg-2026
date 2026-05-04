@@ -25,14 +25,22 @@ document.addEventListener('DOMContentLoaded', () => {
     card.className = 'restaurant-card';
     card.id = 'restaurant-' + r.id;
     card.dataset.id = r.id;
-    card.innerHTML = `
+    const photos = r.photos || [];
+    const photosHTML = photos.length === 0 ? '' : `
       <div class="card-photos">
-        <img class="card-photo-main" src="${r.photos[0]}" alt="${r.name}" loading="lazy">
-        <div class="card-photo-row">
-          <img src="${r.photos[1]}" alt="${r.name} interior" loading="lazy">
-          <img src="${r.photos[2]}" alt="${r.name} dish" loading="lazy">
-        </div>
+        <img class="card-photo-main" src="${photos[0]}" alt="${r.name}" loading="lazy">
+        ${photos.length >= 3 ? `
+          <div class="card-photo-row">
+            <img src="${photos[1]}" alt="${r.name} interior" loading="lazy">
+            <img src="${photos[2]}" alt="${r.name} dish" loading="lazy">
+          </div>
+        ` : photos.length === 2 ? `
+          <img class="card-photo-main" src="${photos[1]}" alt="${r.name} dish" loading="lazy" style="height:120px;">
+        ` : ''}
       </div>
+    `;
+    card.innerHTML = `
+      ${photosHTML}
       <div class="card-body">
         <div class="card-top">
           <div class="card-title-group">
