@@ -54,6 +54,18 @@ document.addEventListener('DOMContentLoaded', () => {
       ? `<a class="erg-partner" href="${ev.partner.url}" target="_blank" rel="noopener">↗ ${ev.partner.name}</a>`
       : '';
 
+    const subtitleHtml = ev.subtitle
+      ? `<p class="erg-card-subtitle">${ev.subtitle}</p>`
+      : '';
+
+    const hostedByHtml = ev.hostedBy
+      ? `<div class="erg-hosted-by">
+          <div class="erg-hosted-by-label">Hosted by</div>
+          <div class="erg-hosted-by-name">${ev.hostedBy.name}</div>
+          <p class="erg-hosted-by-bio">${ev.hostedBy.bio}</p>
+        </div>`
+      : '';
+
     const includesHtml = ev.includes && ev.includes.length
       ? `<div class="erg-includes">${ev.includes.map(t => `<span class="erg-include-tag">${t}</span>`).join('')}</div>`
       : '';
@@ -68,12 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="erg-card-when"><strong>${ev.date}</strong>${ev.time}</span>
         </div>
         <h3 class="erg-card-title">${ev.title}</h3>
+        ${subtitleHtml}
         <div class="erg-card-meta-row">
           <span>📍 ${ev.location}</span>
         </div>
         <p class="erg-card-desc">${ev.description}</p>
         ${includesHtml}
         ${partnerHtml}
+        ${hostedByHtml}
         ${filmsHtml}
         ${notesHtml}
       </div>

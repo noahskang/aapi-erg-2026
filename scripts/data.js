@@ -1654,11 +1654,12 @@ const ERG_EVENTS = [
   },
   {
     id: "erg-2",
-    title: "AAPI Short Film Screening",
+    title: "Filmmaker Showcase",
+    subtitle: "A screening and Q&A featuring two up-and-coming AAPI filmmakers",
     date: "May 20, 2026",
-    time: "12:00 PM",
+    time: "12:00 – 1:00 PM",
     location: "5th Floor, FiDi",
-    description: "A double-feature lunchtime screening of two acclaimed AAPI short films — Layover by Taylor Sanghyun Lee, and Lice by Vindhya Gupta — followed by a live Q&A with both directors.",
+    description: "A lunchtime double feature: two acclaimed AAPI shorts — Layover by Taylor Sanghyun Lee and Lice by Vindhya Gupta — followed by a live Q&A with both directors.",
     category: "Film",
     icon: "🎬",
     films: [
@@ -1668,7 +1669,7 @@ const ERG_EVENTS = [
         director: "Taylor Sanghyun Lee",
         directorPhoto: "assets/images/erg/taylor-lee.jpg",
         synopsis: "Long estranged from the religious community his mother embraces, Solomon must wear a lie one last time on the day of his brief return.",
-        bio: "Born and raised in California, Taylor Sanghyun Lee is an NYC-based filmmaker whose work spans writing, directing, and cinematography. Before turning to film, he worked as a software engineer and received his BA in Linguistics and Computer Science from UCLA.\n\nTaylor is currently in development for his directorial debut feature, ROUNDS, which was selected for the 2026 Sundance Directors and Screenwriters Lab and the 2025 TIFF & CJ K-Story Fund. He earned his MFA in Directing from NYU Tisch Graduate Film, where he was awarded the Ang Lee Scholarship. His short film LAYOVER is streaming as a Vimeo Staff Pick, and his upcoming short PARKSIDE EAST is the recipient of the Spike Lee Production Grant.\n\nAs a cinematographer, he has shot dozens of short films that have screened at festivals worldwide, and he recently wrapped principal photography on NURTURE, the debut feature from the Stark Brothers. He is the recipient of the 2025 ARRI Volker Bahnemann Award for Outstanding Cinematography, 2024 Sundance Ignite Fellowship, and the Gotham Marcie Bloom Fellowship.",
+        bio: "Taylor Sanghyun Lee is an NYC-based filmmaker working across writing, directing, and cinematography. A former software engineer and UCLA grad in Linguistics & Computer Science, he earned his MFA in Directing from NYU Tisch, where he was awarded the Ang Lee Scholarship. His debut feature ROUNDS was selected for the 2026 Sundance Directors & Screenwriters Lab and the 2025 TIFF & CJ K-Story Fund. Layover is a Vimeo Staff Pick; his upcoming short Parkside East is a recipient of the Spike Lee Production Grant.",
         laurels: ["San Francisco International Film Festival", "47th Asian American International Film Festival", "New York Asian Film Festival 2024"]
       },
       {
@@ -1676,25 +1677,30 @@ const ERG_EVENTS = [
         image: "assets/images/erg/lice.jpg",
         director: "Vindhya Gupta",
         directorPhoto: "assets/images/erg/vindhya-gupta.jpg",
-        synopsis: "12-year-old Roshni forges a bond with the class outcast, Chakor, to keep her lice infestation a secret. The malicious lie looms large over Roshni as a friendship blossoms between them.",
-        bio: "Vindhya Gupta is a New York–based filmmaker and creative producer, and Faculty at the New York Film Academy. She holds an MFA in Film Producing from NYU Tisch School of the Arts.\n\nHer narrative work has premiered at Tribeca Film Festival and screened across continents, earning awards and recognition from prestigious institutions. Her films operate in the space between social realism and psychological unease, interrogating class, power, and the performance of identity. She is currently in development on her debut feature.\n\nIn parallel, she runs Dropper Films, a New York-based production company specializing in narrative brand films. Her commercial credits span campaigns for Google, HP, Uber, and Coca-Cola through global agency partnerships, and she continues to work with startups and emerging brands.",
+        synopsis: "12-year-old Roshni forges a bond with class outcast Chakor to keep her lice infestation a secret. The malicious lie looms large as a friendship blossoms between them.",
+        bio: "Vindhya Gupta is a New York–based filmmaker, creative producer, and faculty at the New York Film Academy. She holds an MFA in Film Producing from NYU Tisch. Her narrative work has premiered at Tribeca and screened across continents, earning awards from prestigious institutions. Her films operate between social realism and psychological unease, interrogating class, power, and the performance of identity. She also runs Dropper Films, with commercial credits spanning Google, HP, Uber, and Coca-Cola.",
         laurels: ["2024 Tribeca Film Festival Official Selection", "Nashville Film Festival 2024", "Indian Film Festival of Melbourne 2024", "Austin Film Festival 2024"]
       }
     ]
   },
   {
     id: "erg-3",
-    title: "Wine Tasting with Fuzhou Sisters",
+    title: "An Introduction to Qinghong Wine",
+    subtitle: "A guided tasting in collaboration with Fuzhou Sisters",
     date: "May 28, 2026",
     time: "4:00 – 6:00 PM",
     location: "5th Floor, FiDi",
-    description: "A guided wine tasting with the Fuzhou Sisters — a woman-owned, NYC-based importer of Fuzhounese rice wine and other heritage Asian beverages. An afternoon of pours, stories, and the cultural context behind each bottle.",
+    description: "An intimate one-hour tasting with the Fuzhou Sisters — they'll share the story and history of Qinghong, a rare regional wine native to Fuzhou, China, followed by a guided pour through 5–6 varieties with curated snack pairings.",
     category: "Tasting",
     icon: "🍷",
     image: "assets/images/erg/fuzhou-sisters.jpg",
     partner: {
       name: "Fuzhou Sisters",
       url: "https://www.fuzhousisters.com/"
+    },
+    hostedBy: {
+      name: "Fuzhou Sisters",
+      bio: "Founded by childhood friends Shuyu and Qixin, who grew up together in Fuzhou and reunited in New York City in 2023. Fuzhou Sisters brings Qinghong wine — and the culture behind it — to new audiences through tasting events, community, and storytelling."
     }
   },
   {
