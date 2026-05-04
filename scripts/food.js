@@ -1,5 +1,6 @@
 // ============================================================
-// food.js — Food / Restaurant page
+// food.js — Recs page (restaurants + cultural spaces, shops, studios)
+// Renders unified RESTAURANTS array as cards + map markers.
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -15,10 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
       : parts[0][0].toUpperCase();
   }
 
-  // ── Build restaurant card ─────────────────────────────────
+  // ── Build rec card ────────────────────────────────────────
   function buildRestaurantCard(r) {
-    const topDishesHTML = r.topDishes.map(d => `<span class="dish-tag">${d}</span>`).join('');
-    const tagsHTML      = r.tags.map(t => `<span class="tag">${t}</span>`).join('');
+    const highlights    = Array.isArray(r.highlights) ? r.highlights : [];
+    const highlightsHTML = highlights.map(d => `<span class="dish-tag">${d}</span>`).join('');
+    const tags          = Array.isArray(r.tags) ? r.tags : [];
+    const tagsHTML      = tags.map(t => `<span class="tag">${t}</span>`).join('');
 
     const card = document.createElement('article');
     card.className = 'restaurant-card';
@@ -31,10 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
         ${photos.length >= 3 ? `
           <div class="card-photo-row">
             <img src="${photos[1]}" alt="${r.name} interior" loading="lazy">
-            <img src="${photos[2]}" alt="${r.name} dish" loading="lazy">
+            <img src="${photos[2]}" alt="${r.name} detail" loading="lazy">
           </div>
         ` : photos.length === 2 ? `
-          <img class="card-photo-main" src="${photos[1]}" alt="${r.name} dish" loading="lazy" style="height:120px;">
+          <img class="card-photo-main" src="${photos[1]}" alt="${r.name} detail" loading="lazy" style="height:120px;">
         ` : ''}
       </div>
     `;
@@ -47,27 +50,39 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     ` : '';
-    const blurbHTML = r.blurb ? `<p class="card-blurb">"${r.blurb}"</p>` : '';
+    const blurbHTML       = r.blurb       ? `<p class="card-blurb">"${r.blurb}"</p>` : '';
+    const descriptionHTML = r.description ? `<p class="card-description">${r.description}</p>` : '';
+    const priceHTML       = r.priceRange  ? `<span class="card-price">${r.priceRange}</span>` : '';
+    const linkHTML        = r.link        ? `<a class="card-link" href="${r.link}" target="_blank" rel="noopener">Visit site →</a>` : '';
+
+    const highlightsBlock = highlights.length ? `
+      <div class="card-dishes">
+        <span>✨ Highlights</span>
+        <div class="dishes-tags">${highlightsHTML}</div>
+      </div>
+    ` : '';
+
+    const tagsBlock = tags.length ? `<div class="card-tags-row">${tagsHTML}</div>` : '';
+
     card.innerHTML = `
       ${photosHTML}
       <div class="card-body">
         <div class="card-top">
           <div class="card-title-group">
             <h3 class="card-name">${r.name}</h3>
-            <p class="card-meta">${r.cuisine} · ${r.neighborhood}</p>
+            <p class="card-meta">${r.kind || ''}${r.kind ? ' · ' : ''}${r.neighborhood}</p>
           </div>
-          <span class="card-price">${r.priceRange}</span>
+          ${priceHTML}
         </div>
         ${recommenderHTML}
+        ${descriptionHTML}
         ${blurbHTML}
         <div class="card-expanded" style="display:none">
           <div class="card-detail"><span>📍</span><span>${r.address}</span></div>
           <div class="card-detail"><span>🕐</span><span>${r.hours}</span></div>
-          <div class="card-dishes">
-            <span>🍜 Top Dishes</span>
-            <div class="dishes-tags">${topDishesHTML}</div>
-          </div>
-          <div class="card-tags-row">${tagsHTML}</div>
+          ${highlightsBlock}
+          ${tagsBlock}
+          ${linkHTML}
         </div>
         <button class="card-toggle">Show details ↓</button>
       </div>
@@ -150,7 +165,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebarClose   = document.getElementById('sidebar-close');
 
     function buildSidebarContent(r) {
-      const dishesHTML = r.topDishes.map(d => `<span class="dish-tag">${d}</span>`).join('');
+      const highlights = Array.isArray(r.highlights) ? r.highlights : [];
+      const highlightsHTML = highlights.map(d => `<span class="dish-tag">${d}</span>`).join('');
       const recommenderHTML = r.recommender ? `
         <div class="sidebar-recommender">
           <div class="recommender-avatar">${getInitials(r.recommender)}</div>
@@ -160,23 +176,34 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
       ` : '';
-      const blurbHTML = r.blurb ? `<p class="sidebar-blurb">"${r.blurb}"</p>` : '';
+      const blurbHTML       = r.blurb       ? `<p class="sidebar-blurb">"${r.blurb}"</p>` : '';
+      const descriptionHTML = r.description ? `<p class="sidebar-description">${r.description}</p>` : '';
       const photo = (r.photos && r.photos[0]) ? `<img class="sidebar-photo" src="${r.photos[0]}" alt="${r.name}" loading="lazy">` : '';
+      const metaParts = [r.kind, r.neighborhood, r.priceRange].filter(Boolean);
+      const linkHTML = r.link ? `<a class="sidebar-link" href="${r.link}" target="_blank" rel="noopener">Visit site →</a>` : '';
+      const highlightsBlock = highlights.length ? `
+        <p class="sidebar-dishes-label">✨ Highlights</p>
+        <div class="dishes-tags" style="margin-bottom:16px">${highlightsHTML}</div>
+      ` : '';
       return `
         ${photo}
         <h3 class="sidebar-restaurant-name">${r.name}</h3>
-        <p class="sidebar-meta">${r.cuisine} · ${r.neighborhood} · ${r.priceRange}</p>
+        <p class="sidebar-meta">${metaParts.join(' · ')}</p>
         ${recommenderHTML}
+        ${descriptionHTML}
         ${blurbHTML}
         <div class="sidebar-detail"><span>📍</span><span>${r.address}</span></div>
         <div class="sidebar-detail"><span>🕐</span><span>${r.hours}</span></div>
-        <p class="sidebar-dishes-label">🍜 Top Dishes</p>
-        <div class="dishes-tags" style="margin-bottom:16px">${dishesHTML}</div>
+        ${highlightsBlock}
+        ${linkHTML}
       `;
     }
 
-    RESTAURANTS.forEach((r, idx) => {
-      const marker = L.marker([r.lat, r.lng], { icon: customIcon(idx + 1) }).addTo(map);
+    let markerNum = 0;
+    RESTAURANTS.forEach(r => {
+      if (typeof r.lat !== 'number' || typeof r.lng !== 'number') return;
+      markerNum += 1;
+      const marker = L.marker([r.lat, r.lng], { icon: customIcon(markerNum) }).addTo(map);
       marker.on('click', () => {
         sidebarContent.innerHTML = buildSidebarContent(r);
         sidebar.classList.add('open');

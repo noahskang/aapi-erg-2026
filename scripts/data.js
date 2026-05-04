@@ -5,7 +5,10 @@
 // ============================================================
 
 // ============================================================
-// RESTAURANTS — ERG Member Picks
+// RESTAURANTS — Unified "Recs" list: restaurants + cultural spaces, shops, studios
+// Schema: id, name, neighborhood, address, kind, lat, lng, hours, link, tags,
+//         description, highlights (optional), priceRange (optional),
+//         photos (optional array), recommender (optional), recommenderTitle (optional)
 // ============================================================
 const RESTAURANTS = [
   {
@@ -13,25 +16,36 @@ const RESTAURANTS = [
     name: "Xi'an Famous Foods",
     neighborhood: "Flatiron / Multiple Locations",
     address: "38 E 23rd St, New York, NY 10010",
-    cuisine: "Shanxi Chinese",
+    kind: "Shanxi Chinese",
     lat: 40.7412,
     lng: -73.9855,
     hours: "Mon–Sun: 11am–9pm",
-    topDishes: ["Spicy Cumin Lamb Burger", "Hand-Ripped Noodles", "Lamb Face Salad", "Liang Pi Cold Skin Noodles"],
+    link: "https://www.xianfoods.com/",
+    description: "A family-run Chinese chain that started as a basement bubble-tea stall in Flushing in 2005 and grew into 25+ NYC-area locations under father-son founders David and Jason Wang. Known for hand-ripped Biang Biang noodles and a proprietary 30-ingredient chili oil.",
+    highlights: ["Spicy Cumin Lamb Burger", "Hand-Ripped Noodles", "Lamb Face Salad", "Liang Pi Cold Skin Noodles"],
     priceRange: "$",
+    photos: [
+      "assets/images/recs/xian-1.jpg",
+      "assets/images/recs/xian-2.jpg"
+    ],
     tags: ["Noodles", "Spicy", "Quick Bite", "Lunch Favorite"]
   },
   {
     id: 2,
     name: "Ugly Baby",
-    neighborhood: "Carroll Gardens, Brooklyn",
-    address: "407 Smith St, Brooklyn, NY 11231",
-    cuisine: "Isaan Thai",
-    lat: 40.6786,
-    lng: -73.9968,
-    hours: "Tue–Sun: 5:30pm–10pm (Closed Mon)",
-    topDishes: ["Crying Tiger Beef", "Larb Ped (Duck Laab)", "Papaya Pok Pok", "Sticky Rice"],
+    neighborhood: "Williamsburg, Brooklyn",
+    address: "364 Grand St, Brooklyn, NY 11211",
+    kind: "Isaan Thai",
+    lat: 40.7138,
+    lng: -73.9580,
+    hours: "Reopening February 2026 — check site",
+    link: "https://www.uglybabynyc.com/",
+    description: "Chef Sirichai Sreparplarn's beloved Carroll Gardens Isaan Thai spot closed in late 2024 after a seven-year run; the team signed a Williamsburg lease and is set to reopen at 364 Grand St in February 2026. Long lauded for spice-forward dishes that don't compromise on heat.",
+    highlights: ["Crying Tiger Beef", "Larb Ped (Duck Laab)", "Papaya Pok Pok", "Sticky Rice"],
     priceRange: "$$",
+    photos: [
+      "assets/images/recs/uglybaby-1.jpg"
+    ],
     tags: ["Thai", "Spicy", "Date Night", "Brooklyn"]
   },
   {
@@ -39,12 +53,19 @@ const RESTAURANTS = [
     name: "Jongro BBQ",
     neighborhood: "Koreatown, Midtown",
     address: "22 W 32nd St, 2nd Floor, New York, NY 10001",
-    cuisine: "Korean BBQ",
+    kind: "Korean BBQ",
     lat: 40.7479,
     lng: -73.9878,
-    hours: "Mon–Sun: 11am–2am",
-    topDishes: ["Galbi (Short Ribs)", "Brisket", "Samgyeopsal (Pork Belly)", "Spicy Marinated Chicken"],
+    hours: "Sun–Thu: 11:30am–12am, Fri–Sat: 11:30am–1am",
+    link: "https://www.jongrobbqny.com/",
+    description: "An import from a Korean chain that opened its first U.S. outpost on West 32nd in 2015. Meats are butchered in-house and grilled tableside in a vast second-floor room dressed with antique Korean signage and delivery bikes.",
+    highlights: ["Galbi (Short Ribs)", "Brisket", "Samgyeopsal (Pork Belly)", "Spicy Marinated Chicken"],
     priceRange: "$$$",
+    photos: [
+      "assets/images/recs/jongro-1.jpg",
+      "assets/images/recs/jongro-2.jpg",
+      "assets/images/recs/jongro-3.jpg"
+    ],
     tags: ["Korean BBQ", "Late Night", "Group Dinner", "K-Town"]
   },
   {
@@ -52,12 +73,19 @@ const RESTAURANTS = [
     name: "Kopitiam",
     neighborhood: "Lower East Side",
     address: "151 E Broadway, New York, NY 10002",
-    cuisine: "Malaysian",
+    kind: "Malaysian (Nyonya)",
     lat: 40.7141,
     lng: -73.9906,
     hours: "Wed–Mon: 9am–4pm (Closed Tue)",
-    topDishes: ["Nasi Lemak", "Roti Canai", "Hainanese Chicken Rice", "Kopi C Peng (Iced Coffee)"],
+    link: "https://www.kopitiamnyc.com/",
+    description: "A fast-casual Lower East Side eatery from chef-owner Kyo Pang, a third-generation Nyonya cook serving the Chinese-Malay hybrid cuisine of her family. Dishes are made without additives or artificial coloring; Pang has been a James Beard semifinalist.",
+    highlights: ["Nasi Lemak", "Roti Canai", "Hainanese Chicken Rice", "Kopi C Peng (Iced Coffee)"],
     priceRange: "$$",
+    photos: [
+      "assets/images/recs/kopitiam-1.jpg",
+      "assets/images/recs/kopitiam-2.jpg",
+      "assets/images/recs/kopitiam-3.jpg"
+    ],
     tags: ["Malaysian", "Brunch", "Coffee", "LES"]
   },
   {
@@ -65,12 +93,19 @@ const RESTAURANTS = [
     name: "Hanoi House",
     neighborhood: "East Village",
     address: "119 Saint Marks Pl, New York, NY 10009",
-    cuisine: "Vietnamese",
+    kind: "Vietnamese",
     lat: 40.7279,
     lng: -73.9840,
     hours: "Mon–Sun: 12pm–10pm",
-    topDishes: ["Bun Bo Hue", "Bun Cha", "Banh Mi", "Cha Ca La Vong"],
+    link: "https://www.hanoihousenyc.com/",
+    description: "A plant-heavy, dimly lit East Village Vietnamese spot founded by Stephen Starr alums Ben Lowell and Sara Leveen, with chef John Nguyen on the line. The pho bac simmers for 16 hours; the patio always feels like a phở-powered St. Marks party.",
+    highlights: ["Bun Bo Hue", "Bun Cha", "Banh Mi", "Cha Ca La Vong"],
     priceRange: "$$",
+    photos: [
+      "assets/images/recs/hanoi-1.jpg",
+      "assets/images/recs/hanoi-2.jpg",
+      "assets/images/recs/hanoi-3.jpg"
+    ],
     tags: ["Vietnamese", "Noodles", "East Village", "Hidden Gem"]
   },
   {
@@ -78,76 +113,110 @@ const RESTAURANTS = [
     name: "Atoboy",
     neighborhood: "NoMad",
     address: "43 E 28th St, New York, NY 10016",
-    cuisine: "Korean Fine Dining",
+    kind: "Modern Korean",
     lat: 40.7435,
     lng: -73.9859,
     hours: "Mon–Sat: 5:30pm–10:30pm (Closed Sun)",
-    topDishes: ["Charred Eggplant", "Braised Short Rib", "Hamachi Crudo", "Gochujang Glazed Duck"],
+    link: "https://www.atoboynyc.com/",
+    description: "Chef Junghyun \"JP\" Park and Ellia Park's first NYC restaurant, opened in 2016 as the casual, banchan-driven sibling to their Michelin-two-starred Atomix. Innovative Korean-inspired cooking served on hand-thrown ceramics in a bare-bones NoMad room.",
+    highlights: ["Charred Eggplant", "Braised Short Rib", "Hamachi Crudo", "Gochujang Glazed Duck"],
     priceRange: "$$$",
+    photos: [
+      "assets/images/recs/atoboy-1.jpg",
+      "assets/images/recs/atoboy-2.jpg"
+    ],
     tags: ["Korean Fine Dining", "Special Occasion", "Date Night", "NoMad"]
   },
   {
     id: 7,
     name: "Pecking House",
-    neighborhood: "Upper East Side",
-    address: "1615 2nd Ave, New York, NY 10028",
-    cuisine: "Chinese-American",
-    lat: 40.7756,
-    lng: -73.9519,
-    hours: "Tue–Sun: 5pm–10pm (Closed Mon)",
-    topDishes: ["Peking Duck (pre-order)", "Mapo Tofu", "Dan Dan Noodles", "Salt & Pepper Lobster"],
-    priceRange: "$$$",
-    tags: ["Chinese", "Peking Duck", "UES", "Special Occasion"]
+    neighborhood: "Chinatown",
+    address: "83 Henry St, New York, NY 10002",
+    kind: "Sichuan Fried Chicken",
+    lat: 40.7117,
+    lng: -73.9952,
+    hours: "Mon–Sun: 11am–10pm",
+    link: "https://www.peckinghouse.com/",
+    description: "Chef Eric Huang — formerly a sous chef at Eleven Madison Park — turned a pandemic-era delivery experiment from his family's old Queens kitchen into a buttermilk-brined, Sichuan-peppercorn-finished fried-chicken sensation. The Chinatown brick-and-mortar is the current flagship after the Brooklyn original closed.",
+    highlights: ["Sichuan Chili Fried Chicken", "Chicken Sandwich", "Mapo Tofu", "Dan Dan Noodles"],
+    priceRange: "$$",
+    photos: [
+      "assets/images/recs/pecking-1.jpg"
+    ],
+    tags: ["Chinese", "Fried Chicken", "Chinatown", "Casual"]
   },
   {
     id: 8,
     name: "Tang Pavilion",
     neighborhood: "Midtown West",
     address: "65 W 55th St, New York, NY 10019",
-    cuisine: "Shanghainese",
+    kind: "Shanghainese",
     lat: 40.7630,
     lng: -73.9791,
     hours: "Mon–Fri: 11:30am–10pm, Sat–Sun: 12pm–10pm",
-    topDishes: ["Soup Dumplings (Xiao Long Bao)", "Dongpo Pork", "Crab & Pork Dumplings", "Scallion Oil Noodles"],
+    link: "https://www.tangpavilionnyc.com/",
+    description: "A long-standing midtown Chinese restaurant that pairs bold Sichuan flavors with Hong Kong-style dim sum and Shanghainese classics. A reliable lunch and pre-theater stop on West 55th since the 1990s.",
+    highlights: ["Soup Dumplings (Xiao Long Bao)", "Dongpo Pork", "Crab & Pork Dumplings", "Scallion Oil Noodles"],
     priceRange: "$$",
+    photos: [
+      "assets/images/recs/tang-1.jpg",
+      "assets/images/recs/tang-2.jpg",
+      "assets/images/recs/tang-3.jpg"
+    ],
     tags: ["Shanghainese", "Dumplings", "Midtown", "Lunch"]
   },
   {
     id: 9,
-    name: "Zabb Elee",
+    name: "Somtum Der",
     neighborhood: "East Village",
-    address: "75 2nd Ave, New York, NY 10003",
-    cuisine: "Isaan Thai",
-    lat: 40.7263,
-    lng: -73.9821,
-    hours: "Mon–Sun: 11am–11pm",
-    topDishes: ["Som Tam (Green Papaya Salad)", "Laab Moo (Pork Salad)", "Pad See Ew", "Thai Iced Tea"],
-    priceRange: "$",
-    tags: ["Thai", "Spicy", "Cheap Eat", "East Village"]
+    address: "85 Avenue A, New York, NY 10009",
+    kind: "Isaan Thai",
+    lat: 40.7257,
+    lng: -73.9836,
+    hours: "Mon–Sun: 12pm–10:30pm",
+    link: "https://www.somtumdernewyork.com/",
+    description: "An East Village outpost of the Bangkok original, specializing in northeastern Thai (Isaan) cooking — papaya salads pounded to order, fermented sausages, and laab tossed with toasted rice powder. Heat-forward, communal, and reliably packed.",
+    highlights: ["Som Tum Thai", "Larb Ped (Duck Laab)", "Sai Krok Isan", "Gai Yang"],
+    priceRange: "$$",
+    photos: [
+      "assets/images/recs/somtum-1.jpg",
+      "assets/images/recs/somtum-2.jpg",
+      "assets/images/recs/somtum-3.jpg"
+    ],
+    tags: ["Thai", "Spicy", "East Village", "Group Dinner"]
   },
   {
     id: 10,
-    name: "Momofuku Ssäm Bar",
+    name: "Momofuku Noodle Bar",
     neighborhood: "East Village",
-    address: "207 2nd Ave, New York, NY 10003",
-    cuisine: "Korean Fusion",
-    lat: 40.7261,
-    lng: -73.9817,
-    hours: "Mon–Sun: 5pm–11pm",
-    topDishes: ["Bo Ssäm (pre-order)", "Spicy Rice Cakes", "Raw Bar", "Smoked Chicken Wings"],
+    address: "171 1st Ave, New York, NY 10003",
+    kind: "Modern Asian / Ramen",
+    lat: 40.7287,
+    lng: -73.9856,
+    hours: "Mon–Sun: 5pm–10pm (lunch Fri–Sun)",
+    link: "https://momofuku.com/restaurants/noodle-bar-east-village",
+    description: "David Chang's flagship, where the Momofuku empire began in 2004. The original East Village space serves ramen, pork buns, and rotating large-format dishes; the famous Ssäm Bar permanently closed in 2023, but Noodle Bar remains the canonical Chang room.",
+    highlights: ["Pork Belly Buns", "Momofuku Ramen", "Spicy Rice Cakes", "Smoked Chicken Wings"],
     priceRange: "$$$",
-    tags: ["Korean Fusion", "Group Dinner", "Celebration", "East Village"]
+    photos: [
+      "assets/images/recs/momofuku-1.jpg",
+      "assets/images/recs/momofuku-2.jpg",
+      "assets/images/recs/momofuku-3.jpg"
+    ],
+    tags: ["Ramen", "Group Dinner", "East Village", "Iconic"]
   },
   {
     id: 11,
     name: "Te Company",
-    neighborhood: "West Village + East Village",
+    neighborhood: "West Village",
     address: "163 W 10th St, New York, NY 10014",
-    cuisine: "Taiwanese Tea House",
+    kind: "Taiwanese Tea House",
     lat: 40.7340,
     lng: -74.0042,
     hours: "Wed–Sun: 12pm–7pm (Closed Mon–Tue)",
-    topDishes: ["Oolong Tea Flights", "Pineapple Linzer Cookies", "Tea-Smoked Eggs", "Seasonal Tea Service"],
+    link: "https://tecompanytea.com/",
+    description: "A small West Village tearoom founded in 2015 by Elena Liao and her husband Frederico Ribeiro, sourcing premium oolongs directly from Taiwanese farmers. Its pineapple linzer cookies have a quiet cult following; the space is hushed, warm, and barely larger than a living room.",
+    highlights: ["Oolong Tea Flights", "Pineapple Linzer Cookies", "Tea-Smoked Eggs", "Seasonal Tea Service"],
     recommender: "Jonathan Jin",
     recommenderTitle: "Hinge ERG",
     photos: [
@@ -163,11 +232,13 @@ const RESTAURANTS = [
     name: "Phoenix Palace",
     neighborhood: "Bowery / Chinatown",
     address: "85 Bowery, New York, NY 10002",
-    cuisine: "Cantonese / Hong Kong-Style",
+    kind: "Cantonese",
     lat: 40.7152,
     lng: -73.9966,
-    hours: "Hours vary",
-    topDishes: ["Roast Duck", "Salt & Pepper Squid", "Crispy Chicken", "Lo Mein"],
+    hours: "Tue–Sun: 5:30pm–9:15pm (Closed Mon)",
+    link: "https://phoenixpalaceny.com/",
+    description: "A second restaurant from the team behind Potluck Club, opened on Bowery with scalloped velvet booths and a marquee out front. The menu pulls from Cantonese tradition while drifting into the founders' Chinese-American childhood favorites.",
+    highlights: ["Roast Duck", "Salt & Pepper Squid", "Olive-Freckled Youtiao", "Sticky Rice with Pancetta"],
     recommender: "Julie Harris",
     recommenderTitle: "Hinge ERG",
     photos: [
@@ -182,11 +253,13 @@ const RESTAURANTS = [
     name: "Xing Fu Tang",
     neighborhood: "Hudson Yards / St. Marks / FiDi",
     address: "20 Hudson Yards, New York, NY 10001",
-    cuisine: "Taiwanese Bubble Tea",
+    kind: "Taiwanese Bubble Tea",
     lat: 40.7536,
     lng: -74.0014,
     hours: "Mon–Sun: 11am–9pm",
-    topDishes: ["Brown Sugar Boba Milk", "Stir-Fried Brown Sugar Boba", "Strawberry Boba", "Matcha Latte with Boba"],
+    link: "https://www.xingfutangusa.com/",
+    description: "The U.S. arm of a Taiwanese bubble-tea chain founded in Taipei in 2018, known for stir-frying its tapioca pearls in brown sugar to order. The Hudson Yards counter is one of three NYC outposts.",
+    highlights: ["Brown Sugar Boba Milk", "Stir-Fried Brown Sugar Boba", "Strawberry Boba", "Matcha Latte with Boba"],
     recommender: "Shmo Chuang",
     recommenderTitle: "Hinge ERG",
     photos: [
@@ -195,6 +268,200 @@ const RESTAURANTS = [
     ],
     priceRange: "$",
     tags: ["Taiwanese", "Boba", "Quick Bite", "Chain"]
+  },
+  {
+    id: 14,
+    name: "Wing on Wo & Co.",
+    neighborhood: "Chinatown",
+    address: "26 Mott St, New York, NY 10013",
+    kind: "Porcelain Shop",
+    lat: 40.7150,
+    lng: -73.9981,
+    hours: "Hours vary — check site",
+    link: "https://wingonwoand.co/",
+    description: "Founded in the 1890s as a general store and specializing in porcelain since 1925, Wing on Wo is the oldest continuously operating shop in Manhattan's Chinatown, now run by fifth-generation owner Mei Lum. The storefront also hosts community programming through The W.O.W. Project.",
+    highlights: ["Hand-painted Porcelain", "Tea & Tableware", "Artist Collaborations", "Community Programming"],
+    photos: [
+      "assets/images/recs/wingonwo-1.jpg"
+    ],
+    tags: ["Shop", "Chinatown", "Heritage", "Ceramics"],
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 15,
+    name: "Korean Cultural Center NY",
+    neighborhood: "Midtown",
+    address: "122 E 32nd St, New York, NY 10016",
+    kind: "Cultural Center",
+    lat: 40.7461,
+    lng: -73.9819,
+    hours: "Mon–Fri: 9am–5pm",
+    link: "https://www.koreanculture.org/",
+    description: "The official cultural arm of the Republic of Korea in New York, established in 1979 and now housed in a new eight-story Korea Center on East 32nd Street. Free galleries, a 200-seat theater, library, and rotating exhibitions of contemporary Korean art.",
+    highlights: ["Rotating Exhibitions", "Film Screenings", "200-Seat Theater", "Library & Gardens"],
+    photos: [
+      "assets/images/recs/kcc-1.jpg",
+      "assets/images/recs/kcc-2.jpg",
+      "assets/images/recs/kcc-3.jpg"
+    ],
+    tags: ["Cultural Center", "Free", "Midtown", "Exhibitions"],
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 16,
+    name: "Hyungi Park Studio",
+    neighborhood: "Brooklyn",
+    address: "Brooklyn, NY (by appointment)",
+    kind: "Artist Studio",
+    lat: 40.7081,
+    lng: -73.9571,
+    hours: "Sundays 1pm–5pm (check Goyo)",
+    link: "https://www.hyun-gi.com/",
+    description: "Hyungi Park is a Korean American multidisciplinary artist — incense maker, bookbinder, tattooer, designer — with studios in Brooklyn and Los Angeles operating under the Goyo brand she founded in 2019. Workshops and small gatherings rotate through the space.",
+    highlights: ["Incense Workshops", "Bookbinding", "Small Exhibitions", "Korean Craft"],
+    photos: [
+      "assets/images/recs/hyungi-1.jpg",
+      "assets/images/recs/hyungi-2.jpg"
+    ],
+    tags: ["Arts", "Studio", "Brooklyn", "Workshops"],
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 17,
+    name: "Green Tile Social Club",
+    neighborhood: "NYC (rotating venues)",
+    address: "Various NYC venues — see site",
+    kind: "Mahjong Club",
+    lat: 40.7185,
+    lng: -73.9945,
+    hours: "Event-based — see site",
+    link: "https://greentilesocialclub.com/",
+    description: "A social mahjong club founded in 2022, hosting events for Asian Americans across rotating NYC venues. Drinks, lessons, and play nights aimed at a generation that didn't grow up at the table with their grandmothers.",
+    highlights: ["Mahjong Nights", "Beginner Lessons", "Community Events", "Merch & Tiles"],
+    photos: [
+      "assets/images/recs/greentile-1.jpg",
+      "assets/images/recs/greentile-2.jpg",
+      "assets/images/recs/greentile-3.jpg"
+    ],
+    tags: ["Mahjong", "Community", "AAPI", "Events"],
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 18,
+    name: "Yun Hai Shop",
+    neighborhood: "East Williamsburg, Brooklyn",
+    address: "170 Montrose Ave, Brooklyn, NY 11206",
+    kind: "Taiwanese Pantry",
+    lat: 40.7059,
+    lng: -73.9388,
+    hours: "Hours vary — check site",
+    link: "https://yunhai.shop/",
+    description: "A Taiwanese specialty pantry founded by Lisa Cheng Smith, importing premium ingredients directly from Taiwanese artisans and farms — soy sauces, dried fruit, sesame oils, Tatung steamers. The Brooklyn storefront is the only U.S. brick-and-mortar.",
+    highlights: ["Soy Sauces", "Dried Fruit", "Sesame Oil", "Tatung Steamers"],
+    photos: [
+      "assets/images/recs/yunhai-1.jpg",
+      "assets/images/recs/yunhai-2.jpg",
+      "assets/images/recs/yunhai-3.jpg"
+    ],
+    tags: ["Shop", "Taiwanese", "Brooklyn", "Pantry"],
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 19,
+    name: "Hana Makgeolli",
+    neighborhood: "Greenpoint, Brooklyn",
+    address: "201 Dupont St, Brooklyn, NY 11222",
+    kind: "Korean Rice Wine Brewery",
+    lat: 40.7384,
+    lng: -73.9527,
+    hours: "Tasting room — check site",
+    link: "https://hanamakgeolli.com/",
+    description: "A Greenpoint brewery making sool — traditional Korean rice wines including makgeolli — using only organic rice and traditional brewing methods. The Dupont Street tasting room hosts tastings, tours, and private events.",
+    highlights: ["Makgeolli Tastings", "Brewery Tours", "Bottle Pickups", "Pairing Dinners"],
+    photos: [
+      "assets/images/recs/hana-1.jpg"
+    ],
+    tags: ["Brewery", "Korean", "Brooklyn", "Tasting Room"],
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 20,
+    name: "The Red Pavilion",
+    neighborhood: "Bushwick, Brooklyn",
+    address: "243 Knickerbocker Ave, Brooklyn, NY 11237",
+    kind: "Asian Neo-Noir Cabaret",
+    lat: 40.7036,
+    lng: -73.9213,
+    hours: "Evenings — check site",
+    link: "https://theredpavilion.com/",
+    description: "A spellbinding Asian neo-noir nightclub in Bushwick programming immersive cabaret, live jazz, and concerts that center Asian artists. A velvet-and-incense room that takes itself seriously and not at all.",
+    highlights: ["Cabaret Shows", "Live Jazz", "Drag & Burlesque", "Asian Art Programming"],
+    photos: [
+      "assets/images/recs/redpavilion-1.jpg",
+      "assets/images/recs/redpavilion-2.jpg"
+    ],
+    tags: ["Performance", "Nightlife", "Brooklyn", "Cabaret"],
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 21,
+    name: "Slo Slo Studio",
+    neighborhood: "Chinatown",
+    address: "146 Henry St, New York, NY 10002",
+    kind: "Ceramics Studio",
+    lat: 40.7126,
+    lng: -73.9930,
+    hours: "Daily: 10am–9pm",
+    link: "https://sloslostudio.com/",
+    description: "A ceramics studio on Henry Street offering classes, workshops, and memberships — a quiet hands-on space tucked into Chinatown. The name doubles as the philosophy: slow down, make something together.",
+    highlights: ["Ceramics Classes", "Workshops", "Open Studio", "Memberships"],
+    photos: [
+      "assets/images/recs/sloslo-1.jpg"
+    ],
+    tags: ["Arts", "Ceramics", "Chinatown", "Workshops"],
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 22,
+    name: "Yu & Me Books",
+    neighborhood: "Chinatown",
+    address: "44 Mulberry St, New York, NY 10013",
+    kind: "Bookstore + Cafe",
+    lat: 40.7155,
+    lng: -73.9988,
+    hours: "Hours vary — check site",
+    link: "https://yuandmebooks.com/",
+    description: "Founded by Lucy Yu in December 2021, Yu & Me is the only bookstore in NYC owned by an Asian American woman, with a tightly curated selection focused on the Asian American diaspora and translated fiction. A cafe-bar in back makes it a reading room as much as a shop.",
+    highlights: ["Asian American Fiction", "Author Events", "Cafe & Bar", "Translated Lit"],
+    recommender: "Joanna Hu",
+    recommenderTitle: "Hinge ERG",
+    photos: [
+      "assets/images/recs/yume-1.jpg",
+      "assets/images/recs/yume-2.jpg"
+    ],
+    tags: ["Bookstore", "Chinatown", "AAPI", "Cafe"],
+    source: "Hinge ERG team rec"
+  },
+  {
+    id: 23,
+    name: "Japan Village",
+    neighborhood: "Sunset Park, Brooklyn",
+    address: "934 3rd Ave, Brooklyn, NY 11232 (Industry City)",
+    kind: "Japanese Food Hall + Marketplace",
+    lat: 40.6573,
+    lng: -74.0086,
+    hours: "Mon–Sun: 11am–8pm",
+    link: "https://japanvillage.com/",
+    description: "A 20,000+ sq ft Japanese food hall and marketplace inside Industry City, with stalls for ramen, takoyaki, and kaiten sushi alongside a grocery, sake selection, and home goods. Easy to lose two hours wandering.",
+    highlights: ["Ramen Stalls", "Kaiten Sushi", "Sake Selection", "Japanese Grocery"],
+    recommender: "Shmo Chuang",
+    recommenderTitle: "Hinge ERG",
+    photos: [
+      "assets/images/recs/japanvillage-1.jpg",
+      "assets/images/recs/japanvillage-2.jpg"
+    ],
+    tags: ["Food Hall", "Japanese", "Brooklyn", "Marketplace"],
+    source: "Hinge ERG team rec"
   }
 ];
 
@@ -473,156 +740,6 @@ const EVENTS = [
     icon: "🀄",
     featured: false,
     source: "AM New York"
-  },
-  {
-    id: 19,
-    title: "Wing on Wo & Co",
-    date: "Throughout May 2026",
-    time: "Hours vary",
-    location: "26 Mott St, New York, NY 10013",
-    neighborhood: "Chinatown",
-    description: "One of the oldest continuously operating family-run shops in Manhattan's Chinatown — a porcelain store that has quietly anchored Mott Street for generations. Now run by the fifth generation as both retail and a community space, with public programming through The W.O.W. Project.",
-    category: "Shop",
-    price: "Free to visit",
-    link: "https://wingonwoand.co/",
-    icon: "🏮",
-    featured: false,
-    source: "Hinge ERG team rec"
-  },
-  {
-    id: 20,
-    title: "Korean Cultural Center NY",
-    date: "Throughout May 2026",
-    time: "Mon–Fri: 9am–5pm",
-    location: "122 E 32nd St, New York, NY 10016",
-    neighborhood: "Midtown",
-    description: "The official cultural arm of the Republic of Korea in New York, with a midtown gallery that rotates exhibitions of contemporary Korean artists. Free admission. Programming spans film screenings, language classes, and concerts — the kind of place that rewards a regular visit.",
-    category: "Exhibition",
-    price: "Free",
-    link: "https://instagram.com/kccny/",
-    icon: "🎨",
-    featured: false,
-    source: "Hinge ERG team rec"
-  },
-  {
-    id: 21,
-    title: "Park Hyun Gi — Brooklyn Studio",
-    date: "Throughout May 2026",
-    time: "Hours vary",
-    location: "Brooklyn, NY",
-    neighborhood: "Brooklyn",
-    description: "A Brooklyn-based artist whose studio doubles as a venue for Korean cultural programming — workshops, gatherings, and small exhibitions rooted in Korean craft and contemporary art. Follow on Instagram for upcoming events.",
-    category: "Arts",
-    price: "Varies",
-    link: "https://instagram.com/park_hyun_gi/",
-    icon: "🎨",
-    featured: false,
-    source: "Hinge ERG team rec"
-  },
-  {
-    id: 22,
-    title: "Green Tile Social Club",
-    date: "Throughout May 2026",
-    time: "Hours vary",
-    location: "New York, NY",
-    neighborhood: "NYC",
-    description: "Mahjong nights for a generation that didn't grow up playing with their grandmothers. Green Tile runs social events around the table — drinks, lessons, and the satisfying clack of tiles — across rotating NYC venues.",
-    category: "Community",
-    price: "Ticketed",
-    link: "https://greentilesocialclub.com/",
-    icon: "🀄",
-    featured: false,
-    source: "Hinge ERG team rec"
-  },
-  {
-    id: 23,
-    title: "Yun Hai Shop",
-    date: "Throughout May 2026",
-    time: "Hours vary",
-    location: "Brooklyn, NY",
-    neighborhood: "Brooklyn",
-    description: "A Taiwanese general store that imports the things you can't easily find stateside — soy sauces aged in clay jars, dried fruit from family orchards, sesame oil that actually tastes like sesame. The pantry restocking trip you didn't know you needed.",
-    category: "Shop",
-    price: "Free to visit",
-    link: "https://yunhai.shop/",
-    icon: "🥢",
-    featured: false,
-    source: "Hinge ERG team rec"
-  },
-  {
-    id: 24,
-    title: "Hana Makgeolli",
-    date: "Throughout May 2026",
-    time: "Hours vary (check site)",
-    location: "Greenpoint, Brooklyn",
-    neighborhood: "Brooklyn",
-    description: "Brooklyn's makgeolli brewery — making traditional Korean rice wine with a precision and patience that the cheap stuff at the grocery store can't touch. Tasting room visits, bottle pickups, and the occasional pairing dinner. Cloudy, lightly sweet, alive.",
-    category: "Food & Market",
-    price: "Varies",
-    link: "https://hanamakgeolli.com/",
-    icon: "🍶",
-    featured: false,
-    source: "Hinge ERG team rec"
-  },
-  {
-    id: 25,
-    title: "The Red Pavilion",
-    date: "Throughout May 2026",
-    time: "Evenings",
-    location: "Brooklyn, NY",
-    neighborhood: "Brooklyn",
-    description: "Asian neo-noir cabaret and nightlife — burlesque, drag, music, and theatrical performance staged in a velvet-and-incense room that takes itself seriously and not at all. Genuinely unlike anywhere else in the city.",
-    category: "Performance",
-    price: "Ticketed",
-    link: "https://theredpavilion.com/",
-    icon: "🎭",
-    featured: false,
-    source: "Hinge ERG team rec"
-  },
-  {
-    id: 26,
-    title: "Slo Slo Ceramics Studio",
-    date: "Throughout May 2026",
-    time: "Hours vary",
-    location: "Chinatown, New York, NY",
-    neighborhood: "Chinatown",
-    description: "A new ceramics studio tucked into Chinatown offering classes, open studio hours, and small-batch wares. The kind of quiet practice space the neighborhood didn't quite have until now — go for a class, leave with a wonky bowl you'll actually use.",
-    category: "Arts",
-    price: "Class fees vary",
-    link: "https://sloslostudio.com/",
-    icon: "🏺",
-    featured: false,
-    source: "Hinge ERG team rec"
-  },
-  {
-    id: 27,
-    title: "Yu & Me Books",
-    date: "Throughout May 2026",
-    time: "Hours vary",
-    location: "44 Mulberry St, New York, NY 10013",
-    neighborhood: "Chinatown",
-    description: "Recommended by Joanna Hu — Manhattan's first Asian American woman-owned bookstore, with a tightly curated selection that leans into immigrant stories, AAPI authors, and translated fiction. A reading room and event space in the back makes it more than a shop.",
-    category: "Shop",
-    price: "Free to visit",
-    link: "https://yuandmebooks.com/",
-    icon: "📚",
-    featured: false,
-    source: "Hinge ERG team rec"
-  },
-  {
-    id: 28,
-    title: "Japan Village",
-    date: "Throughout May 2026",
-    time: "Mon–Sun: 11am–8pm",
-    location: "Industry City, 934 3rd Ave, Brooklyn, NY 11232",
-    neighborhood: "Sunset Park, Brooklyn",
-    description: "Recommended by Shmo Chuang — a sprawling Japanese food hall and marketplace inside Industry City. Stalls for ramen, takoyaki, kaiten sushi, plus a grocery, a sake selection, and home goods. Easy to lose two hours wandering.",
-    category: "Food & Market",
-    price: "Free to enter",
-    link: "https://japanvillage.com/",
-    icon: "🍣",
-    featured: false,
-    source: "Hinge ERG team rec"
   }
 ];
 
