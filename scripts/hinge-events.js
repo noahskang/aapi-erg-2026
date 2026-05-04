@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ERG_EVENTS.forEach(ev => {
     const card = document.createElement('article');
-    card.className = 'erg-card reveal';
+    card.className = 'erg-card';
     card.id = ev.id;
 
     let coverHtml = '';
